@@ -1,0 +1,29 @@
+.ui-toolbar {
+    display: -webkit-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+
+    /* specifies whether the children of a box should be laid out horizontally or vertically. */
+    -webkit-box-orient: horizontal; /* horizontal | vertical |inline-axis | block-axis | inherit */
+    /* specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes */
+    -webkit-box-pack: justify; /* start | end | center | justify */
+    /* specifies how to align the child elements of a box */
+    -webkit-box-align: center; /* start | end | center | baseline | stretch */
+
+    padding:0 8px;
+    width:100%;
+    height:46px;
+    background:#fff;
+    border-bottom:1px solid #000;
+}
+
+.ui-toolbar.ui-color-grey {
+    background-color:#dcdee4;
+    background-image:-webkit-linear-gradient(top,#fafbfc,#f4f5f7 3%,#bdc0ca 75%, #a7abb8);
+    border-color:#000;
+}
+.ui-toolbar.ui-color-dark {
+    background-color:#373737;
+    background-image:-webkit-linear-gradient(top,#7a7a7a,#505050 3%,#1f1f1f 98%, #272727);
+    border-color:#000;
+}

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex Grids</title>
+    <link href="css/reset.css" rel="stylesheet" >
+    <link href="css/grid.css" rel="stylesheet" >
+    <link href="css/media.css" rel="stylesheet" >
+    <link href="css/demo.css" rel="stylesheet" >
+</head>
+<body>
+
+<h3>Basic Grids</h3>
+
+<div class="grid u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">1/2</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">1/2</div>
+    </div>
+</div>
+
+<div class="grid u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">1/3</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">1/3</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">1/3</div>
+    </div>
+</div>
+
+<div class="grid u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">1/4</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">1/4</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">1/4</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">1/4</div>
+    </div>
+</div>
+
+<h3>Flex cells</h3>
+
+<div class="grid grid--flexcells">
+    <div class="grid-cell">
+        <div class="grid grid--left">
+            <div class="grid-cell">
+                <div class="ui">Cell 1</div>
+            </div>
+
+            <div class="grid-cell">
+                <div class="ui">Cell 2Flex cells</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-cell">
+        <div class="grid grid--right">
+            <div class="grid-cell">
+                <div class="ui">Cell 1</div>
+            </div>
+
+            <div class="grid-cell">
+                <div class="ui">Cell 2</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid grid--flexcells grid--center u-textCenter demo-place-container">
+
+    <div class="grid-cell" style="background: #ae3454;">
+        <div class="grid grid--left">
+            <!-- leftBarItems -->
+            <div class="grid-cell">
+                <div class="ui">&lt; Back</div>
+            </div>
+            <!-- / leftBarItems -->
+        </div>
+    </div>
+
+    <div class="grid-cell grid-cell--non-shrink" style="background: #45ae54;">
+        <div class="grid">
+            <!-- centerBarItems -->
+            <div class="grid-cell grid-cell--basis-auto">
+                <div class="ui">Very long title</div>
+            </div>
+            <!-- centerBarItems -->
+        </div>
+    </div>
+
+    <div class="grid-cell" style="background: #ae3454;">
+        <div class="grid grid--right">
+            <!-- rightBarItems -->
+            <div class="grid-cell">
+                <div class="ui">Action 1</div>
+            </div>
+            <div class="grid-cell">
+                <div class="ui">Action 2</div>
+            </div>
+            <div class="grid-cell">
+                <div class="ui">Action 2</div>
+            </div>
+            <!-- / rightBarItems -->
+        </div>
+    </div>
+
+</div>
+
+<div class="grid grid--flexcells grid--center u-textCenter demo-place-container">
+
+    <div class="grid-cell" style="background: #ae3454;">
+        <div class="grid grid--left">
+            <!-- leftBarItems -->
+            <div class="grid-cell">
+                <div class="ui">&lt; Back</div>
+            </div>
+            <!-- / leftBarItems -->
+        </div>
+    </div>
+
+    <div class="grid-cell grid-cell--non-shrink" style="background: #45ae54;">
+        <div class="grid">
+            <!-- centerBarItems -->
+            <div class="grid-cell grid-cell--basis-auto">
+                <div class="ui">Very long title</div>
+            </div>
+            <div class="grid-cell grid-cell--basis-auto">
+                <div class="ui">Action 2</div>
+            </div>
+            <div class="grid-cell grid-cell--basis-auto">
+                <div class="ui">Action 3</div>
+            </div>
+            <!-- centerBarItems -->
+        </div>
+    </div>
+
+    <div class="grid-cell" style="background: #ae3454;">
+        <div class="grid grid--right">
+            <!-- rightBarItems -->
+            <div class="grid-cell">
+                <div class="ui">Action 1</div>
+            </div>
+            <div class="grid-cell">
+                <div class="ui">Action 2</div>
+            </div>
+            <!-- / rightBarItems -->
+        </div>
+    </div>
+
+</div>
+
+<div class="grid grid--flexcells">
+    <div class="grid-cell">
+        <div class="ui">
+            Full-height, even when my content doesn't fill the space.
+        </div>
+    </div>
+
+    <div class="grid-cell">
+        <div class="ui">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis velit non gravida venenatis. Praesent consequat lectus purus, ut scelerisque velit condimentum eu. Maecenas sagittis ante ut turpis varius interdum. Quisque tellus ipsum, eleifend non ipsum id, suscipit ultricies neque.
+        </div>
+    </div>
+</div>
+
+<h3>Place</h3>
+
+<div class="grid grid--center grid--place grid--place-center demo-place-container">
+    <div class="grid-cell">
+        <div class="column column--top">
+            <div class="grid-cell">
+                <div class="ui">Icon</div>
+            </div>
+            <div class="grid-cell">
+                <div class="ui">Title</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-cell">
+        <div class="ui">Cell 1</div>
+    </div>
+
+    <div class="grid-cell">
+        <div class="ui">Cell 1</div>
+    </div>
+</div>
+
+<div class="grid grid--place grid--top u-textCenter demo-place-container">
+    <div class="grid-cell">
+        <div class="ui">Back</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Title</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Action</div>
+    </div>
+</div>
+
+<div class="grid grid--center grid--place large-grid--place-center u-textCenter demo-place-container">
+    <div class="grid-cell">
+        <div class="ui">Back</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Title</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Action</div>
+    </div>
+</div>
+
+<div class="grid grid--place grid--bottom u-textCenter demo-place-container">
+    <div class="grid-cell">
+        <div class="ui">Back</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Title</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Action</div>
+    </div>
+</div>
+
+<h3>Individual Sizing</h3>
+
+<div class="grid u-textCenter">
+    <div class="grid-cell u-1of2">
+        <div class="ui">1/2</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">auto</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">auto</div>
+    </div>
+</div>
+
+<div class="grid u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">auto</div>
+    </div>
+    <div class="grid-cell u-1of3">
+        <div class="ui">1/3</div>
+    </div>
+</div>
+
+<div class="grid u-textCenter">
+    <div class="grid-cell u-1of4">
+        <div class="ui">1/4</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">auto</div>
+    </div>
+    <div class="grid-cell u-1of3">
+        <div class="ui">1/3</div>
+    </div>
+</div>
+
+<h3>Responsive</h3>
+
+<div class="grid grid--full large-grid--fit u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">Full / Halves</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Full / Halves</div>
+    </div>
+</div>
+<div class="grid grid--full large-grid--fit u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">Full / Thirds</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Full / Thirds</div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">Full / Thirds</div>
+    </div>
+</div>
+
+<h3>Grid-ception</h3>
+<p>Grid components are infinitely nestable inside of other Grid components.</p>
+
+<div class="grid grid--flexcells u-textCenter">
+    <div class="grid-cell">
+        <div class="ui">
+            <div class="grid u-textCenter">
+                <div class="grid-cell u-1of3">
+                    <div class="ui">1/3</div>
+                </div>
+                <div class="grid-cell">
+                    <div class="ui">
+                        <div class="grid u-textCenter">
+                            <div class="grid-cell">
+                                <div class="ui">1/2</div>
+                            </div>
+                            <div class="grid-cell">
+                                <div class="ui">1/2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-cell u-1of3">
+        <div class="ui">1/3</div>
+    </div>
+</div>
+
+<h2>Alignment Features</h2>
+
+<h3>Top-aligned Grid Cells</h3>
+
+<div class="grid grid--top">
+    <div class="grid-cell">
+        <div class="ui">
+            This cell should be top-aligned.
+        </div>
+    </div>
+    <div class="grid-cell u-1of2">
+        <div class="ui">
+            Pellentesque sagittis vel erat ac laoreet. Phasellus ac aliquet enim, eu aliquet sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar porta leo, eu ultricies nunc sollicitudin vitae. Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh.
+        </div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">
+            This cell should be top-aligned.
+        </div>
+    </div>
+</div>
+
+<h3>Bottom-aligned Grid Cells</h3>
+
+<div class="grid grid--bottom">
+    <div class="grid-cell">
+        <div class="ui">
+            This cell should be bottom-aligned.
+        </div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">
+            Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in.
+        </div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">
+            This cell should be bottom-aligned.
+        </div>
+    </div>
+</div>
+
+<h3>Vertically Centered Grid Cells</h3>
+
+<div class="grid grid--center">
+    <div class="grid-cell">
+        <div class="ui">
+            This cell should be vertically-centered with the cell to its right.
+        </div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">
+            Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.
+        </div>
+    </div>
+</div>
+
+<h3>Mixed Vertical Alignment</h3>
+
+<div class="grid">
+    <div class="grid-cell grid-cell--top">
+        <div class="ui">
+            This cell should be top aligned.
+        </div>
+    </div>
+    <div class="grid-cell">
+        <div class="ui">
+            Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus.
+        </div>
+    </div>
+    <div class="grid-cell grid-cell--center">
+        <div class="ui">
+            This cell should be center-aligned.
+        </div>
+    </div>
+    <div class="grid-cell grid-cell--bottom">
+        <div class="ui">
+            This cell should be bottom-aligned.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

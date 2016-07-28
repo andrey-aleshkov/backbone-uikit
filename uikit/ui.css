@@ -1,0 +1,11 @@
+.ui-dis {
+    /*opacity:0.3;*/
+}
+
+.ui-hid {
+    display: none !important;
+}
+
+.ui-err * {
+    color:#ff0000 !important;
+}

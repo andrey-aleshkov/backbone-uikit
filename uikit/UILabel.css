@@ -1,0 +1,15 @@
+.ui-label {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight:500;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: left;
+    /*color:rgb(96,96,96);*/
+    color: #000;
+}
+.ui-label.ui-invalid {
+    color:rgb(255,96,96);
+}

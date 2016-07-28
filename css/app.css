@@ -1,0 +1,34 @@
+#main-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.wood-scroll-view {
+    height: 640px;
+}
+.wood-view {
+    width: 2592px;
+    height: 1728px;
+
+    background: url(../img/wood@2x.jpg) no-repeat 0 0;
+    background-size: 2592px 1728px;
+}
+
+#second-tab-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+
+    background: #000000;
+}

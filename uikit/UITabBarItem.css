@@ -1,0 +1,70 @@
+.ui-tab-bar--item {
+    display: block;
+    position: relative;
+    margin: 0 15px; /* margin: 0 24px; */
+    height: 100%;
+    width: 48px;
+    text-decoration: none;
+    color: rgba(146,146,146,1.0);
+}
+.ui-tab-bar--item.selected {
+    color: rgba(255,147,0,1.0);
+}
+.tab-bar--item-icon {
+    display: block;
+    margin: 6px auto 3px;
+    width: 27px;
+    height: 27px;
+    /*background: #c8c8c8;*/ /* rgba(146,146,146,1.0) */
+    background-image: url(../img/ico-tabbar@2x.png);
+    background-size: 400px 54px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.tab-bar--item-text {
+    display: block;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+}
+
+.icon-orders {
+    background-position: 0 0;
+}
+.selected .icon-orders {
+    background-position: 0 -27px;
+}
+
+.icon-create {
+    background-position: -27px 0;
+}
+.selected .icon-create {
+    background-position: -27px -27px;
+}
+
+.icon-chat {
+    background-position: -54px 0;
+}
+.selected .icon-chat {
+    background-position: -54px -27px;
+}
+
+.icon-settings {
+    background-position: -81px 0;
+}
+.selected .icon-settings {
+    background-position: -81px -27px;
+}
+
+.icon-session {
+    background-position: -108px 0;
+}
+.selected .icon-session {
+    background-position: -108px -27px;
+}
+
+/*
+.ui-tab-bar--item.selected .tab-bar--item-icon {
+    background: rgba(255,147,0,1.0);
+}
+*/

@@ -1,0 +1,72 @@
+.ui-text-field {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+}
+.ui-text-field .data-text {
+    display: block;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width: 100%;
+    padding:2px 6px 3px;
+
+    font-size: 17px;
+    line-height: 22px;
+    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight:300;
+    text-align: left;
+    color:rgb(96,96,96);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.ui-text-field .input-text {
+    -webkit-appearance: none;
+    display: -webkit-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-box-flex: 1;
+
+    margin:0;
+    padding:2px 6px 3px;
+    width: auto;
+    background:transparent;
+    border:none;
+
+    font-size: 17px;
+    line-height: 22px;
+    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight:300;
+    font-stretch:normal;
+
+    color:rgb(96,96,96);
+}
+
+.ui-text-field.ui-invalid .input-text {
+    color:rgb(255,96,96);
+}
+
+.ui-text-field.ui-invalid .input-text::-webkit-input-placeholder {
+    color:rgb(255,96,96);
+}
+
+.ui-text-field.ui-invalid .data-text {
+    color:rgb(255,96,96);
+}
+
+.ui-text-field.text-align-center .input-text,
+.ui-text-field.text-align-center .data-text{
+    text-align: center;
+}
+.ui-text-field.ui-err .input-text,
+.ui-text-field.ui-err-2 .input-text,
+.ui-text-field.ui-err .input-text:focus,
+.ui-text-field.ui-err-2 .input-text:focus {
+    color:#f00;
+}
+.ui-text-field textarea.input-text {
+    height:78px;
+}
+
+.ui-text-field .input-text:focus {
+}

@@ -1,0 +1,14 @@
+.ui-view {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.ui-view.transitioned .ui-view {
+    /*-webkit-transition:-webkit-transform 0.5s;*/
+    /*-webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0, 1);*/
+    /*-webkit-transition:0.6s cubic-bezier(0, 0, 0, 1);*/
+    -webkit-transition:0.5s;
+}
+
+.view-has-tab-bar > .ui-view {
+    bottom: 48px !important;
+}

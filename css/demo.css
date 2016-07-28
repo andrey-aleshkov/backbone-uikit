@@ -1,0 +1,28 @@
+.u-textCenter {
+    text-align: center !important;
+}
+
+.ui {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    background: rgba(12, 143, 65, 0.3);;
+    border-radius: 15px;
+}
+.demo-place-container {
+    margin: 0 0 10px;
+    height: 60px;
+    background: #565667;
+}
+
+h2 {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 20px 0;
+    font-size: 15px;
+    font-weight: bold;
+}

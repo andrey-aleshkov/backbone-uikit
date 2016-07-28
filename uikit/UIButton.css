@@ -1,0 +1,66 @@
+.ui-btn {
+    box-sizing:border-box;
+
+    padding:0 12px;
+    height:40px;
+
+    font-size:16px;
+    line-height:22px;
+    /*letter-spacing:-.01em;*/
+}
+
+.ui-btn a {
+    overflow:hidden;
+
+    display:-webkit-box;
+    box-sizing:border-box;
+
+    /*width: 100%;*/
+    height: 100%;
+
+    /* specifies whether the children of a box should be laid out horizontally or vertically. */
+    -webkit-box-orient: horizontal; /* horizontal | vertical |inline-axis | block-axis | inherit */
+    /* specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes */
+    -webkit-box-pack: center; /* start | end | center | justify */
+    /* specifies how to align the child elements of a box */
+    -webkit-box-align: center; /* start | end | center | baseline | stretch */
+
+    /*-webkit-box-align:center;*/
+
+    text-decoration:none;
+    text-align:center;
+    color:rgb(255,155,52);
+
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+.btn-icon {
+    display:-webkit-box;
+    width: 19px;
+    height: 22px;
+    background-image: url(../img/ico-button-back@2x.png);
+    background-size: 13px 22px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.btn-text {
+    display:-webkit-box;
+    /*height: 22px;*/
+    overflow: hidden;
+}
+
+.ui-btn.ui-sel {
+    opacity: 0.5;
+}
+.ui-btn:active,
+.ui-btn.fake-active {
+}
+
+.ui-btn.ui-dis {
+    color:rgba(160,160,160,1.0);
+}
+.ui-btn.ui-dis a {
+    color:rgba(160,160,160,1.0);
+    cursor: default;
+}

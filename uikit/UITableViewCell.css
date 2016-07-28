@@ -1,0 +1,142 @@
+
+.ui-table-view-cell {
+    padding: 0 0 0 16px;
+    -webkit-transition: background-color 0.3s;
+}
+
+.ui-table-view-cell.ui-sel {
+    background-color: #d9d9d9 !important;
+}
+
+.ui-table-view-cell.table-view-cell-header .ui-label {
+    width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight:400;
+    text-transform: uppercase;
+    color: rgb(68,68,68);
+}
+.ui-table-view-cell.table-view-cell-form-top {
+    background: #fff;
+    border-top: 1px solid rgb(200,197,204);
+}
+.ui-table-view-cell.table-view-cell-form {
+    background: #fff;
+}
+.ui-table-view-cell.table-view-cell-form-bottom {
+    background: #fff;
+    border-bottom: 1px solid rgb(200,197,204);
+}
+.ui-table-view-cell.table-view-cell-form-top-bottom {
+    background: #fff;
+    border-top: 1px solid rgb(200,197,204);
+    border-bottom: 1px solid rgb(200,197,204);
+}
+.ui-table-view-cell.table-view-cell-btn {
+    border-top: 1px solid rgb(200,197,204);
+    border-bottom: 1px solid rgb(200,197,204);
+}
+.table-view-cell-btn .ui-btn {
+    width: 100%;
+    text-align: center;
+}
+.table-view-cell-btn .ui-btn a {
+    width: 100%;
+    color: #000;
+}
+.ui-table-view-cell.table-view-cell-map {
+    padding: 0;
+    background: #55aa00;
+}
+.ui-table-view-cell.table-view-cell-map .table-view-cell-content {
+    padding: 0;
+}
+
+.table-view-cell-content {
+    display: -webkit-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+
+    /* specifies whether the children of a box should be laid out horizontally or vertically. */
+    -webkit-box-orient: horizontal; /* horizontal | vertical |inline-axis | block-axis | inherit */
+    /* specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes */
+    -webkit-box-pack: start; /* start | end | center | justify */
+    /* specifies how to align the child elements of a box */
+    -webkit-box-align: center; /* start | end | center | baseline | stretch */
+
+    position: relative;
+    padding: 0 16px 0 0;
+    min-height: 44px;
+}
+.table-view-cell-form-top .table-view-cell-content,
+.table-view-cell-form .table-view-cell-content {
+    border-bottom: 1px solid rgb(222,222,222);
+}
+.table-view-cell-form-bottom .table-view-cell-content {
+    border-bottom: none;
+}
+
+.table-view-cell-content h4 {
+    font-size: 14px;
+    line-height: 21px;
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight:400;
+    text-transform: uppercase;
+    color: rgb(68,68,68);
+}
+
+.table-view-cell-accessory {
+    width: 20px;
+    height: 20px;
+    /*background: rgb(203,203,204);*/
+    background-image: url(../img/ico-disclosure@2x.png);
+    background-size: 100px 20px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.ui-table-view-cell.table-view-cell-order-header {
+    padding: 0 0 0 28px;
+}
+.ui-table-view-cell.table-view-cell-order-header .table-view-cell-content {
+    min-height: 34px;
+    -webkit-box-align: end; /* start | end | center | baseline | stretch */
+}
+.ui-table-view-cell.table-view-cell-order-header .ui-label {
+    width: 100%;
+    font-size: 17px;
+    line-height: 22px;
+    font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight:500;
+    color: #000;
+}
+
+.ui-table-view-cell.table-view-cell-order {
+    padding: 0 0 0 28px;
+}
+.table-view-cell-order .table-view-cell-content {
+    padding-top: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(222,222,222);
+}
+
+.table-view-cell-accessory.order-direction-indicator {
+    position: absolute;
+    top: 43px;
+    left: -20px;
+    height: 50%;
+    width: 11px;
+    height: 11px;
+}
+.table-view-cell-ico {
+    width: 88px;
+    height: 88px;
+    background: #505050;
+}
+.table-view-cell-meta {
+    padding: 0 0 0 13px;
+}
+.table-view-cell-meta .ui-label {
+    width: 100%;
+}

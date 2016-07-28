@@ -1,0 +1,36 @@
+.scroll-dots {
+    display: -webkit-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+
+    /* specifies whether the children of a box should be laid out horizontally or vertically. */
+    -webkit-box-orient: horizontal; /* horizontal | vertical |inline-axis | block-axis | inherit */
+    /* specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes */
+    -webkit-box-pack: center; /* start | end | center | justify */
+    /* specifies how to align the child elements of a box */
+    -webkit-box-align: center; /* start | end | center | baseline | stretch */
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 26px;
+    z-index: 20;
+}
+.scroll-dot {
+    margin: 5px;
+    width: 6px;
+    height: 6px;
+    background: #636363;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    /*border-radius: 6px;*/
+    /*box-shadow:0px 1px 0px rgba(0,0,0,0.1);*/
+    /*opacity: 0.4;*/
+    pointer-events: none;
+}
+.scroll-dot.curr {
+    background: #636363;
+    background: rgba(0,0,0,1.0);
+    /*opacity: 1.0;*/
+}

@@ -1,0 +1,18 @@
+.ui-activity-indicator-view {
+    /*position: absolute;*/
+    /*top: 130px;*/
+    /*left: 130px;*/
+    width: 40px;
+    height: 40px;
+    background: url(../img/bg-uispinner@2x.png) no-repeat 0 0;
+    background-size: 40px 40px;
+}
+
+.ui-activity-indicator-view.animating {
+    animation: rotation-animation 1s infinite linear;
+}
+
+@keyframes rotation-animation {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
