@@ -1,4 +1,4 @@
-# example-libglobal
+# backbone-uikit
 
 This is an example of building a JavaScript library with AMD modules and using
 requirejs while in dev, but then building a file for distribution that does
