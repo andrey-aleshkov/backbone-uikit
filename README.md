@@ -3,6 +3,24 @@
 This is set of UI components inspired by the iOS UIKit Framework.
 The UIKit provides the crucial infrastructure needed to construct and manage web apps.
 
+## Classes
+
+* UIView
+* UIButton
+* UISegmentedControl
+* UILabel
+* UITextField
+* UITextView
+* UIImageView
+* UIModalView
+* UINavigationBar
+* UITabBarItem
+* UITabBar
+* UITableViewCell
+* UITableView
+* UIScrollView
+* UIActivityIndicatorView
+
 This is an example of building a JavaScript library with AMD modules and using
 requirejs while in dev, but then building a file for distribution that does
 not require an AMD loader. The built file will work either with browser globals
