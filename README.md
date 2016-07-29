@@ -22,8 +22,142 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 * UIActivityIndicatorView
 
 ## UIView
+   
+    render: function() {
+    
+        this.addSubview(new UIKit.UIView());
+    
+        return this;
+    }
+     
+## UIButton
 
-    this.addSubview(new UIKit.UIView());
+    render: function() {
+    
+        this.addSubview(new UIKit.UIButton());
+    
+        return this;
+    }
+    
+## UISegmentedControl
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UISegmentedControl());
+    
+        return this;
+    }
+    
+## UILabel
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UILabel());
+    
+        return this;
+    }
+    
+## UITextField
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UITextField());
+    
+        return this;
+    }
+    
+## UITextView
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UITextView());
+    
+        return this;
+    }
+    
+## UIImageView
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UIImageView());
+    
+        return this;
+    }
+    
+## UIModalView
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UIModalView());
+    
+        return this;
+    }
+    
+## UINavigationBar
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UINavigationBar());
+    
+        return this;
+    }
+    
+## UITabBarItem
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UITabBarItem());
+    
+        return this;
+    }
+    
+## UITabBar
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UITabBar());
+    
+        return this;
+    }
+    
+## UITableViewCell
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UITableViewCell());
+    
+        return this;
+    }
+    
+## UITableView
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UITableView());
+    
+        return this;
+    }
+    
+## UIScrollView
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UIScrollView());
+    
+        return this;
+    }
+    
+## UIActivityIndicatorView
+
+    render: function() {
+    
+        this.addSubview(new UIKit.UIActivityIndicatorView());
+    
+        return this;
+    }
+
+
+
 
 This is an example of building a JavaScript library with AMD modules and using
 requirejs while in dev, but then building a file for distribution that does
