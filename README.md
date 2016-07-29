@@ -21,6 +21,10 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 * UIScrollView
 * UIActivityIndicatorView
 
+## UIView
+
+    this.addSubview(new UIKit.UIView());
+
 This is an example of building a JavaScript library with AMD modules and using
 requirejs while in dev, but then building a file for distribution that does
 not require an AMD loader. The built file will work either with browser globals
