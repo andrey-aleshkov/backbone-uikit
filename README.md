@@ -22,6 +22,8 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 * UIActivityIndicatorView
 
 ## UIView
+
+The UIView class defines a rectangular area on the screen and the interfaces for managing the content in that area.
    
     render: function() {
     
@@ -29,7 +31,20 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
     
         return this;
     }
-     
+
+More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
+
+Because view objects are the main way your application interacts with the user, they have a number of responsibilities. Here are just a few:
+
+* Layout
+    * by CSS
+* Subview management
+    * A view may contain zero or more subviews.
+* Animation
+    * To achieve the highest frame rate separate animated inline styles with the static ones from the CSS files..
+* Event handling
+    * A view can handle touch events (jGestures) and other events defined by jQuery.
+
 ## UIButton
 
     render: function() {

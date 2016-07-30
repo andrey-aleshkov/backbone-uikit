@@ -8,94 +8,7 @@ define([
     return Backbone.View.extend({
         className: "ui-view",
 
-        // Rectangle
-        overflow: null, // hidden | scroll | ...
-        display: "block",
-        position: null,
-        top: null,
-        left: null,
-        bottom: null,
-        right: null,
-
-        minWidth: null,
-        width: null,
-        maxWidth: null,
-
-        minHeight: null,
-        height: null,
-        maxHeight: null,
-
-        margin: null,
-        padding: null,
-
-        backgroundColor: null,
-        backgroundImage: null,
-        backgroundSize: "100% 100%",    // auto | xWidth yHeight |  width% height% | cover | contain | initial | inherit
-        backgroundPosition: "0% 0%",    // xPos yPos | x% y%
-
-        transformStyle: null,           // flat | preserve-3d
-        perspective: null,              // none | length
-
-        translateX: null,
-        translateY: null,
-        translateZ: null,
-
-        transformOriginX: null,
-        transformOriginY: null,
-        transformOriginZ: null,
-
-        // Flex
-        // specifies whether the children of a box should be laid out horizontally or vertically.
-        //-webkit-box-orient: horizontal;
-        orient: null, // horizontal | vertical |inline-axis | block-axis | inherit;
-
-        // specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes
-        //-webkit-box-pack: center;
-        pack: null, // start | end | center | justify;
-
-        // specifies how to align the child elements of a box
-        //-webkit-box-align: center;
-        align: null, // start | end | center | baseline | stretch
-
-        flex: null, // 0..N
-
-        // Animation
         animation: null,
-        /*
-        animation: {
-            on: "none",
-            keyframes: {
-                current: {}
-            }
-        },
-        */
-        /*
-         end: {
-         // translate3d(x,y,z)
-         translateX: null,
-         translateY: null,
-         translateZ: null,
-         // scale3d(x,y,z)
-         scaleX: null, // changes the element's width
-         scaleY: null, // changes the element's height
-         scaleZ: null, // http://stackoverflow.com/questions/7819802/what-does-the-scalez-css-transform-function-do
-         // rotate3d(x,y,z,angle)
-         rotateX: null,
-         rotateY: null,
-         rotateZ: null,
-         // visual
-         opacity: null,
-         backgroundColor: null
-         }
-         */
-
-        /*
-         transition: {
-         duration: null,
-         timingFunction: null,
-         delay: null
-         },
-         */
 
         // Common
         title: "",
@@ -230,9 +143,9 @@ define([
                         },
                         // scale3d(x,y,z)
                         scale: {
-                            x: 1, // changes the element's width
-                            y: 1, // changes the element's height
-                            z: 1 // http://stackoverflow.com/questions/7819802/what-does-the-scalez-css-transform-function-do
+                            x: 1, //
+                            y: 1, //
+                            z: 1 //
                         },
                         // rotate3d(x,y,z,angle)
                         rotate: {
@@ -272,7 +185,6 @@ define([
             */
 
             // v2
-            // http://stackoverflow.com/questions/9522845/backbone-js-remove-all-sub-views
             this.remove();
             this.unbind();
 
@@ -288,10 +200,6 @@ define([
             //console.log("UIView::render, this.id = " + this.id);
             this.$el.empty();
 
-            // image
-            //this.imageWatch();
-            // rect
-            this.rect();
             // animate
             //this.calculateAnimatedStyles(0);
             //this.applyAnimatedStyles(false);
@@ -317,127 +225,6 @@ define([
                 width: rect.width,
                 height: rect.height
             }
-        },
-
-        imageWatch: function() {
-            //console.log("UIView::image");
-            if (this.backgroundImage !== null) {
-
-                var thisImageView = this;
-
-                // or just $('<img>')
-                this.image = new Image();
-                $(this.image)
-                    .one('load', function() {
-                        thisImageView.complete();
-                        thisImageView.success();
-                    })
-                    .one('error', function() {
-                        thisImageView.complete();
-                        thisImageView.error();
-                    })
-                    .attr('src', this.backgroundImage);
-
-                /*
-                 .each(function() {
-                 // fail-safe for cached images which sometimes don't trigger "load" events
-                 if(this.complete){  //cached image
-                 $(this).trigger('load');
-                 }
-                 // if(this.complete) $(this).load();
-                 });
-                 */
-            }
-        },
-
-        beforeLoad : function () {
-            //console.log("UIView::beforeLoad");
-            // show indicator
-        },
-        complete : function () {
-            console.log("UIView::complete");
-            // remove indicator
-        },
-        success : function() {
-            //console.log("UIView::success");
-            //console.log("@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!@!");
-            //alert("UIImageView::success");
-            // show the image
-            this.status = "loaded";
-            //this.render();
-        },
-        error : function() {
-            //console.log("UIView::error");
-            // TODO: show error sign
-            this.status = "error";
-            //this.render();
-        },
-
-        rect: function() {
-            //console.log("UIView::rect, this.className = " + this.className);
-
-            // style
-            /*
-            var styleAttrLine = "";
-
-            if (this.overflow !== null) styleAttrLine += "overflow:" + this.overflow + "; ";
-
-            if (this.top !== null || this.left !== null || this.bottom !== null || this.right !== null) this.position = "absolute";
-
-            if (this.position != null) styleAttrLine += "position:" + this.position + "; ";
-
-            if (this.top !== null) styleAttrLine += "top:" + this.top + "; ";
-            if (this.left !== null) styleAttrLine += "left:" + this.left + "; ";
-            if (this.bottom !== null) styleAttrLine += "bottom:" + this.bottom + "; ";
-            if (this.right !== null) styleAttrLine += "right:" + this.right + "; ";
-
-            if (this.minWidth !== null) styleAttrLine += "min-width:" + this.minWidth + "; ";
-            if (this.width !== null) styleAttrLine += "width:" + this.width + "; ";
-            if (this.maxWidth !== null) styleAttrLine += "max-width:" + this.maxWidth + "; ";
-
-            if (this.minHeight !== null) styleAttrLine += "min-height:" + this.minHeight + "; ";
-            if (this.height !== null) styleAttrLine += "height:" + this.height + "; ";
-            if (this.maxHeight !== null) styleAttrLine += "max-height:" + this.maxHeight + "; ";
-
-            if (this.margin !== null) styleAttrLine += "margin:" + this.margin + "; ";
-            if (this.padding !== null) styleAttrLine += "padding:" + this.padding + "; ";
-
-            if (this.backgroundColor !== null) styleAttrLine += "background-color:" + this.backgroundColor + "; ";
-            if (this.backgroundImage !== null) {
-                styleAttrLine += "background-image: url(" + this.backgroundImage +");";
-                styleAttrLine += "background-size: " + this.backgroundSize + ";";
-                styleAttrLine += "background-position: " + this.backgroundPosition + ";";
-            }
-
-            if (this.transformStyle !== null) {
-                styleAttrLine += "-webkit-transform-style:" + this.transformStyle +";";
-            }
-
-            if (this.perspective !== null) {
-                styleAttrLine += "-webkit-perspective:" + this.perspective +";";
-            }
-
-            if (this.translateX !== null) {
-                styleAttrLine += "-webkit-transform:";
-
-                // translate3d(x,y,z)
-                styleAttrLine += "translate3d(" + this.translateX + "px, " + "0, " + this.translateZ + "px) ";
-
-                styleAttrLine += "; ";
-            }
-
-            if (this.orient !== null || this.pack !== null || this.align !== null || this.flex !== null) {
-                this.display = "-webkit-box";
-                styleAttrLine += "display:" + this.display + "; ";
-            }
-
-            if (this.orient !== null) styleAttrLine += "-webkit-box-orient:" + this.orient + "; ";
-            if (this.pack !== null) styleAttrLine += "-webkit-box-pack:" + this.pack + "; ";
-            if (this.align !== null) styleAttrLine += "-webkit-box-align:" + this.align + "; ";
-            if (this.flex !== null) styleAttrLine += "-webkit-box-flex:" + this.flex + "; ";
-
-            if (styleAttrLine) this.$el.attr("style", styleAttrLine);
-            */
         },
 
         /*
