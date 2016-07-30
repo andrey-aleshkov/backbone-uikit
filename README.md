@@ -50,7 +50,7 @@ To create a view, you can use code like the following:
 
 To add a subview to another view, you use the addSubview:
     
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UIView());
     
@@ -81,7 +81,7 @@ To remove a view with all the subviews use the destroy method:
     
 #### Subview management
 
-    addSubview: function(view, selector) {
+    addSubview: function (view, selector) {
         (selector ? $(selector, this.$el) : this.$el).append(view.render().el);
 
         view.superview = this;
@@ -90,26 +90,22 @@ To remove a view with all the subviews use the destroy method:
     
 #### Animation
         
-    transitionEndHandler: function(event) {
+    transitionEndHandler: function (event) {
         event.stopPropagation();
     },
 
 #### Layout:
 
-    viewDidAppear: function() {
-        
-    },
+    viewDidAppear: function () {},
 
-    viewDidDisappear: function() {
-        
-    },
+    viewDidDisappear: function () {},
                 
                 
 More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
 
 ## UIButton
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UIButton());
     
@@ -118,7 +114,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UISegmentedControl
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UISegmentedControl());
     
@@ -127,7 +123,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UILabel
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UILabel());
     
@@ -136,7 +132,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UITextField
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UITextField());
     
@@ -145,7 +141,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UITextView
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UITextView());
     
@@ -154,7 +150,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UIImageView
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UIImageView());
     
@@ -163,7 +159,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UIModalView
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UIModalView());
     
@@ -172,7 +168,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UINavigationBar
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UINavigationBar());
     
@@ -181,7 +177,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UITabBarItem
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UITabBarItem());
     
@@ -190,7 +186,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UITabBar
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UITabBar());
     
@@ -199,7 +195,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UITableViewCell
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UITableViewCell());
     
@@ -208,7 +204,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UITableView
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UITableView());
     
@@ -217,7 +213,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UIScrollView
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UIScrollView());
     
@@ -226,7 +222,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
 ## UIActivityIndicatorView
 
-    render: function() {
+    render: function () {
     
         this.addSubview(new UIKit.UIActivityIndicatorView());
     
