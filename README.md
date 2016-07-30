@@ -24,16 +24,6 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 ## UIView
 
 The UIView class defines a rectangular area on the screen and the interfaces for managing the content in that area.
-   
-    render: function() {
-    
-        this.addSubview(new UIKit.UIView());
-    
-        return this;
-    }
-
-More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
-
 Because view objects are the main way your application interacts with the user, they have a number of responsibilities. Here are just a few:
 
 * Layout
@@ -41,9 +31,36 @@ Because view objects are the main way your application interacts with the user, 
 * Subview management
     * A view may contain zero or more subviews.
 * Animation
-    * To achieve the highest frame rate separate animated inline styles with the static ones from the CSS files..
+    * To achieve the highest frame rate separate animated inline styles with the static ones from the CSS files.
 * Event handling
-    * A view can handle touch events (jGestures) and other events defined by jQuery.
+    * A view can handle touch events by jGestures and other events defined by jQuery.
+
+Views can embed other views and create sophisticated visual hierarchies. 
+This creates a parent-child relationship between the view being embedded (known as the subview) and 
+the parent view doing the embedding (known as the superview). 
+Normally, a subview’s visible area is not clipped to the bounds of its superview, 
+but you can use the overflow CSS property to alter that behavior. 
+A parent view may contain any number of subviews but each subview has only one superview.
+
+### Creating a View
+
+To create a view, you can use code like the following:
+
+    var view = new UIKit.UIView();
+
+To add a subview to another view, you use the addSubview:
+    
+    render: function() {
+    
+        this.addSubview(new UIKit.UIView());
+    
+        return this;
+    }
+
+
+
+    
+More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
 
 ## UIButton
 
