@@ -57,9 +57,54 @@ To add a subview to another view, you use the addSubview:
         return this;
     }
 
+To remove a view with all the subviews use the destroy method:
 
+    view.destroy();
 
+### Methods to Override
+
+#### Initialization:
+
+    initialize: function (options) {
+        UIView.prototype.initialize.apply(this, [options]);
+    },
+       
+#### Event Handling:
     
+    events: {
+        touchstart: 'touchstartHandler',
+        touchend: 'touchendHandler',
+        tapone: 'taponeHandler',
+        pinch: 'pinchHandler',
+        swipemove: 'swipemoveHandler'
+    },
+    
+#### Subview management
+
+    addSubview: function(view, selector) {
+        (selector ? $(selector, this.$el) : this.$el).append(view.render().el);
+
+        view.superview = this;
+        this.subviews.push(view);
+    },
+    
+#### Animation
+        
+    transitionEndHandler: function(event) {
+        event.stopPropagation();
+    },
+
+#### Layout:
+
+    viewDidAppear: function() {
+        
+    },
+
+    viewDidDisappear: function() {
+        
+    },
+                
+                
 More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
 
 ## UIButton
