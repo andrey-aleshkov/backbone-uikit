@@ -99,7 +99,44 @@ To remove a view with all the subviews use the destroy method:
     viewDidAppear: function () {},
 
     viewDidDisappear: function () {},
-                
+
+
+### All Methods
+
+#### Initializing a View Object
+
+    initialize: function (options) {},
+
+#### Configuring the Event-Related Behavior
+
+    userInteractionEnabled: false,
+
+#### Managing the View Hierarchy
+
+    superview: null,
+    subviews: [],
+    items: [],
+    addSubview: function (view, selector) {},
+    bringSubviewToFront: function () {},
+    sendSubviewToBack: function () {},
+
+#### Drawing and Updating the View
+
+    render: function () {},
+
+#### Managing Touches and Gestures
+
+#### Animating Views
+
+#### Configuring the Bounds and Frame Rectangles
+
+    size: function() {
+        var rect = this.$el[0].getBoundingClientRect();
+        return {
+            width: rect.width,
+            height: rect.height
+        }
+    },
                 
 More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
 
