@@ -126,7 +126,16 @@ To remove a view with all the subviews use the destroy method:
 
 #### Managing Touches and Gestures
 
+    touchstartHandler: function (event) {},
+    touchendHandler: function (event) {},
+    taponeHandler: function(event) {},
+    pinchHandler: function(event) {},
+    swipemoveHandler: function (event, obj) {},
+
 #### Animating Views
+    
+    calculateAnimatedStyles: function(animated) {},
+    applyAnimatedStyles: function(animated) {},
 
 #### Configuring the Bounds and Frame Rectangles
 
@@ -266,8 +275,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
         return this;
     }
 
-
-
+## Dependencies
 
 This is an example of building a JavaScript library with AMD modules and using
 requirejs while in dev, but then building a file for distribution that does
