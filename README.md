@@ -277,6 +277,37 @@ More sophisticated content present by subclassing UIView and implementing the ne
 
 ## Dependencies
 
+* jQuery (2.1.1).
+* Underscore (1.3.3).
+* Backbone (1.1.2).
+* jGestures (0.90).
+
+When the library is built, it **excludes** jQuery, Underscore, Backbone and jGestures from the
+built library. Consumers of the built library will  provide all the dependencies for the library. 
+If the consumer uses an AMD loader, then the built
+file will ask for 'jquery', 'underscore', 'backbone' and 'jgestures' as AMD dependencies. If the consumer
+just uses browser globals and script tags, the library will grab the `$`, `_`, `Backbone` and `jGestures` 
+global variables and use them for the dependencies.
+
+The built library also does not include require.js in the file, but instead
+uses [almond](https://github.com/jrburke/almond), a small AMD API
+implementation, that allows the built file's internal modules to work. These
+internal modules and this version of almond are not visible outside the built
+file, just used internally by the built file for code organization and
+referencing.
+
+## File structure
+
+This project creates a library called **uikit.js** and a file **uikit.css** in the public folder.
+
+## How to do development
+
+    $ gulp dev
+
+## How to build the library
+
+    $ NODE_ENV=production gulp build
+
 This is an example of building a JavaScript library with AMD modules and using
 requirejs while in dev, but then building a file for distribution that does
 not require an AMD loader. The built file will work either with browser globals
