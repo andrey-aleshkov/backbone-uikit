@@ -8,8 +8,8 @@ define([
     // UIButton
     return UIView.extend({
         className: "ui-btn",
-        template: _.template('<a href="javascript:void(0);"><span class="btn-text"><%= label %></span></a>'),
-        templateIcon: _.template('<a href="javascript:void(0);"><span class="btn-icon <%= icon %>"></span><span class="btn-text"><%= label %></span></a>'),
+        template: _.template('<span class="btn-text"><%= label %></span>'),
+        templateIcon: _.template('<span class="btn-icon <%= icon %>"></span><span class="btn-text"><%= label %></span>'),
 
         action: null,
 

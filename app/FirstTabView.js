@@ -39,7 +39,8 @@ define([
 
             // NavigationBar
             var backBtn = new UIButton({
-                label: "&lt; Back",
+                label: "Back",
+                icon: 'back',
                 action: function() {
                     console.log("backBtn");
                 }
