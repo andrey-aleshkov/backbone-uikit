@@ -7,12 +7,8 @@ define([
 
     // UITabBarItem
     return UIView.extend({
-        tagName: "a",
-        className: "ui-tab-bar--item",
-        attributes: {
-            href: "javascript:void(0);"
-        },
-        template: _.template('<span class="tab-bar--item-icon icon-<%= icon %>"></span><span class="tab-bar--item-text"><%= title %></span>'),
+        className: "ui-tab-bar-item",
+        template: _.template('<span class="tab-bar-item-icon icon-<%= icon %>"></span><span class="tab-bar-item-text"><%= title %></span>'),
 
         events: {
             "tapone": "taponeHandler"

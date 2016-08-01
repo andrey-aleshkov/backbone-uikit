@@ -1,5 +1,7 @@
 .ui-tab-bar {
     overflow: hidden;
+    box-sizing:border-box;
+
     position: absolute;
     bottom: 0;
     left: 0;
@@ -9,11 +11,7 @@
     background: #fff;
 
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-
-    box-sizing:border-box;
-    margin: 0;
-    padding: 0;
 }

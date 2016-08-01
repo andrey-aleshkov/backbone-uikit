@@ -23,7 +23,7 @@ define([
 
             var firstTabView = new FirstTabView({
                 title: "First",
-                icon: "settings"
+                icon: "orders"
             });
             this.addSubview(firstTabView);
 
