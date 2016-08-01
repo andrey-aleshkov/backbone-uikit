@@ -62,12 +62,17 @@ define([
                 }
             });
 
+            var testBtn = new UIButton({
+                label: "Test",
+                action: function() {
+                    console.log("testBtn");
+                }
+            });
+
             var uiNavigationBar = new UINavigationBar({
-                title: "Nav",
-                icon: "settings",
                 leftBarItems: [backBtn],
                 centerBarItems: [new UILabel({text: this.title})],
-                rightBarItems: [signInBtn]
+                rightBarItems: [signInBtn, testBtn]
             });
             this.addSubview(uiNavigationBar);
 

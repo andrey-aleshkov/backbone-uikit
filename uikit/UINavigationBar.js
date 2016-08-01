@@ -9,12 +9,11 @@ define([
     return UIView.extend({
         className: "ui-view ui-navigation-bar",
 
-        // Rectangle
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "44px",
-        backgroundColor: "rgba(255,255,255,0.85)",
+        template: `
+            <div class="left-place"></div>
+            <div class="center-place"></div>
+            <div class="right-place"></div>
+        `,
 
         leftBarItems: null,
         centerBarItems: null,
@@ -29,53 +28,29 @@ define([
 
         render: function() {
             //console.log("UINavigationBar::render");
+
+            var thisView = this,
+                $leftPlace,
+                $centerPlace,
+                $rightPlace;
+
             this.$el.empty();
+            this.$el.html(this.template);
 
-            var leftHTML =
-                '<div class="ui-navigation-bar--left">' +
-                    '<div class="ui-navigation-bar--left-items">' +
-                        // content
-                    '</div>' +
-                '</div>';
-
-            var centerHTML =
-                '<div class="ui-navigation-bar--center">' +
-                    '<div class="ui-navigation-bar--center-items">' +
-                        // content
-                    '</div>' +
-                '</div>';
-
-            var rightHTML =
-                '<div class="ui-navigation-bar--right">' +
-                    '<div class="ui-navigation-bar--right-items">' +
-                        // content
-                    '</div>' +
-                '</div>';
-
-            this.$el.append(leftHTML);
-            this.$el.append(centerHTML);
-            this.$el.append(rightHTML);
-
-            var jsLeft = this.$el.find('.ui-navigation-bar--left-items');
-            var jsCenter = this.$el.find('.ui-navigation-bar--center-items');
-            var jsRight = this.$el.find('.ui-navigation-bar--right-items');
+            $leftPlace = $('.left-place', this.$el);
+            $centerPlace = $('.center-place', this.$el);
+            $rightPlace = $('.right-place', this.$el);
 
             _.each(this.leftBarItems, function(item) {
-                var gridCell = $('<div class="item"></div>');
-                gridCell.append(item.render().el);
-                jsLeft.append(gridCell);
+                thisView.addSubview(item, $leftPlace)
             });
 
             _.each(this.centerBarItems, function(item) {
-                var gridCell = $('<div class="item"></div>');
-                gridCell.append(item.render().el);
-                jsCenter.append(gridCell);
+                thisView.addSubview(item, $centerPlace)
             });
 
             _.each(this.rightBarItems, function(item) {
-                var gridCell = $('<div class="item"></div>');
-                gridCell.append(item.render().el);
-                jsRight.append(gridCell);
+                thisView.addSubview(item, $rightPlace)
             });
 
             return this;

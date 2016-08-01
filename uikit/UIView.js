@@ -328,13 +328,36 @@ define([
             this.$el.addClass("ui-sel");
         },
 
-        addSubview: function(view, selector) {
-            //console.log("UIView::addSubview");
+        addSubview: function(view, jqueryObjectOrSelector) {
+            //console.log("UIView::addSubview ");
 
-            (selector ? $(selector, this.$el) : this.$el).append(view.render().el);
+            var element = this.$el,
+                error = false;
 
-            view.superview = this;
-            this.subviews.push(view);
+            if (jqueryObjectOrSelector) {
+                if (jqueryObjectOrSelector instanceof jQuery) {
+                    // jquery element
+                    if (jqueryObjectOrSelector.length) {
+                        element = jqueryObjectOrSelector;
+                    } else {
+                        console.error('empty jquery object');
+                        error = true;
+                    }
+                } else if (typeof jqueryObjectOrSelector === 'string') {
+                    // string
+                    element = $(jqueryObjectOrSelector, this.$el);
+                    if (!element.length) {
+                        console.error('wrong selector ', jqueryObjectOrSelector);
+                        error = true;
+                    }
+                }
+            }
+
+            if (!error) {
+                element.append(view.render().el);
+                view.superview = this;
+                this.subviews.push(view);
+            }
         },
 
         addItems: function() {
