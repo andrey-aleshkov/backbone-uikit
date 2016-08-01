@@ -2,8 +2,11 @@ define([
     "jquery",
     "underscore",
     "backbone",
-    "./UIView"
-], function($, _, Backbone, UIView){
+    "./UIView",
+    "./UITableViewCell"
+], function($, _, Backbone, UIView,
+            UITableViewCell
+){
 
     // UITableView
     return UIView.extend({
@@ -30,7 +33,7 @@ define([
                      }
                      */
 
-                    var uiTableViewCell = new app.UITableViewCell(cellContent);
+                    var uiTableViewCell = new UITableViewCell(cellContent);
                     $thisContent.append(uiTableViewCell.render().el);
                 });
             }

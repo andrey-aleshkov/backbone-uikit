@@ -5,7 +5,7 @@ define([
     "./UIView"
 ], function($, _, Backbone, UIView){
 
-    // SegmentedControlView
+    // UISegmentedControl
     return UIView.extend({
         className: "ui-segm-control",
         template: _.template('<a href="javascript:void(0);"><%= label %></a>'),
