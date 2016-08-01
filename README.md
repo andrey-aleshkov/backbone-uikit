@@ -52,7 +52,7 @@ To add a subview to another view, you use the addSubview:
     
     render: function () {
     
-        this.addSubview(new UIKit.UIView());
+        this.addSubview(new UIKit.UIView() [, '.element' | $element]);
     
         return this;
     }
@@ -81,12 +81,7 @@ To remove a view with all the subviews use the destroy method:
     
 #### Subview management
 
-    addSubview: function (view, selector) {
-        (selector ? $(selector, this.$el) : this.$el).append(view.render().el);
-
-        view.superview = this;
-        this.subviews.push(view);
-    },
+    addSubview: function (view [, '.element' | $element]) {},
     
 #### Animation
         
