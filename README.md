@@ -111,7 +111,7 @@ To remove a view with all the subviews use the destroy method:
     superview: null,
     subviews: [],
     items: [],
-    addSubview: function (view, selector) {},
+    addSubview: function (view) {},
     bringSubviewToFront: function () {},
     sendSubviewToBack: function () {},
 
