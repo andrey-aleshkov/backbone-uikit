@@ -8,14 +8,16 @@ define([
     "../uikit/UIButton",
     "../uikit/UILabel",
     "../uikit/UIScrollView",
-    "../uikit/UIAlertView"
+    "../uikit/UIAlertView",
+    "../uikit/UIConfirmView"
 ], function($, _, Backbone,
             UIView,
             UINavigationBar,
             UIButton,
             UILabel,
             UIScrollView,
-            UIAlertView
+            alert,
+            confirm
 ){
     return UIView.extend({
         id: "first-tab-view",
@@ -75,18 +77,21 @@ define([
             var showAlertBtn = new UIButton({
                 label: "Alert",
                 action: function() {
-                    var alertView = new UIAlertView({
-                        title: 'Title',
-                        message: 'This is a message.'
-                    });
-                    alertView.show();
+                    alert('Title', 'This is a message.');
+                }
+            });
+
+            var showConfirmBtn = new UIButton({
+                label: "Confirm",
+                action: function() {
+                    confirm('Title', 'This is a message.');
                 }
             });
 
             var uiNavigationBar = new UINavigationBar({
                 leftBarItems: [backBtn],
                 centerBarItems: [new UILabel({text: this.title})],
-                rightBarItems: [signInBtn, testBtn, showAlertBtn]
+                rightBarItems: [signInBtn, testBtn, showAlertBtn, showConfirmBtn]
             });
             this.addSubview(uiNavigationBar);
 

@@ -23,6 +23,8 @@ define(function (require) {
         //UITableViewCell: require('./uikit/UITableViewCell'),
         //UITableView: require('./uikit/UITableView'),
         UIScrollView: require('./uikit/UIScrollView'),
-        UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView')
+        UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView'),
+        alert: require('./uikit/UIAlertView'),
+        confirm: require('./uikit/UIConfirmView')
     };
 });
