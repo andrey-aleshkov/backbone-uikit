@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -38,6 +38,9 @@
     white-space:nowrap;
     text-overflow:ellipsis;
     */
+    display: block;
+    box-sizing:border-box;
+    text-align: center;
 }
 
 .ui-btn .btn-icon {
