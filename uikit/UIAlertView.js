@@ -43,7 +43,7 @@ define([
 
                     this.addSubview(new UIButton({
                         class: 'alert-ok-btn',
-                        label: 'Ok',
+                        label: 'OK',
                         action: function () {
                             thisView.hide();
                         }

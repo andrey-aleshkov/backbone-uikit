@@ -24,6 +24,7 @@
     font-weight: 500;
     font-size: 21px;
     line-height: 22px;
+    color: #030303;
 }
 .ui-confirm-view .confirm-message-label {
     padding: 0 10px 17px;
@@ -31,20 +32,18 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 22px;
+    color: #000;
 }
 .ui-confirm-view .buttons-place {
     border-top: 1px solid #ccc;
-
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 .ui-confirm-view .confirm-cancel-btn {
     border-right: 1px solid #ccc;
-    text-transform: uppercase;
     flex: 1;
 }
 .ui-confirm-view .confirm-ok-btn {
-    text-transform: uppercase;
     flex: 1;
 }

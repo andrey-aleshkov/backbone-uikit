@@ -24,15 +24,16 @@
     font-weight: 500;
     font-size: 21px;
     line-height: 22px;
+    color: #030303;
 }
 .ui-alert-view .alert-message-label {
-    padding: 0px 10px 17px;
+    padding: 0 10px 17px;
     text-align: center;
     font-weight: 300;
     font-size: 16px;
     line-height: 22px;
+    color: #000;
 }
 .ui-alert-view .alert-ok-btn {
     border-top: 1px solid #ccc;
-    text-transform: uppercase;
 }
