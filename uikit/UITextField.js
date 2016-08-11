@@ -51,6 +51,8 @@ define([
             if (this.hidden) {
                 this.$el.addClass("ui-hid");
             }
+            // class
+            if (this.class) this.setClass(this.class);
             // events
             $(this.$el).on("change keyup paste", "input", this.changeHandler);
 

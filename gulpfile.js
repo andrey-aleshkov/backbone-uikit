@@ -145,7 +145,7 @@ gulp.task('serve', function() {
     browserSync.init({
         server: true
     });
-    browserSync.watch('public/uikit.css').on('change', function(file) {
+    browserSync.watch('css/app.css', 'public/uikit.css').on('change', function(file) {
         console.log('css = ', file);
         browserSync.reload(file);
     });

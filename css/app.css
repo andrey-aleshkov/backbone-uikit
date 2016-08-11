@@ -16,6 +16,16 @@
     background-size: 2592px 1728px;
 }
 
+.my-text-field {
+    /*background: #8699a4;*/
+    background: #fff;
+    border: 1px solid #666;
+}
+.my-text-view {
+    /*background: #3c510c;*/
+    border: 1px solid #666;
+}
+
 #second-tab-view {
     position: absolute;
     top: 0;

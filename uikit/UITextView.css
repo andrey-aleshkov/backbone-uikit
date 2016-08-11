@@ -1,13 +1,13 @@
-.ui-text-field {
+.ui-text-view {
     display: -webkit-box;
     -webkit-box-flex: 1;
 }
-.ui-text-field .data-text {
+.ui-text-view .data-text {
     display: block;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
     width: 100%;
-    padding:2px 6px 3px;
+    padding:11px 0 11px;
 
     font-size: 17px;
     line-height: 22px;
@@ -16,11 +16,11 @@
     text-align: left;
     color:rgb(96,96,96);
 
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.ui-text-field .input-text {
+.ui-text-view .input-text {
     -webkit-appearance: none;
     display: -webkit-box;
     -webkit-box-sizing:border-box;
@@ -32,6 +32,7 @@
     width: auto;
     background:transparent;
     border:none;
+    outline: none;
 
     font-size: 17px;
     line-height: 22px;
@@ -40,33 +41,4 @@
     font-stretch:normal;
 
     color:rgb(96,96,96);
-}
-
-.ui-text-field.ui-invalid .input-text {
-    color:rgb(255,96,96);
-}
-
-.ui-text-field.ui-invalid .input-text::-webkit-input-placeholder {
-    color:rgb(255,96,96);
-}
-
-.ui-text-field.ui-invalid .data-text {
-    color:rgb(255,96,96);
-}
-
-.ui-text-field.text-align-center .input-text,
-.ui-text-field.text-align-center .data-text{
-    text-align: center;
-}
-.ui-text-field.ui-err .input-text,
-.ui-text-field.ui-err-2 .input-text,
-.ui-text-field.ui-err .input-text:focus,
-.ui-text-field.ui-err-2 .input-text:focus {
-    color:#f00;
-}
-.ui-text-field textarea.input-text {
-    height:78px;
-}
-
-.ui-text-field .input-text:focus {
 }

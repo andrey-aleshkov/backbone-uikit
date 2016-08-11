@@ -13,8 +13,8 @@ define(function (require) {
         UIButton: require('./uikit/UIButton'),
         //UISegmentedControl: require('./uikit/UISegmentedControl'),
         UILabel: require('./uikit/UILabel'),
-        //UITextField: require('./uikit/UITextField'),
-        //UITextView: require('./uikit/UITextView'),
+        UITextField: require('./uikit/UITextField'),
+        UITextView: require('./uikit/UITextView'),
         UIImageView: require('./uikit/UIImageView'),
         //UIModalView: require('./uikit/UIModalView'),
         UINavigationBar: require('./uikit/UINavigationBar'),
@@ -26,5 +26,7 @@ define(function (require) {
         UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView'),
         alert: require('./uikit/UIAlertView'),
         confirm: require('./uikit/UIConfirmView')
+        //prompt: require('./uikit/UIPromptView'), // UIAlertViewStylePlainTextInput
+        //login: require('./uikit/UILoginView') // UIAlertViewStyleLoginAndPasswordInput
     };
 });

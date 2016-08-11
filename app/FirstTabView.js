@@ -9,7 +9,9 @@ define([
     "../uikit/UILabel",
     "../uikit/UIScrollView",
     "../uikit/UIAlertView",
-    "../uikit/UIConfirmView"
+    "../uikit/UIConfirmView",
+    "../uikit/UITextField",
+    "../uikit/UITextView"
 ], function($, _, Backbone,
             UIView,
             UINavigationBar,
@@ -17,7 +19,9 @@ define([
             UILabel,
             UIScrollView,
             alert,
-            confirm
+            confirm,
+            UITextField,
+            UITextView
 ){
     return UIView.extend({
         id: "first-tab-view",
@@ -39,7 +43,21 @@ define([
 
             woodScrollView.addSubview(woodView);
 
-            console.log('woodScrollView.contentSize() = ', woodScrollView.contentSize());
+            //console.log('woodScrollView.contentSize() = ', woodScrollView.contentSize());
+
+            // form
+            this.addSubview(new UITextField({
+                text: '',
+                placeholder: 'One line ...',
+                class: 'my-text-field'
+            }));
+
+            this.addSubview(new UITextView({
+                text: '',
+                placeholder: 'Let us know more ...',
+                class: 'my-text-view'
+            }));
+
 
             // NavigationBar
             var backBtn = new UIButton({
