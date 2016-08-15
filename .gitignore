@@ -89,4 +89,4 @@ jspm_packages
 .node_repl_history
 
 # Public folder
-public
+#public

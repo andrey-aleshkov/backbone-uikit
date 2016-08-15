@@ -26,6 +26,15 @@
     border: 1px solid #666;
 }
 
+.in-modal-view {
+    width: 600px;
+    height: 400px;
+    background: #ffcaca;
+}
+.in-modal-button {
+    background: #000;
+}
+
 #second-tab-view {
     position: absolute;
     top: 0;

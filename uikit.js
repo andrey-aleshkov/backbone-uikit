@@ -25,7 +25,8 @@ define(function (require) {
         UIScrollView: require('./uikit/UIScrollView'),
         UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView'),
         alert: require('./uikit/UIAlertView'),
-        confirm: require('./uikit/UIConfirmView')
+        confirm: require('./uikit/UIConfirmView'),
+        modal: require('./uikit/UIModalView')
         //prompt: require('./uikit/UIPromptView'), // UIAlertViewStylePlainTextInput
         //login: require('./uikit/UILoginView') // UIAlertViewStyleLoginAndPasswordInput
     };

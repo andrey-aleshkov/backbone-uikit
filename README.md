@@ -12,7 +12,6 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 * UITextField
 * UITextView
 * UIImageView
-* UIModalView
 * UINavigationBar
 * UITabBarItem
 * UITabBar
@@ -269,6 +268,24 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
         return this;
     }
+
+## Modality
+
+## Alert
+
+    UIKit.alert('Title', 'This is a message.');
+
+## Confirm
+
+    UIKit.confirm('Title', 'This is a message.');
+
+## Modal
+
+    UIKit.modal(new InModalView());
+    
+How to close the modal view from the content view:
+
+    this.superview.hide();
 
 ## Dependencies
 

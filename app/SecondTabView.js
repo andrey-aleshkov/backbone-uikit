@@ -15,6 +15,7 @@ define([
             UILabel,
             UIActivityIndicatorView
 ){
+    // SecondTabView
     return UIView.extend({
         id: "second-tab-view",
         render: function() {

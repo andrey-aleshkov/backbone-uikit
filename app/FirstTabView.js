@@ -10,8 +10,11 @@ define([
     "../uikit/UIScrollView",
     "../uikit/UIAlertView",
     "../uikit/UIConfirmView",
+    "../uikit/UIModalView",
     "../uikit/UITextField",
-    "../uikit/UITextView"
+    "../uikit/UITextView",
+
+    'InModalView'
 ], function($, _, Backbone,
             UIView,
             UINavigationBar,
@@ -20,24 +23,37 @@ define([
             UIScrollView,
             alert,
             confirm,
+            modal,
             UITextField,
-            UITextView
+            UITextView,
+            InModalView
 ){
+    // FirstTabView
     return UIView.extend({
         id: "first-tab-view",
         render: function() {
             console.log("FirstTabView::render");
             this.$el.empty();
 
+            var // ScrollView
+                woodScrollView,
+                woodView,
+                // NavigationBar
+                backBtn,
+                signInBtn,
+                showModalBtn,
+                showAlertBtn,
+                showConfirmBtn;
+
             // ScrollView
-            var woodScrollView = new UIScrollView({
+            woodScrollView = new UIScrollView({
                 class: 'wood-scroll-view',
                 maximumScale: 3,
                 minimumScale: 0.1
             });
             this.addSubview(woodScrollView);
 
-            var woodView = new UIView({
+            woodView = new UIView({
                 class: 'wood-view'
             });
 
@@ -60,7 +76,7 @@ define([
 
 
             // NavigationBar
-            var backBtn = new UIButton({
+            backBtn = new UIButton({
                 label: "Back",
                 icon: 'back',
                 action: function() {
@@ -68,7 +84,7 @@ define([
                 }
             });
 
-            var signInBtn = new UIButton({
+            signInBtn = new UIButton({
                 label: "Login",
                 action: function() {
                     console.log("signInBtn");
@@ -85,21 +101,23 @@ define([
                 }
             });
 
-            var testBtn = new UIButton({
-                label: "Test",
+            showModalBtn = new UIButton({
+                label: "Modal",
                 action: function() {
-                    console.log("testBtn");
+                    console.log("modalBtn");
+
+                    modal(new InModalView());
                 }
             });
 
-            var showAlertBtn = new UIButton({
+            showAlertBtn = new UIButton({
                 label: "Alert",
                 action: function() {
                     alert('Title', 'This is a message.');
                 }
             });
 
-            var showConfirmBtn = new UIButton({
+            showConfirmBtn = new UIButton({
                 label: "Confirm",
                 action: function() {
                     confirm('Title', 'This is a message.');
@@ -109,7 +127,7 @@ define([
             var uiNavigationBar = new UINavigationBar({
                 leftBarItems: [backBtn],
                 centerBarItems: [new UILabel({text: this.title})],
-                rightBarItems: [signInBtn, testBtn, showAlertBtn, showConfirmBtn]
+                rightBarItems: [signInBtn, showModalBtn, showAlertBtn, showConfirmBtn]
             });
             this.addSubview(uiNavigationBar);
 
