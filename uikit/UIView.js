@@ -236,7 +236,7 @@ define([
             //console.log(this.events);
             //console.log("this.userInteractionEnabled = " + this.userInteractionEnabled);
 
-            if (this.userInteractionEnabled) {
+            if (this.userInteractionEnabled && !this.disabled) {
                 event.stopPropagation();
                 this.select();
             }
@@ -245,7 +245,7 @@ define([
 
         touchendHandler: function(event) {
             //console.log("UIView::touchendHandler");
-            if (this.userInteractionEnabled) {
+            if (this.userInteractionEnabled && !this.disabled) {
                 event.stopPropagation();
                 this.deselect();
             }

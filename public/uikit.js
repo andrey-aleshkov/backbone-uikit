@@ -678,7 +678,7 @@ define('uikit/UIView',[
             //console.log(this.events);
             //console.log("this.userInteractionEnabled = " + this.userInteractionEnabled);
 
-            if (this.userInteractionEnabled) {
+            if (this.userInteractionEnabled && !this.disabled) {
                 event.stopPropagation();
                 this.select();
             }
@@ -687,7 +687,7 @@ define('uikit/UIView',[
 
         touchendHandler: function(event) {
             //console.log("UIView::touchendHandler");
-            if (this.userInteractionEnabled) {
+            if (this.userInteractionEnabled && !this.disabled) {
                 event.stopPropagation();
                 this.deselect();
             }
@@ -1161,6 +1161,113 @@ define('uikit/UIButton',[
             } else {
                 console.log("disabled or there is no action");
             }
+        }
+
+    });
+
+});
+define('uikit/UIStepper',[
+    "jquery",
+    "underscore",
+    "backbone",
+    "./UIView",
+    "./UIButton"
+], function($, _, Backbone, UIView,
+            UIButton
+){
+
+    // UIStepper
+    return UIView.extend({
+        className: "ui-stepper",
+
+        value: 0,
+        minimumValue: 0,
+        maximumValue: 1000,
+        stepValue: 1,
+        autorepeat: false,
+        //wraps: false,
+
+        decButton: null,
+        incButton: null,
+
+        render: function() {
+            //console.log("UIStepper::render");
+
+            var thisView = this;
+
+            this.$el.empty();
+
+            // set class
+            this.setClass(this.class);
+
+            // apply disabled
+            if (this.disabled) {
+                this.$el.addClass("ui-dis");
+            }
+            // apply hidden
+            if (this.hidden) {
+                this.$el.addClass("ui-hid");
+            }
+
+            // UI
+            this.decButton = new UIButton({
+                class: 'ui-stepper-dec-btn',
+                label: '–',
+                action: function () {
+                    thisView.decreaseValue();
+                }
+            });
+            this.addSubview(this.decButton);
+
+            this.incButton = new UIButton({
+                class: 'ui-stepper-inc-btn',
+                label: '+',
+                action: function () {
+                    thisView.increaseValue();
+                }
+            });
+            this.addSubview(this.incButton);
+
+            return this;
+        },
+
+        update: function () {
+            //console.log("UIStepper::update");
+
+            console.log(this.value);
+
+            if (this.value <= this.minimumValue) {
+                this.decButton.disable();
+                this.incButton.enable();
+            } else if (this.value > this.minimumValue && this.value < this.maximumValue) {
+                this.decButton.enable();
+                this.incButton.enable();
+            } else if (this.value >= this.maximumValue) {
+                this.decButton.enable();
+                this.incButton.disable();
+            }
+        },
+
+        decreaseValue: function () {
+            //console.log("UIStepper::decreaseValue");
+
+            var newValue = this.value - this.stepValue;
+            if (newValue <= this.minimumValue) {
+                newValue = this.minimumValue;
+            }
+            this.value = newValue;
+            this.update();
+        },
+
+        increaseValue: function () {
+            //console.log("UIStepper::increaseValue");
+
+            var newValue = this.value + this.stepValue;
+            if (newValue >= this.maximumValue) {
+                newValue = this.maximumValue;
+            }
+            this.value = newValue;
+            this.update();
         }
 
     });
@@ -2202,7 +2309,7 @@ define('uikit/modalView',[
 /**
  * The main module that defines the public interface for uikit.
  */
-define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UILabel','./uikit/UITextField','./uikit/UITextView','./uikit/UIImageView','./uikit/UINavigationBar','./uikit/UITabBarItem','./uikit/UITabBar','./uikit/UIScrollView','./uikit/UIActivityIndicatorView','./uikit/alertView','./uikit/confirmView','./uikit/modalView'],function (require) {
+define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UIStepper','./uikit/UILabel','./uikit/UITextField','./uikit/UITextView','./uikit/UIImageView','./uikit/UINavigationBar','./uikit/UITabBarItem','./uikit/UITabBar','./uikit/UIScrollView','./uikit/UIActivityIndicatorView','./uikit/alertView','./uikit/confirmView','./uikit/modalView'],function (require) {
     'use strict';
 
     //Return the module value.
@@ -2211,6 +2318,7 @@ define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UILabel',
         UIView: require('./uikit/UIView'),
         UIButton: require('./uikit/UIButton'),
         //UISegmentedControl: require('./uikit/UISegmentedControl'),
+        UIStepper: require('./uikit/UIStepper'),
         UILabel: require('./uikit/UILabel'),
         UITextField: require('./uikit/UITextField'),
         UITextView: require('./uikit/UITextView'),

@@ -10,6 +10,8 @@ define([
     "../uikit/UIScrollView",
      "../uikit/UITextField",
     "../uikit/UITextView",
+    "../uikit/UIStepper",
+
     "../uikit/alertView",
     "../uikit/confirmView",
     "../uikit/modalView",
@@ -24,6 +26,8 @@ define([
             UIScrollView,
             UITextField,
             UITextView,
+            UIStepper,
+
             alert,
             confirm,
             modal,
@@ -76,6 +80,10 @@ define([
                 class: 'my-text-view'
             }));
 
+            this.addSubview(new UIStepper({
+                minimumValue: -3,
+                maximumValue: 10
+            }));
 
             // NavigationBar
             backBtn = new UIButton({

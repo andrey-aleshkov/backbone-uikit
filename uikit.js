@@ -12,6 +12,7 @@ define(function (require) {
         UIView: require('./uikit/UIView'),
         UIButton: require('./uikit/UIButton'),
         //UISegmentedControl: require('./uikit/UISegmentedControl'),
+        UIStepper: require('./uikit/UIStepper'),
         UILabel: require('./uikit/UILabel'),
         UITextField: require('./uikit/UITextField'),
         UITextView: require('./uikit/UITextView'),

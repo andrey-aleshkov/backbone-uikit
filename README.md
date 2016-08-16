@@ -7,10 +7,11 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 
 * UIView
 * UIButton
-* UISegmentedControl
 * UILabel
 * UITextField
 * UITextView
+* UISegmentedControl
+* UIStepper
 * UIImageView
 * UINavigationBar
 * UITabBarItem
@@ -151,16 +152,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
         return this;
     }
-    
-## UISegmentedControl
-
-    render: function () {
-    
-        this.addSubview(new UIKit.UISegmentedControl());
-    
-        return this;
-    }
-    
+  
 ## UILabel
 
     render: function () {
@@ -187,7 +179,31 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
         return this;
     }
+
+## UIStepper
+
+    render: function () {
     
+        this.addSubview(new UIKit.UIStepper({
+            value: 0,
+            minimumValue: 0,
+            maximumValue: 1000,
+            stepValue: 1,
+            autorepeat: false
+        }));
+    
+        return this;
+    }
+
+## UISegmentedControl
+
+    render: function () {
+    
+        this.addSubview(new UIKit.UISegmentedControl());
+    
+        return this;
+    }
+
 ## UIImageView
 
     render: function () {
