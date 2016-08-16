@@ -2151,31 +2151,28 @@ define('uikit/UIModalView',[
     "jquery",
     "underscore",
     "backbone",
-    "./UIView",
-    "./UIButton",
-    "./UITextField"
-], function($, _, Backbone, UIView, UIButton, UITextField) {
+    "./UIView"
+], function($, _, Backbone, UIView) {
 
     // UIModalView
     return function (contentView) {
 
         var UIModalView = UIView.extend({
                 className: "ui-modal-view",
-                template: `<div class="ui-modal-content"></div>`,
 
                 contentView: null,
 
                 render: function () {
                     //console.log("UIModalView::render");
 
-                    var $content;
-
                     this.$el.empty();
                     this.$el.html(this.template);
 
-                    $content = $('.ui-modal-content', this.$el);
-
-                    this.addSubview(this.contentView, $content);
+                    if (this.contentView) {
+                        this.addSubview(this.contentView);
+                    } else {
+                        console.error('contentView is needed')
+                    }
 
                     return this;
                 },
