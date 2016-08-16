@@ -9,17 +9,18 @@
     /*align-content: stretch;*/
     align-items: flex-start;
 
-    /*width: 200px;*/
-    height: 20px;
+    width: 94px;
+    height: 29px;
     border: 1px solid rgb(255, 155, 52);
-    border-radius: 3px;
+    border-radius: 4px;
+    color: rgb(255, 155, 52);
 }
 .ui-stepper-dec-btn {
     flex: 1;
 
     height: 100%;
     line-height: 100%;
-    color: rgb(255, 155, 52);
+    color: inherit;
 }
 .ui-stepper-dec-btn.ui-dis {
     background: #000;
@@ -29,9 +30,10 @@
     flex: 1;
 
     height: 100%;
-    border-left: 1px solid rgb(255, 155, 52);
+    border-left: 1px solid;
+    border-color: inherit;
     line-height: 100%;
-    color: rgb(255, 155, 52);
+    color: inherit;
 }
 .ui-stepper-inc-btn.ui-dis {
     background: #000;

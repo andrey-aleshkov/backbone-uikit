@@ -80,6 +80,10 @@ define([
                 class: 'my-text-view'
             }));
 
+            this.addSubview(new UILabel({
+                text: '1'
+            }));
+
             this.addSubview(new UIStepper({
                 minimumValue: -3,
                 maximumValue: 10
