@@ -16,7 +16,6 @@ define(function (require) {
         UITextField: require('./uikit/UITextField'),
         UITextView: require('./uikit/UITextView'),
         UIImageView: require('./uikit/UIImageView'),
-        //UIModalView: require('./uikit/UIModalView'),
         UINavigationBar: require('./uikit/UINavigationBar'),
         UITabBarItem: require('./uikit/UITabBarItem'),
         UITabBar: require('./uikit/UITabBar'),
@@ -24,9 +23,9 @@ define(function (require) {
         //UITableView: require('./uikit/UITableView'),
         UIScrollView: require('./uikit/UIScrollView'),
         UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView'),
-        alert: require('./uikit/UIAlertView'),
-        confirm: require('./uikit/UIConfirmView'),
-        modal: require('./uikit/UIModalView')
+        alert: require('./uikit/alertView'),
+        confirm: require('./uikit/confirmView'),
+        modal: require('./uikit/modalView')
         //prompt: require('./uikit/UIPromptView'), // UIAlertViewStylePlainTextInput
         //login: require('./uikit/UILoginView') // UIAlertViewStyleLoginAndPasswordInput
     };

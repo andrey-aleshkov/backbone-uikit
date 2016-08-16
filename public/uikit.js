@@ -1984,7 +1984,7 @@ define('uikit/UIActivityIndicatorView',[
 });
 
 });
-define('uikit/UIAlertView',[
+define('uikit/alertView',[
     "jquery",
     "underscore",
     "backbone",
@@ -2058,7 +2058,7 @@ define('uikit/UIAlertView',[
     }
 
 });
-define('uikit/UIConfirmView',[
+define('uikit/confirmView',[
     "jquery",
     "underscore",
     "backbone",
@@ -2147,7 +2147,7 @@ define('uikit/UIConfirmView',[
     }
 
 });
-define('uikit/UIModalView',[
+define('uikit/modalView',[
     "jquery",
     "underscore",
     "backbone",
@@ -2202,7 +2202,7 @@ define('uikit/UIModalView',[
 /**
  * The main module that defines the public interface for uikit.
  */
-define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UILabel','./uikit/UITextField','./uikit/UITextView','./uikit/UIImageView','./uikit/UINavigationBar','./uikit/UITabBarItem','./uikit/UITabBar','./uikit/UIScrollView','./uikit/UIActivityIndicatorView','./uikit/UIAlertView','./uikit/UIConfirmView','./uikit/UIModalView'],function (require) {
+define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UILabel','./uikit/UITextField','./uikit/UITextView','./uikit/UIImageView','./uikit/UINavigationBar','./uikit/UITabBarItem','./uikit/UITabBar','./uikit/UIScrollView','./uikit/UIActivityIndicatorView','./uikit/alertView','./uikit/confirmView','./uikit/modalView'],function (require) {
     'use strict';
 
     //Return the module value.
@@ -2215,7 +2215,6 @@ define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UILabel',
         UITextField: require('./uikit/UITextField'),
         UITextView: require('./uikit/UITextView'),
         UIImageView: require('./uikit/UIImageView'),
-        //UIModalView: require('./uikit/UIModalView'),
         UINavigationBar: require('./uikit/UINavigationBar'),
         UITabBarItem: require('./uikit/UITabBarItem'),
         UITabBar: require('./uikit/UITabBar'),
@@ -2223,9 +2222,9 @@ define('uikit',['require','./uikit/UIView','./uikit/UIButton','./uikit/UILabel',
         //UITableView: require('./uikit/UITableView'),
         UIScrollView: require('./uikit/UIScrollView'),
         UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView'),
-        alert: require('./uikit/UIAlertView'),
-        confirm: require('./uikit/UIConfirmView'),
-        modal: require('./uikit/UIModalView')
+        alert: require('./uikit/alertView'),
+        confirm: require('./uikit/confirmView'),
+        modal: require('./uikit/modalView')
         //prompt: require('./uikit/UIPromptView'), // UIAlertViewStylePlainTextInput
         //login: require('./uikit/UILoginView') // UIAlertViewStyleLoginAndPasswordInput
     };

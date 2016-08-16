@@ -16,45 +16,6 @@
     0%   { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-.ui-alert-view {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.ui-alert-view .ui-alert-content {
-    width: 300px;
-    min-height: 100px;
-    background: #fff;
-    border-radius: 10px;
-}
-.ui-alert-view .alert-title-label {
-    padding: 20px 10px 3px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 22px;
-    color: #030303;
-}
-.ui-alert-view .alert-message-label {
-    padding: 0 10px 17px;
-    text-align: center;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 22px;
-    color: #000;
-}
-.ui-alert-view .alert-ok-btn {
-    border-top: 1px solid #ccc;
-}
 .ui-btn {
     box-sizing:border-box;
 
@@ -107,55 +68,6 @@
     background: url(../img/ico-button-back@2x.png) no-repeat 0 0;
     background-size: 13px 22px;
 }
-.ui-confirm-view {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.ui-confirm-view .ui-confirm-content {
-    width: 300px;
-    min-height: 100px;
-    background: #fff;
-    border-radius: 10px;
-}
-.ui-confirm-view .confirm-title-label {
-    padding: 20px 10px 3px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 22px;
-    color: #030303;
-}
-.ui-confirm-view .confirm-message-label {
-    padding: 0 10px 17px;
-    text-align: center;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 22px;
-    color: #000;
-}
-.ui-confirm-view .buttons-place {
-    border-top: 1px solid #ccc;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-.ui-confirm-view .confirm-cancel-btn {
-    border-right: 1px solid #ccc;
-    flex: 1;
-}
-.ui-confirm-view .confirm-ok-btn {
-    flex: 1;
-}
 .ui-image-view {
     overflow: hidden;
     box-sizing: border-box;
@@ -179,20 +91,6 @@
 }
 .ui-label.ui-invalid {
     color:rgb(255,96,96);
-}
-.ui-modal-view {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
 }
 .ui-navigation-bar {
     position: absolute;
@@ -455,6 +353,108 @@
     bottom: 48px !important;
 }
 
+.ui-alert-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.ui-alert-view .ui-alert-content {
+    width: 300px;
+    min-height: 100px;
+    background: #fff;
+    border-radius: 10px;
+}
+.ui-alert-view .alert-title-label {
+    padding: 20px 10px 3px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 22px;
+    color: #030303;
+}
+.ui-alert-view .alert-message-label {
+    padding: 0 10px 17px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000;
+}
+.ui-alert-view .alert-ok-btn {
+    border-top: 1px solid #ccc;
+}
+.ui-confirm-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.ui-confirm-view .ui-confirm-content {
+    width: 300px;
+    min-height: 100px;
+    background: #fff;
+    border-radius: 10px;
+}
+.ui-confirm-view .confirm-title-label {
+    padding: 20px 10px 3px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 22px;
+    color: #030303;
+}
+.ui-confirm-view .confirm-message-label {
+    padding: 0 10px 17px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000;
+}
+.ui-confirm-view .buttons-place {
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.ui-confirm-view .confirm-cancel-btn {
+    border-right: 1px solid #ccc;
+    flex: 1;
+}
+.ui-confirm-view .confirm-ok-btn {
+    flex: 1;
+}
+.ui-modal-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
 .ui-dis {
     /*opacity:0.3;*/
 }

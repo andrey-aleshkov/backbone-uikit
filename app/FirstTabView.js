@@ -2,30 +2,32 @@ define([
     "jquery",
     "underscore",
     "backbone",
-
+    // ui
     "../uikit/UIView",
     "../uikit/UINavigationBar",
     "../uikit/UIButton",
     "../uikit/UILabel",
     "../uikit/UIScrollView",
-    "../uikit/UIAlertView",
-    "../uikit/UIConfirmView",
-    "../uikit/UIModalView",
-    "../uikit/UITextField",
+     "../uikit/UITextField",
     "../uikit/UITextView",
+    "../uikit/alertView",
+    "../uikit/confirmView",
+    "../uikit/modalView",
 
     'InModalView'
 ], function($, _, Backbone,
+            // ui
             UIView,
             UINavigationBar,
             UIButton,
             UILabel,
             UIScrollView,
+            UITextField,
+            UITextView,
             alert,
             confirm,
             modal,
-            UITextField,
-            UITextView,
+            //
             InModalView
 ){
     // FirstTabView

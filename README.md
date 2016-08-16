@@ -196,16 +196,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
         return this;
     }
-    
-## UIModalView
-
-    render: function () {
-    
-        this.addSubview(new UIKit.UIModalView());
-    
-        return this;
-    }
-    
+      
 ## UINavigationBar
 
     render: function () {
@@ -281,7 +272,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
 
 ## Modal
 
-    UIKit.modal(new InModalView());
+    UIKit.modal(new someView());
     
 How to close the modal view from the content view:
 
