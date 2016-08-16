@@ -185,6 +185,7 @@ More sophisticated content present by subclassing UIView and implementing the ne
     render: function () {
     
         this.addSubview(new UIKit.UIStepper({
+            class: 'my-stepper',
             value: 0,
             minimumValue: 0,
             maximumValue: 1000,
@@ -194,6 +195,14 @@ More sophisticated content present by subclassing UIView and implementing the ne
     
         return this;
     }
+
+css:
+
+    .my-stepper {
+        border-color: #0d76ff;
+        color: #0d76ff;
+    }
+
 
 ## UISegmentedControl
 
