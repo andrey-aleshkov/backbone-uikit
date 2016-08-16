@@ -85,7 +85,8 @@ define([
             }));
 
             this.addSubview(new UIStepper({
-                minimumValue: -3,
+                value: 10,
+                minimumValue: 0,
                 maximumValue: 10
             }));
 

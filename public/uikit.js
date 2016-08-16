@@ -1228,6 +1228,8 @@ define('uikit/UIStepper',[
             });
             this.addSubview(this.incButton);
 
+            this.update();
+
             return this;
         },
 

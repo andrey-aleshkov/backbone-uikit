@@ -60,6 +60,8 @@ define([
             });
             this.addSubview(this.incButton);
 
+            this.update();
+
             return this;
         },
 
