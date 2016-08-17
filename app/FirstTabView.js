@@ -49,7 +49,8 @@ define([
                 signInBtn,
                 showModalBtn,
                 showAlertBtn,
-                showConfirmBtn;
+                showConfirmBtn,
+                dataModel;
 
             // ScrollView
             woodScrollView = new UIScrollView({
@@ -80,12 +81,19 @@ define([
                 class: 'my-text-view'
             }));
 
+            dataModel = new Backbone.Model({
+                number: 0
+            });
+
             this.addSubview(new UILabel({
-                text: '1'
+                model: dataModel,
+                attribute: 'number'
             }));
 
             this.addSubview(new UIStepper({
-                value: 10,
+                model: dataModel,
+                attribute: 'number',
+                value: 0,
                 minimumValue: 0,
                 maximumValue: 10
             }));

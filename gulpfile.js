@@ -45,7 +45,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('clean', function() {
-    return del('public');
+    return del('dist');
 });
 
 gulp.task('js', function(cb) {
@@ -79,7 +79,7 @@ gulp.task('js', function(cb) {
         exclude: ['jquery', 'underscore', 'backbone', 'jgestures'],
         optimize: 'uglify', // none, uglify
         preserveLicenseComments: false,
-        out: './public/uikit.js',
+        out: './dist/uikit.js',
         wrap: {
             "startFile": "wrap.start",
             "endFile": "wrap.end"
@@ -111,21 +111,21 @@ gulp.task('css', function() {
         .pipe(concat('uikit.css'))
         .pipe(debug({title: 'concat:'}))
         .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-        .pipe(gulp.dest('public'));
+        .pipe(gulp.dest('dist'));
 });
 
 //gulp.task('img', function() {
 //    return gulp.src(imgFiles, {since: gulp.lastRun('img')})
-//        .pipe(newer('public/img'))  // TODO: Check it
+//        .pipe(newer('dist/img'))  // TODO: Check it
 //        .pipe(debug({title: 'copy:'}))
-//        .pipe(gulp.dest('public/img'));
+//        .pipe(gulp.dest('dist/img'));
 //});
 
 //gulp.task('html', function() {
 //    return gulp.src(htmlFiles, {since: gulp.lastRun('html')})
 //        .pipe(gulpIf('*.html', preprocess()))
 //        .pipe(debug({title: 'copy:'}))
-//        .pipe(gulp.dest('public'));
+//        .pipe(gulp.dest('dist'));
 //});
 
 
@@ -145,7 +145,7 @@ gulp.task('serve', function() {
     browserSync.init({
         server: true
     });
-    browserSync.watch(['css/app.css', 'public/uikit.css']).on('change', function(file) {
+    browserSync.watch(['css/app.css', 'dist/uikit.css']).on('change', function(file) {
         console.log('css = ', file);
         browserSync.reload(file);
     });

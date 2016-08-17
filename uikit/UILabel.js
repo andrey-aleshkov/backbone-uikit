@@ -7,14 +7,26 @@ define([
 
     // UILabel
     return UIView.extend({
-        className: "ui-label",
-        tagName: "label",
+        className: 'ui-label',
+        tagName: 'label',
 
-        text: "",
+        model: null,
+        attribute: '',
+        text: '',
         width: null,
         textAlignment: null,
 
-        render: function() {
+        initialize: function(options) {
+            //console.log("UILabel::initialize");
+
+            UIView.prototype.initialize.apply(this, [options]);
+
+            if (this.model) {
+                this.listenTo(this.model, 'change', this.update);
+            }
+        },
+
+        render: function () {
             //console.log("UILabel::render");
             this.$el.empty();
             // set additional CSS-class
@@ -27,10 +39,23 @@ define([
             if (this.textAlignment !== null) styleAttrLine += "text-align:" + this.textAlignment + "; ";
 
             if (styleAttrLine) this.$el.attr("style", styleAttrLine);
+
+            this.update();
+
             return this;
         },
 
-        setText: function(newText) {
+        update: function () {
+            //console.log("UILabel::update");
+
+            if (this.model) {
+                this.setText(this.model.get(this.attribute))
+            }
+        },
+
+        setText: function (newText) {
+            //console.log("UILabel::setText");
+
             this.text = newText;
             // redraw
             this.$el.html(this.text);

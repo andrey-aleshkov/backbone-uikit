@@ -1180,6 +1180,8 @@ define('uikit/UIStepper',[
     return UIView.extend({
         className: "ui-stepper",
 
+        model: null,
+        attribute: '',
         value: 0,
         minimumValue: 0,
         maximumValue: 1000,
@@ -1236,7 +1238,7 @@ define('uikit/UIStepper',[
         update: function () {
             //console.log("UIStepper::update");
 
-            console.log(this.value);
+            //console.log(this.value);
 
             if (this.value <= this.minimumValue) {
                 this.decButton.disable();
@@ -1247,6 +1249,10 @@ define('uikit/UIStepper',[
             } else if (this.value >= this.maximumValue) {
                 this.decButton.enable();
                 this.incButton.disable();
+            }
+
+            if (this.model) {
+                this.model.set(this.attribute, this.value);
             }
         },
 
@@ -1284,14 +1290,26 @@ define('uikit/UILabel',[
 
     // UILabel
     return UIView.extend({
-        className: "ui-label",
-        tagName: "label",
+        className: 'ui-label',
+        tagName: 'label',
 
-        text: "",
+        model: null,
+        attribute: '',
+        text: '',
         width: null,
         textAlignment: null,
 
-        render: function() {
+        initialize: function(options) {
+            //console.log("UILabel::initialize");
+
+            UIView.prototype.initialize.apply(this, [options]);
+
+            if (this.model) {
+                this.listenTo(this.model, 'change', this.update);
+            }
+        },
+
+        render: function () {
             //console.log("UILabel::render");
             this.$el.empty();
             // set additional CSS-class
@@ -1304,10 +1322,23 @@ define('uikit/UILabel',[
             if (this.textAlignment !== null) styleAttrLine += "text-align:" + this.textAlignment + "; ";
 
             if (styleAttrLine) this.$el.attr("style", styleAttrLine);
+
+            this.update();
+
             return this;
         },
 
-        setText: function(newText) {
+        update: function () {
+            //console.log("UILabel::update");
+
+            if (this.model) {
+                this.setText(this.model.get(this.attribute))
+            }
+        },
+
+        setText: function (newText) {
+            //console.log("UILabel::setText");
+
             this.text = newText;
             // redraw
             this.$el.html(this.text);

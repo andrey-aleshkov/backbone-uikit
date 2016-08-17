@@ -12,6 +12,8 @@ define([
     return UIView.extend({
         className: "ui-stepper",
 
+        model: null,
+        attribute: '',
         value: 0,
         minimumValue: 0,
         maximumValue: 1000,
@@ -68,7 +70,7 @@ define([
         update: function () {
             //console.log("UIStepper::update");
 
-            console.log(this.value);
+            //console.log(this.value);
 
             if (this.value <= this.minimumValue) {
                 this.decButton.disable();
@@ -79,6 +81,10 @@ define([
             } else if (this.value >= this.maximumValue) {
                 this.decButton.enable();
                 this.incButton.disable();
+            }
+
+            if (this.model) {
+                this.model.set(this.attribute, this.value);
             }
         },
 

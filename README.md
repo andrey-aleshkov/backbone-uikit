@@ -326,9 +326,9 @@ referencing.
 
 ## File structure
 
-This project creates a library called **uikit.js** and a file **uikit.css** in the public folder.
+This project creates a library called **uikit.js** and a file **uikit.css** in the dist folder.
 
-* **public**: the built library suitable for distribution.
+* **dist**: the built library suitable for distribution.
 * **lib**: contains lib scripts used during dev and testing.
 * **uikit**: holds the sub-modules used by the main `uikit.js` module
 to help implement the library's functionality.
@@ -351,7 +351,7 @@ library.
 
     $ NODE_ENV=production gulp build
 
-This will generate the built files `public/uikit.js` and `public/uikit.css`.
+This will generate the built files `dist/uikit.js` and `dist/uikit.css`.
 
 **Test** the built file by running these files:
 

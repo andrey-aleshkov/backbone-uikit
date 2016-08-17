@@ -2,7 +2,7 @@
   "name": "uikit",
   "version": "1.0.0",
   "description": "UI components",
-  "main": "app/index.js",
+  "main": "dist/uikit.js",
   "directories": {
     "test": "tests"
   },
