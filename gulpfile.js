@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const requirejs = require('requirejs');
+const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 const debug = require('gulp-debug');
@@ -15,8 +16,14 @@ const preprocess = require('gulp-preprocess');
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 const jsFiles = [
-    'js/**/*.js',
-    'js/**/*.map'
+    '**/*.js',
+    '!node_modules/**',
+    '!gulpfile.js',
+    '!app/**',
+    '!dist/**',
+    '!tests/**',
+    '!uikit-todo/**',
+    '!js-temp/**'
 ];
 
 const cssFiles = [
@@ -48,18 +55,42 @@ gulp.task('clean', function() {
     return del('dist');
 });
 
-gulp.task('js', function(cb) {
+gulp.task('clean-js-temp', function() {
+    return del(['js-temp']);
+});
+
+gulp.task('js-temp', function() {
+    return gulp.src(jsFiles)
+        .pipe(debug({title: 'copy to js-temp:'}))
+        .pipe(gulp.dest('js-temp'));
+});
+
+gulp.task('js-temp-es6', function() {
+    return gulp.src([
+            'js-temp/**/*.js',
+            '!js-temp/libs/**',
+            '!js-temp/require.js',
+            '!js-temp/domReady.js'
+        ])
+        .pipe(debug({title: 'babel:'}))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('js-temp'));
+});
+
+gulp.task('js-temp-rjs', function(cb) {
 
     // https://github.com/joshje/gulp-requirejs-simple
     requirejs.optimize({
         findNestedDependencies: true,
-        baseUrl: './',
-        name: 'lib/almond/almond-0.3.2',
+        baseUrl: 'js-temp', // './'
+        name: 'libs/almond/almond-0.3.2',
         paths: {
-            jquery: 'lib/jquery/jquery-2.1.1.min',
-            underscore: 'lib/underscore/underscore-1.3.3',
-            backbone: 'lib/backbone/backbone-1.1.2',
-            jgestures: 'lib/jgestures/jgestures-0.90',
+            jquery: 'libs/jquery/jquery-2.1.1.min',
+            underscore: 'libs/underscore/underscore-1.3.3',
+            backbone: 'libs/backbone/backbone-1.1.2',
+            jgestures: 'libs/jgestures/jgestures-0.90',
             uikit: 'uikit'
         },
         shim: {
@@ -129,11 +160,6 @@ gulp.task('css', function() {
 //});
 
 
-
-gulp.task('build-css', gulp.series(
-    'clean','css')
-);
-
 gulp.task('watch', function() {
     //gulp.watch(jsFiles, gulp.series('js'));
     gulp.watch(cssFiles, gulp.series('css'));
@@ -155,9 +181,24 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('dev', gulp.series('build-css', gulp.parallel('watch', 'serve')));
+// development
+
+gulp.task('dev', gulp.series(
+    'clean',
+    'css',
+    gulp.parallel('watch', 'serve')
+));
+
+// production
+
+gulp.task('build-js', gulp.series(
+    'js-temp',
+    'js-temp-es6',
+    'js-temp-rjs',
+    'clean-js-temp'
+));
 
 gulp.task('build', gulp.series(
     'clean',
-    gulp.parallel('js', 'css'))
+    gulp.parallel('build-js', 'css'))
 );

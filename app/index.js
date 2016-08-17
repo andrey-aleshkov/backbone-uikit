@@ -4,10 +4,10 @@ requirejs.config({
         return "?bust=" + (new Date()).getTime();
     },
     paths: {
-        jquery: '../lib/jquery/jquery-2.1.1.min',
-        underscore: '../lib/underscore/underscore-1.3.3',
-        backbone: '../lib/backbone/backbone-1.1.2',
-        jgestures: '../lib/jgestures/jgestures-0.90'
+        jquery: '../libs/jquery/jquery-2.1.1.min',
+        underscore: '../libs/underscore/underscore-1.3.3',
+        backbone: '../libs/backbone/backbone-1.1.2',
+        jgestures: '../libs/jgestures/jgestures-0.90'
     },
     shim: {
         'underscore': {
