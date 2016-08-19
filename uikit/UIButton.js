@@ -58,7 +58,7 @@ define([
             this.label = newLabel;
             // redraw
             //this.render();
-            $("a", this.$el).html(this.label);
+            $('.btn-text', this.$el).html(this.label);
         },
 
         taponeHandler: function(event) {
