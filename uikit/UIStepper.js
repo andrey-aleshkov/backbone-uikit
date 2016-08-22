@@ -25,8 +25,6 @@ define([
         incButton: null,
 
         render: function() {
-            //console.log("UIStepper::render");
-
             var thisView = this;
 
             this.$el.empty();
