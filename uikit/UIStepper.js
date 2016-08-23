@@ -60,12 +60,12 @@ define([
             });
             this.addSubview(this.incButton);
 
-            this.update();
+            this.updateUI();
 
             return this;
         },
 
-        update: function () {
+        updateUI: function () {
             //console.log("UIStepper::update");
 
             //console.log(this.value);
@@ -80,6 +80,10 @@ define([
                 this.decButton.enable();
                 this.incButton.disable();
             }
+        },
+
+        updateModel: function () {
+            //console.log("UIStepper::update");
 
             if (this.model) {
                 this.model.set(this.attribute, this.value);
@@ -94,7 +98,8 @@ define([
                 newValue = this.minimumValue;
             }
             this.value = newValue;
-            this.update();
+            this.updateUI();
+            this.updateModel();
         },
 
         increaseValue: function () {
@@ -105,7 +110,8 @@ define([
                 newValue = this.maximumValue;
             }
             this.value = newValue;
-            this.update();
+            this.updateUI();
+            this.updateModel();
         }
 
     });
