@@ -1,11 +1,12 @@
 .ui-btn {
     box-sizing:border-box;
+    overflow: hidden;
 
-    padding:0 12px;
+    padding:0 10px;
     height:40px;
 
     font-size:16px;
-    line-height:40px;
+    line-height:22px;
     text-align:center;
     color:rgb(255,155,52);
     /*color:rgb(0,122,255);*/
@@ -16,6 +17,34 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.ui-btn--align-center {
+    justify-content: center;
+}
+.ui-btn--align-justify {
+    justify-content: space-between;
+}
+.ui-btn--align-left {
+    justify-content: flex-start;
+}
+.ui-btn--align-right {
+    justify-content: flex-end;
+}
+
+.ui-btn .btn-text {
+    display: block;
+    box-sizing:border-box;
+    text-align: center;
+}
+
+.ui-btn .btn-icon {
+    display: block;
+    box-sizing:border-box;
+}
+
+.ui-btn .btn-icon.btn-icon--order {
+    order: 1;
 }
 
 .ui-btn.ui-dis {
@@ -29,24 +58,4 @@
 
 .ui-btn:active,
 .ui-btn.fake-active {
-}
-
-.ui-btn .btn-text {
-    /*
-    overflow:hidden;
-    box-sizing:border-box;
-
-    white-space:nowrap;
-    text-overflow:ellipsis;
-    */
-    display: block;
-    box-sizing:border-box;
-    text-align: center;
-}
-
-.ui-btn .btn-icon {
-    width: 19px;
-    height: 22px;
-    background: url(../img/ico-button-back@2x.png) no-repeat 0 0;
-    background-size: 13px 22px;
 }

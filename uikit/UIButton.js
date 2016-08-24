@@ -8,13 +8,17 @@ define([
     // UIButton
     return UIView.extend({
         className: "ui-btn",
-        template: _.template('<span class="btn-text"><%= label %></span>'),
-        templateIcon: _.template('<span class="btn-icon <%= icon %>"></span><span class="btn-text"><%= label %></span>'),
+        //template: _.template('<span class="btn-text"><%= label %></span>'),
+        template: _.template('<span class="btn-icon"></span><span class="btn-text"></span>'),
+        $icon: null,
+        $label: null,
 
         action: null,
 
-        label: "",
-        icon: null,
+        label: '',
+        icon: '',
+        iconOrder: 0,
+        align: 'center', // center | justify | left | right
 
         events: {
             "tapone": "taponeHandler",
@@ -28,27 +32,44 @@ define([
             //console.log("UIButton::render");
             this.$el.empty();
 
-            // set class
-            this.setClass(this.class);
+            // apply label & icon
+            this.$el.html(this.template({
+                label: this.label
+            }));
 
-            // apply label
-            var json = {};
-            json.label = this.label;
+            this.$icon = $('.btn-icon', this.$el);
+            this.$label = $('.btn-text', this.$el);
 
-            if (this.icon) {
-                json.icon = this.icon;
-                this.$el.html(this.templateIcon(json));
-            } else {
-                this.$el.html(this.template(json));
+            // label
+            if (this.label) {
+                this.$label.html(this.label);
             }
+
+            // icon
+            if (this.icon) {
+                this.$icon.addClass('icon--' + this.icon);
+            }
+
+            // icon order
+            if (this.iconOrder) {
+                this.$icon.addClass('btn-icon--order');
+            }
+
+            // align
+            if (this.align != 'center') {
+                this.$el.addClass('ui-btn--align-' + this.align);
+            }
+
+            // class
+            this.$el.addClass(this.class);
 
             // apply disabled
             if (this.disabled) {
-                this.$el.addClass("ui-dis");
+                this.$el.addClass('ui-dis');
             }
             // apply hidden
             if (this.hidden) {
-                this.$el.addClass("ui-hid");
+                this.$el.addClass('ui-hid');
             }
 
             return this;
@@ -56,9 +77,12 @@ define([
 
         setLabel: function(newLabel) {
             this.label = newLabel;
-            // redraw
-            //this.render();
-            $('.btn-text', this.$el).html(this.label);
+            this.$label.html(this.label);
+        },
+
+        setIcon: function (newIcon) {
+            this.icon = newIcon;
+            this.$icon.addClass('icon--' + newIcon);
         },
 
         taponeHandler: function(event) {

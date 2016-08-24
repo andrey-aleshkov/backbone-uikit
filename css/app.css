@@ -35,6 +35,42 @@
     background: #000;
 }
 
+.icon--arrow-left {
+    width: 19px;
+    height: 22px;
+    background: url(../img/ico-button-back@2x.png) no-repeat 0 0;
+    background-size: 13px 22px;
+}
+
+.test-01-btn {
+    margin: 0 0 10px;
+    width: 100%;
+    border: 2px solid #8699a4;
+}
+.test-02-btn {
+    margin: 0 0 10px;
+    width: 100%;
+    border: 2px solid #45ae54;
+}
+.test-03-btn {
+    margin: 0 0 10px;
+    width: 100%;
+    border: 2px solid #8699a4;
+}
+.test-04-btn {
+    margin: 0 0 10px;
+    width: 100%;
+    border: 2px solid #45ae54;
+}
+.test-05-btn {
+    margin: 0 0 10px;
+    width: 100%;
+    border: 2px solid #8699a4;
+}
+
+
+
+
 #second-tab-view {
     position: absolute;
     top: 0;
