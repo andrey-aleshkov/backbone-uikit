@@ -21,7 +21,7 @@ define([
         className: "in-modal-view",
 
         render: function() {
-            console.log("FirstTabView::InModalView");
+            console.log("FormsTabView::InModalView");
 
             var thisView = this;
 

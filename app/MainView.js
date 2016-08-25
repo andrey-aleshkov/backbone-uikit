@@ -4,16 +4,18 @@ define([
     "backbone",
     "../uikit/UIView",
     "../uikit/UITabBar",
-    "FirstTabView",
-    "SecondTabView",
-    'ButtonsTabView'
+    'ButtonsTabView',
+    "FormsTabView",
+    "ModalsTabView",
+    "MiscTabView"
 
 ], function($, _, Backbone,
             UIView,
             UITabBar,
-            FirstTabView,
-            SecondTabView,
-            ButtonsTabView
+            ButtonsTabView,
+            FormsTabView,
+            ModalsTabView,
+            MiscTabView
 ){
 
     return UIView.extend({
@@ -23,23 +25,27 @@ define([
             console.log("MainView::render");
             this.$el.empty();
 
-            var firstTabView = new FirstTabView({
-                title: "First",
-                icon: "orders"
-            });
-            this.addSubview(firstTabView);
-
-            var secondTabView = new SecondTabView({
-                title: "Second",
-                icon: "settings"
-            });
-            this.addSubview(secondTabView);
-
             var buttonsTabView = new ButtonsTabView({
                 title: "Buttons",
                 icon: "settings"
             });
+            var formsTabView = new FormsTabView({
+                title: "Forms",
+                icon: "settings"
+            });
+            var modalsTabView = new ModalsTabView({
+                title: "Modals",
+                icon: "settings"
+            });
+            var miscTabView = new MiscTabView({
+                title: "Misc",
+                icon: "settings"
+            });
+
             this.addSubview(buttonsTabView);
+            this.addSubview(formsTabView);
+            this.addSubview(modalsTabView);
+            this.addSubview(miscTabView);
 
             // UITabBar
             this.tabBar = new UITabBar({
