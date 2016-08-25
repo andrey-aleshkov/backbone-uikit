@@ -69,13 +69,16 @@ define([
             //console.log('woodScrollView.contentSize() = ', woodScrollView.contentSize());
 
             // form
+            dataModel = new Backbone.Model({
+                number: 2
+            });
+
             this.addSubview(new UITextField({
-                text: '',
+                //value: 123,
+                model: dataModel,
+                attribute: 'number',
                 placeholder: 'One line ...',
-                class: 'my-text-field',
-                changeHandler: function () {
-                    console.log('changeHandler = ', $("input", this.$el).val());
-                }
+                class: 'my-text-field'
             }));
 
             this.addSubview(new UITextView({
@@ -84,9 +87,6 @@ define([
                 class: 'my-text-view'
             }));
 
-            dataModel = new Backbone.Model({
-                number: 2
-            });
 
             this.addSubview(new UILabel({
                 model: dataModel,

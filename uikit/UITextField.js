@@ -8,31 +8,45 @@ define([
     // UITextField
     return UIView.extend({
         className: "ui-text-field",
-        templateInput: _.template('<input type="<%= type %>" class="input-text" id="<%= name %>" name="<%= name %>" placeholder="<%= placeholder %>" value="<%= text %>">'),
-        templateData: _.template('<div class="data-text" id="<%= name %>"><%= text %></div>'),
-        templatePhoneNumber: _.template('<div class="data-text"><a href="tel:+<%= text %>">+<%= text %></a></div>'),
-        // TODO: add hidden input
+        templateInput: _.template('<input type="<%= type %>" class="input-text" id="<%= name %>" name="<%= name %>" placeholder="<%= placeholder %>" value="<%= value %>">'),
+        templateData: _.template('<div class="data-text" id="<%= name %>"><%= value %></div>'),
+        templatePhoneNumber: _.template('<div class="data-text"><a href="tel:+<%= value %>">+<%= value %></a></div>'),
+
+        model: null,
+        attribute: '',
+        value: '',
+
+        $input: null,
 
         type: "text",
         name: "",
-        text: "",
         placeholder: "",
         editable: true,
-        textAlignment: "left",
+        //textAlignment: "left",
         phoneNumber: false,
 
+        initialize: function (options) {
+            UIView.prototype.initialize.apply(this, [options]);
+
+            if (this.model) {
+                this.value = this.model.get(this.attribute);
+            }
+        },
+
         render: function() {
-            //console.log("UITextField::render");
             this.$el.empty();
 
             var json = {};
             json.type = this.type;
             json.name = this.name;
-            json.text = this.text;
+            json.value = this.value;
             json.placeholder = this.placeholder;
             if (this.editable) {
                 // input
                 this.$el.html(this.templateInput(json));
+                this.$input = $("input", this.$el);
+                // events
+                this.$input.on("change keyup paste", this.changeHandler);
             } else {
                 if (!this.phoneNumber) {
                     // just text data
@@ -53,38 +67,35 @@ define([
             }
             // class
             if (this.class) this.setClass(this.class);
-            // events
-            $(this.$el).on("change keyup paste", "input", this.changeHandler);
 
             // set text alignment
-            switch(this.textAlignment) {
-                case "left":
-                    break;
-                case "center":
-                    this.setClass("text-align-center");
-                    break;
-                case "right":
-                    break;
-            }
+            //switch(this.textAlignment) {
+            //    case "left":
+            //        break;
+            //    case "center":
+            //        this.setClass("text-align-center");
+            //        break;
+            //    case "right":
+            //        break;
+            //}
 
             return this;
         },
 
-        setText: function(newText) {
-            //console.log("UITextField::setText");
-            this.text = newText;
+        setValue: function(newValue) {
+            this.value = newValue;
             this.render();
         },
 
         changeHandler: function() {
-            //console.log("UITextField::changeHandler");
-            this.text = $("input", this.$el).val();
-            //console.log(this.text);
+            this.value = this.$input.val();
+            if (this.model) {
+                this.model.set(this.attribute, this.value);
+            }
         },
 
         focus: function() {
-            console.log("UITextField::focus");
-            $("input", this.$el).focus();
+            this.$input.focus();
         }
 
     });
