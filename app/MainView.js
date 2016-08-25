@@ -5,13 +5,15 @@ define([
     "../uikit/UIView",
     "../uikit/UITabBar",
     "FirstTabView",
-    "SecondTabView"
+    "SecondTabView",
+    'ButtonsTabView'
 
 ], function($, _, Backbone,
             UIView,
             UITabBar,
             FirstTabView,
-            SecondTabView
+            SecondTabView,
+            ButtonsTabView
 ){
 
     return UIView.extend({
@@ -32,6 +34,12 @@ define([
                 icon: "settings"
             });
             this.addSubview(secondTabView);
+
+            var buttonsTabView = new ButtonsTabView({
+                title: "Buttons",
+                icon: "settings"
+            });
+            this.addSubview(buttonsTabView);
 
             // UITabBar
             this.tabBar = new UITabBar({

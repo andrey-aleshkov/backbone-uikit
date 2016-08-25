@@ -8,8 +8,7 @@ define([
     // UIButton
     return UIView.extend({
         className: "ui-btn",
-        //template: _.template('<span class="btn-text"><%= label %></span>'),
-        template: _.template('<span class="btn-icon"></span><span class="btn-text"></span>'),
+        template: `<span class="btn-icon"></span><span class="btn-label"></span>`,
         $icon: null,
         $label: null,
 
@@ -31,14 +30,10 @@ define([
         render: function() {
             //console.log("UIButton::render");
             this.$el.empty();
-
-            // apply label & icon
-            this.$el.html(this.template({
-                label: this.label
-            }));
+            this.$el.html(this.template);
 
             this.$icon = $('.btn-icon', this.$el);
-            this.$label = $('.btn-text', this.$el);
+            this.$label = $('.btn-label', this.$el);
 
             // label
             if (this.label) {
