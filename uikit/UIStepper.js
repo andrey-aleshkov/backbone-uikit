@@ -24,6 +24,18 @@ define([
         decButton: null,
         incButton: null,
 
+        initialize: function (options) {
+            UIView.prototype.initialize.apply(this, [options]);
+
+            if (this.model) {
+                this.value = this.model.get(this.attribute);
+
+                if (this.value < this.minimumValue || this.value > this.maximumValue ) {
+                    console.error(`The value (${this.value}) must be between the minimum (${this.minimumValue}) and maximum (${this.maximumValue}) values.`);
+                }
+            }
+        },
+
         render: function() {
             var thisView = this;
 

@@ -72,7 +72,10 @@ define([
             this.addSubview(new UITextField({
                 text: '',
                 placeholder: 'One line ...',
-                class: 'my-text-field'
+                class: 'my-text-field',
+                changeHandler: function () {
+                    console.log('changeHandler = ', $("input", this.$el).val());
+                }
             }));
 
             this.addSubview(new UITextView({
@@ -82,7 +85,7 @@ define([
             }));
 
             dataModel = new Backbone.Model({
-                number: 0
+                number: 2
             });
 
             this.addSubview(new UILabel({
@@ -93,7 +96,7 @@ define([
             this.addSubview(new UIStepper({
                 model: dataModel,
                 attribute: 'number',
-                value: 0,
+                //value: 0,
                 minimumValue: 0,
                 maximumValue: 10
             }));
