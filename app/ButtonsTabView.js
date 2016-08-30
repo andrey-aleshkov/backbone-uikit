@@ -5,13 +5,15 @@ define([
   '../uikit/UIView',
   '../uikit/UINavigationBar',
   '../uikit/UIButton',
-  '../uikit/UILabel'
+  '../uikit/UILabel',
+  '../uikit/UIAccordion'
 
 ], function($, _, Backbone,
             UIView,
             UINavigationBar,
             UIButton,
-            UILabel
+            UILabel,
+            UIAccordion
 ) {
   // ButtonsTabView
   return UIView.extend({
@@ -55,6 +57,25 @@ define([
         icon: 'arrow-left',
         class: 'test-05-btn',
         align: 'justify'
+      }));
+
+      // UIAccordion
+      this.addSubview(new UIAccordion({
+        class: 'my-accordion',
+        items: [
+          new UIView({
+            class: 'first-acc-view',
+            title: 'First'
+          }),
+          new UIView({
+            class: 'second-acc-view',
+            title: 'Second'
+          }),
+          new UIView({
+            class: 'third-acc-view',
+            title: 'Third'
+          })
+        ]
       }));
 
       // NavigationBar

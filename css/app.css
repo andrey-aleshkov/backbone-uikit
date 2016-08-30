@@ -106,3 +106,39 @@
     background: url(../img/wood@2x.jpg) no-repeat 0 0;
     background-size: 2592px 1728px;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+.my-accordion .ui-accordion-state > .ui-btn {
+    /*height: 60px;*/
+    /*background: #ddd;*/
+    border: 2px solid #8699a4;
+    border-radius: 10px;
+}
+
+.my-accordion .ui-accordion-state.state-opened > .ui-btn {
+    border-radius: 10px 10px 0 0;
+}
+
+.my-accordion .ui-accordion-state > .ui-btn .btn-icon {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+}
+.my-accordion .ui-accordion-state.state-opened > .ui-btn .btn-icon {
+    background: #999;
+}
+
+
+
+.first-acc-view {
+    height: 70px;
+    background: #528CE0;
+}
+.second-acc-view {
+    height: 120px;
+    background: #ae3454;
+}
+.third-acc-view {
+    height: 140px;
+    background: #C6E746;
+}

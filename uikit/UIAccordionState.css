@@ -1,0 +1,11 @@
+.ui-accordion-state {
+    position: relative;
+}
+.ui-accordion-state > .ui-btn .btn-icon {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+}
+.ui-accordion-state.state-opened > .ui-btn .btn-icon {
+    background: #999;
+}

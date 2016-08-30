@@ -20,6 +20,7 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 * UITableView
 * UIScrollView
 * UIActivityIndicatorView
+* UIAccordion
 
 ## UIView
 
@@ -251,6 +252,29 @@ css:
 
     render: function() {
         this.addSubview(new UIKit.UIActivityIndicatorView());
+        return this;
+    }
+
+## UIAccordion
+
+    render: function() {
+        this.addSubview(new UIKit.UIAccordion({
+            class: 'my-accordion',
+            items: [
+            new UIView({
+                class: 'first-acc-view',
+                title: 'First'
+            }),
+            new UIView({
+                class: 'second-acc-view',
+                title: 'Second'
+            }),
+            new UIView({
+                class: 'third-acc-view',
+                title: 'Third'
+            })
+            ]
+        }));
         return this;
     }
 
