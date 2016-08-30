@@ -1,50 +1,43 @@
 define([
-    "jquery",
-    "underscore",
-    "backbone",
-    "./UIView"
-], function($, _, Backbone, UIView) {
+  'jquery',
+  'underscore',
+  'backbone',
+  './UIView'
+], function($, _, Backbone,
+            UIView
+) {
+  // UIModalView
+  return function(contentView) {
+    var UIModalView;
+    var modalView;
 
-    // UIModalView
-    return function (contentView) {
+    UIModalView = UIView.extend({
+      className: 'ui-modal-view',
+      contentView: null,
 
-        var UIModalView = UIView.extend({
-                className: "ui-modal-view",
+      render: function() {
+        this.$el.empty();
+        this.$el.html(this.template);
 
-                contentView: null,
+        if (this.contentView) {
+          this.addSubview(this.contentView);
+        } else {
+          console.error('contentView is needed');
+        }
+        return this;
+      },
+      show: function() {
+        $('body').append(this.render().el);
+      },
+      hide: function() {
+        this.destroy();
+      }
+    });
 
-                render: function () {
-                    //console.log("UIModalView::render");
+    modalView = new UIModalView({
+      contentView: contentView
+    });
 
-                    this.$el.empty();
-                    this.$el.html(this.template);
-
-                    if (this.contentView) {
-                        this.addSubview(this.contentView);
-                    } else {
-                        console.error('contentView is needed')
-                    }
-
-                    return this;
-                },
-
-                show: function () {
-                    //console.log("UIModalView::show");
-                    $('body').append(this.render().el);
-                },
-
-                hide: function () {
-                    //console.log("UIModalView::hide");
-                    this.destroy();
-                }
-
-            }),
-            modalView = new UIModalView({
-                contentView: contentView
-            });
-
-        modalView.show();
-
-    }
-
+    modalView.show();
+  };
 });
