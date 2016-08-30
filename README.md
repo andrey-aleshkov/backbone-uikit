@@ -50,10 +50,8 @@ To create a view, you can use code like the following:
 
 To add a subview to another view, you use the addSubview:
     
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UIView() [, '.element' | $element]);
-    
         return this;
     }
 
@@ -65,7 +63,7 @@ To remove a view with all the subviews use the destroy method:
 
 #### Initialization:
 
-    initialize: function (options) {
+    initialize: function(options) {
         UIView.prototype.initialize.apply(this, [options]);
     },
        
@@ -81,26 +79,25 @@ To remove a view with all the subviews use the destroy method:
     
 #### Subview management
 
-    addSubview: function (view [, '.element' | $element]) {},
+    addSubview: function(view [, '.element' | $element]) {},
     
 #### Animation
         
-    transitionEndHandler: function (event) {
+    transitionEndHandler: function(event) {
         event.stopPropagation();
     },
 
 #### Layout:
 
-    viewDidAppear: function () {},
-
-    viewDidDisappear: function () {},
+    viewDidAppear: function() {},
+    viewDidDisappear: function() {},
 
 
 ### All Methods
 
 #### Initializing a View Object
 
-    initialize: function (options) {},
+    initialize: function(options) {},
 
 #### Configuring the Event-Related Behavior
 
@@ -111,21 +108,21 @@ To remove a view with all the subviews use the destroy method:
     superview: null,
     subviews: [],
     items: [],
-    addSubview: function (view) {},
-    bringSubviewToFront: function () {},
-    sendSubviewToBack: function () {},
+    addSubview: function(view) {},
+    bringSubviewToFront: function() {},
+    sendSubviewToBack: function() {},
 
 #### Drawing and Updating the View
 
-    render: function () {},
+    render: function() {},
 
 #### Managing Touches and Gestures
 
-    touchstartHandler: function (event) {},
-    touchendHandler: function (event) {},
+    touchstartHandler: function(event) {},
+    touchendHandler: function(event) {},
     taponeHandler: function(event) {},
     pinchHandler: function(event) {},
-    swipemoveHandler: function (event, obj) {},
+    swipemoveHandler: function(event, obj) {},
 
 #### Animating Views
     
@@ -146,44 +143,35 @@ More sophisticated content present by subclassing UIView and implementing the ne
 
 ## UIButton
 
-    render: function () {
-    
+    render: function() { 
         this.addSubview(new UIKit.UIButton());
-    
         return this;
     }
   
 ## UILabel
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UILabel());
-    
         return this;
     }
     
 ## UITextField
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UITextField());
-    
         return this;
     }
     
 ## UITextView
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UITextView());
-    
         return this;
     }
 
 ## UIStepper
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UIStepper({
             class: 'my-stepper',
             value: 0,
@@ -192,7 +180,6 @@ More sophisticated content present by subclassing UIView and implementing the ne
             stepValue: 1,
             autorepeat: false
         }));
-    
         return this;
     }
 
@@ -206,82 +193,64 @@ css:
 
 ## UISegmentedControl
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UISegmentedControl());
-    
         return this;
     }
 
 ## UIImageView
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UIImageView());
-    
         return this;
     }
       
 ## UINavigationBar
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UINavigationBar());
-    
         return this;
     }
     
 ## UITabBarItem
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UITabBarItem());
-    
         return this;
     }
     
 ## UITabBar
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UITabBar());
-    
         return this;
     }
     
 ## UITableViewCell
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UITableViewCell());
-    
         return this;
     }
     
 ## UITableView
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UITableView());
-    
         return this;
     }
     
 ## UIScrollView
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UIScrollView());
-    
         return this;
     }
     
 ## UIActivityIndicatorView
 
-    render: function () {
-    
+    render: function() {
         this.addSubview(new UIKit.UIActivityIndicatorView());
-    
         return this;
     }
 
