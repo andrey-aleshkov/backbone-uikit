@@ -1,44 +1,31 @@
 define([
-    "jquery",
-    "underscore",
-    "backbone",
-
-    "../uikit/UIView",
-    "../uikit/UIButton",
-    "../uikit/UILabel",
-    "../uikit/UITextField",
-    "../uikit/UITextView"
+  'jquery',
+  'underscore',
+  'backbone',
+  '../uikit/UIView',
+  '../uikit/UIButton'
 
 ], function($, _, Backbone,
             UIView,
-            UIButton,
-            UILabel,
-            UITextField,
-            UITextView
-){
-    // InModalView
-    return UIView.extend({
-        className: "in-modal-view",
+            UIButton
+) {
+  // InModalView
+  return UIView.extend({
+    className: 'in-modal-view',
 
-        render: function() {
-            console.log("FormsTabView::InModalView");
-
-            var thisView = this;
-
-            this.$el.empty();
-
-            this.addSubview(new UIButton({
-                label: "Close",
-                class: 'in-modal-button',
-                action: function () {
-                    console.log('in-modal-button');
-
-                    thisView.superview.hide();
-                }
-            }));
-
-            return this;
+    render: function() {
+      var thisView = this;
+      this.$el.empty();
+      this.addSubview(new UIButton({
+        label: 'Close',
+        class: 'in-modal-button',
+        action: function() {
+          thisView.superview.hide();
         }
+      }));
 
-    });
+      return this;
+    }
+
+  });
 });
