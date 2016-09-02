@@ -133,7 +133,6 @@ define([
 
     gestureHandler: function(event, obj) {
       var description;
-      // swipe
       var deltaX = 0;
       var deltaY = 0;
       var scale;
@@ -174,8 +173,8 @@ define([
           break;
 
         case  'swipemove':
-          // handle swipemove only with 1 finger
-          if (description[1] === 1) {
+          // DON'T CHANGE IT TO === !!!
+          if (description[1] == 1) {
             deltaX = obj.delta[0].startX;
             deltaY = obj.delta[0].startY;
 

@@ -7,7 +7,8 @@ define([
   'ButtonsTabView',
   'FormsTabView',
   'ModalsTabView',
-  'MiscTabView'
+  'MiscTabView',
+  'Misc2TabView'
 
 ], function($, _, Backbone,
             UIView,
@@ -15,7 +16,8 @@ define([
             ButtonsTabView,
             FormsTabView,
             ModalsTabView,
-            MiscTabView
+            MiscTabView,
+            Misc2TabView
 ) {
   return UIView.extend({
     id: 'main-view',
@@ -37,12 +39,17 @@ define([
         title: 'Misc',
         icon: 'settings'
       });
+      var misc2TabView = new Misc2TabView({
+        title: 'Misc2',
+        icon: 'settings'
+      });
 
       this.$el.empty();
       this.addSubview(buttonsTabView);
       this.addSubview(formsTabView);
       this.addSubview(modalsTabView);
       this.addSubview(miscTabView);
+      this.addSubview(misc2TabView);
 
       // UITabBar
       this.tabBar = new UITabBar({
