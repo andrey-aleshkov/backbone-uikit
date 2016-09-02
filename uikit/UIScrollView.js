@@ -173,8 +173,7 @@ define([
           break;
 
         case  'swipemove':
-          // DON'T CHANGE IT TO === !!!
-          if (description[1] == 1) {
+          if (description[1] === '1') {
             deltaX = obj.delta[0].startX;
             deltaY = obj.delta[0].startY;
 
