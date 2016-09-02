@@ -20,6 +20,7 @@ define([
     // wraps: false,
     decButton: null,
     incButton: null,
+    changeHandler: null,
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
@@ -101,6 +102,9 @@ define([
       this.value = newValue;
       this.updateUI();
       this.updateModel();
+      if (this.changeHandler) {
+        this.changeHandler(this.value);
+      }
     },
 
     increaseValue: function() {
@@ -111,6 +115,9 @@ define([
       this.value = newValue;
       this.updateUI();
       this.updateModel();
+      if (this.changeHandler) {
+        this.changeHandler(this.value);
+      }
     }
   });
 });

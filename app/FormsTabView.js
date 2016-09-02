@@ -55,7 +55,10 @@ define([
         attribute: 'number',
         // value: 0,
         minimumValue: 0,
-        maximumValue: 10
+        maximumValue: 10,
+        changeHandler: function(value) {
+          console.log('changeHandler, value = ', value);
+        }
       }));
 
       // NavigationBar
