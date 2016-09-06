@@ -20,7 +20,14 @@ define([
         label: 'Close',
         class: 'in-modal-button',
         action: function() {
-          thisView.superview.hide();
+          thisView.superview.reject();
+        }
+      }));
+      this.addSubview(new UIButton({
+        label: 'Ok',
+        class: 'in-modal-button',
+        action: function() {
+          thisView.superview.resolve();
         }
       }));
 

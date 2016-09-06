@@ -14,6 +14,7 @@ define([
   return function(title, message) {
     var UIConfirmView;
     var confirmView;
+    var deferred = $.Deferred();
 
     UIConfirmView = UIView.extend({
       className: 'ui-confirm-view',
@@ -28,39 +29,33 @@ define([
       message: '',
 
       render: function() {
-        var thisView = this;
-
         this.$el.empty();
         this.$el.html(this.template);
 
-        $textPlace = $('.text-place', this.$el);
-        $buttonsPlace = $('.buttons-place', this.$el);
+        this.$textPlace = $('.text-place', this.$el);
+        this.$buttonsPlace = $('.buttons-place', this.$el);
 
         this.addSubview(new UILabel({
           class: 'confirm-title-label',
           text: this.title
-        }), $textPlace);
+        }), this.$textPlace);
 
         this.addSubview(new UILabel({
           class: 'confirm-message-label',
           text: this.message
-        }), $textPlace);
+        }), this.$textPlace);
 
         this.addSubview(new UIButton({
           class: 'confirm-cancel-btn',
           label: 'Cancel',
-          action: function() {
-            thisView.hide();
-          }
-        }), $buttonsPlace);
+          action: this.reject
+        }), this.$buttonsPlace);
 
         this.addSubview(new UIButton({
           class: 'confirm-ok-btn',
           label: 'OK',
-          action: function() {
-            thisView.hide();
-          }
-        }), $buttonsPlace);
+          action: this.resolve
+        }), this.$buttonsPlace);
 
         return this;
       },
@@ -69,6 +64,14 @@ define([
       },
       hide: function() {
         this.destroy();
+      },
+      resolve: function(data) {
+        deferred.resolve(data);
+        this.hide();
+      },
+      reject: function(data) {
+        deferred.reject(data);
+        this.hide();
       }
     });
 
@@ -78,5 +81,7 @@ define([
     });
 
     confirmView.show();
+
+    return deferred.promise();
   };
 });

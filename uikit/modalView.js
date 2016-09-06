@@ -10,6 +10,7 @@ define([
   return function(contentView) {
     var UIModalView;
     var modalView;
+    var deferred = $.Deferred();
 
     UIModalView = UIView.extend({
       className: 'ui-modal-view',
@@ -31,6 +32,14 @@ define([
       },
       hide: function() {
         this.destroy();
+      },
+      resolve: function(data) {
+        deferred.resolve(data);
+        this.hide();
+      },
+      reject: function(data) {
+        deferred.reject(data);
+        this.hide();
       }
     });
 
@@ -39,5 +48,7 @@ define([
     });
 
     modalView.show();
+
+    return deferred.promise();
   };
 });

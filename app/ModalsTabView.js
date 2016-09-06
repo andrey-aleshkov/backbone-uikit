@@ -49,21 +49,53 @@ define([
       showModalBtn = new UIButton({
         label: 'Modal',
         action: function() {
-          modal(new InModalView());
+          modal(new InModalView())
+            .done(function() {
+              console.log('modal ok');
+            })
+            .fail(function() {
+              console.log('modal cancel');
+            });
         }
       });
 
       showAlertBtn = new UIButton({
         label: 'Alert',
         action: function() {
-          alert('Title', 'This is a message.');
+          alert('Title', 'This is a message.')
+            .done(function() {
+              console.log('ok');
+            });
         }
       });
 
       showConfirmBtn = new UIButton({
         label: 'Confirm',
         action: function() {
-          confirm('Title', 'This is a message.');
+          /*
+          confirm('Title', 'This is a message.')
+            .then(
+              function() {
+                console.log('ok');
+              }, function() {
+                console.log('cancel');
+              }
+            );
+          */
+
+          confirm('Title', 'This is a message.')
+            .done(function() {
+              console.log('ok');
+            })
+            .done(function() {
+              console.log('ok 2');
+            })
+            .fail(function() {
+              console.log('cancel');
+            })
+            .fail(function() {
+              console.log('cancel 2');
+            });
         }
       });
 

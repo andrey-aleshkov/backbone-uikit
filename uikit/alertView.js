@@ -14,6 +14,7 @@ define([
   return function(title, message) {
     var UIAlertView;
     var alertView;
+    var deferred = $.Deferred();
 
     UIAlertView = UIView.extend({
       className: 'ui-alert-view',
@@ -24,8 +25,6 @@ define([
       message: '',
 
       render: function() {
-        var thisView = this;
-
         this.$el.empty();
         this.$el.html(this.template);
         this.$content = this.$el.find('.ui-alert-content');
@@ -43,9 +42,7 @@ define([
         this.addSubview(new UIButton({
           class: 'alert-ok-btn',
           label: 'OK',
-          action: function() {
-            thisView.hide();
-          }
+          action: this.resolve
         }), this.$content);
 
         return this;
@@ -55,6 +52,10 @@ define([
       },
       hide: function() {
         this.destroy();
+      },
+      resolve: function(data) {
+        deferred.resolve(data);
+        this.hide();
       }
     });
 
@@ -64,5 +65,7 @@ define([
     });
 
     alertView.show();
+
+    return deferred.promise();
   };
 });
