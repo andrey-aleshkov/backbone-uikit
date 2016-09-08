@@ -36,6 +36,6 @@
   },
   "dependencies": {},
   "optionalDependencies": {
-    "eslint-config-rambler": "^0.1.0"
+    "eslint-config-rambler": "~0.1.0"
   }
 }
