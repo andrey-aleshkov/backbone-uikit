@@ -46,6 +46,7 @@ define([
       this.$content = this.$el.find('.scroll-content');
       if (this.class) this.setClass(this.class);
       this.applyTransforms();
+
       return this;
     },
 

@@ -23,6 +23,7 @@ define([
         this.listenTo(this.model, 'change', this.update);
       }
     },
+
     render: function() {
       var styleAttrLine = '';
       this.$el.empty();
@@ -35,13 +36,16 @@ define([
       if (this.textAlignment !== null) styleAttrLine += 'text-align:' + this.textAlignment + '; ';
       if (styleAttrLine) this.$el.attr('style', styleAttrLine);
       this.update();
+
       return this;
     },
+
     update: function() {
       if (this.model) {
         this.setText(this.model.get(this.attribute));
       }
     },
+
     setText: function(newText) {
       this.text = newText;
       // redraw

@@ -16,6 +16,7 @@ define([
     opened: false,
     $button: null,
     buttonHeight: 40,
+
     render: function() {
       var button = new UIButton({
         label: this.item.title,
@@ -32,6 +33,7 @@ define([
       setTimeout(this.layout, 0);
       return this;
     },
+
     layout: function() {
       this.buttonHeight = this.$button.outerHeight(true);
       if (!this.opened) {
@@ -40,12 +42,15 @@ define([
         this.open();
       }
     },
+
     open: function() {
       this.$el.removeAttr('style').addClass('state-opened');
     },
+
     close: function() {
       this.$el.attr('style', 'height: ' + this.buttonHeight + 'px;').removeClass('state-opened');
     },
+
     toggle: function() {
       if (this.opened) {
         // close

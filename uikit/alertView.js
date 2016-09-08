@@ -47,12 +47,15 @@ define([
 
         return this;
       },
+
       show: function() {
         $('body').append(this.render().el);
       },
+
       hide: function() {
         this.destroy();
       },
+
       resolve: function(data) {
         deferred.resolve(data);
         this.hide();

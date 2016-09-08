@@ -24,6 +24,7 @@ define([
         icon: this.icon,
         title: this.title
       }));
+
       return this;
     },
 

@@ -64,6 +64,7 @@ define([
       }
       // class
       if (this.class) this.setClass(this.class);
+
       return this;
     },
 

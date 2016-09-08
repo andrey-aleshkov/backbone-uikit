@@ -58,14 +58,17 @@ define([
       }
       return this;
     },
+
     setLabel: function(newLabel) {
       this.label = newLabel;
       this.$label.html(this.label);
     },
+
     setIcon: function(newIcon) {
       this.icon = newIcon;
       this.$icon.addClass('icon--' + newIcon);
     },
+
     taponeHandler: function() {
       if (this.action && this.disabled === false) {
         this.action();

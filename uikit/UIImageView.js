@@ -19,9 +19,9 @@ define([
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
-
       this.image = new Image();
     },
+
     render: function() {
       var styleAttrLine = '';
       this.$el.empty();
@@ -32,11 +32,11 @@ define([
         styleAttrLine += 'background-image: url(' + this.imageUrl + ');';
       }
       styleAttrLine += 'background-size: ' + this.imageWidth + ' ' + this.imageHeight + ';';
-
       this.$el.attr('style', styleAttrLine);
 
       return this;
     },
+
     load: function() {
       this.beforeLoad();
 
@@ -57,17 +57,21 @@ define([
           }
         });
     },
+
     beforeLoad: function() {
       // show indicator
     },
+
     complete: function() {
       // remove indicator
     },
+
     success: function() {
       // show the image
       this.status = 'loaded';
       this.render();
     },
+
     error: function() {
       // TODO: show error sign
       this.status = 'error';

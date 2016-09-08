@@ -45,6 +45,7 @@ define([
       if (this.class) this.setClass(this.class);
       // events
       this.$textarea.on('change keyup paste', this.changeHandler);
+
       return this;
     },
 

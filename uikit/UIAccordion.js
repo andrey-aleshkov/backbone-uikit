@@ -15,6 +15,7 @@ define([
     className: 'ui-view ui-accordion',
     // selectedIndexes: null,
     // multiSelect: false,
+
     addItems: function() {
       var thisView = this;
       _.each(this.items, function(item, index) {

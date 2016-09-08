@@ -10,6 +10,7 @@ define([
   return UIView.extend({
     className: 'ui-activity-indicator-view',
     isAnimating: true,
+
     render: function() {
       this.$el.empty();
 
@@ -18,10 +19,12 @@ define([
       }
       return this;
     },
+
     startAnimating: function() {
       this.isAnimating = true;
       this.$el.addClass('animating');
     },
+
     stopAnimating: function() {
       this.isAnimating = false;
       this.$el.removeClass('animating');
