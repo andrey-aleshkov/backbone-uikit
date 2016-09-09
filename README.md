@@ -1,6 +1,6 @@
 # backbone-uikit
 
-This is set of UI components inspired by the iOS UIKit Framework.
+This is a set of UI components inspired by the iOS UIKit Framework.
 The UIKit provides the crucial infrastructure needed to construct and manage web apps.
 
 ## Classes
