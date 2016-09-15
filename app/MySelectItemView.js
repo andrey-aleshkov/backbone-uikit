@@ -14,14 +14,13 @@ define([
       <div><%= value %></div>
     `),
 
-    title: '',
-    value: 0,
+    data: null,
 
     render: function() {
       this.$el.empty();
       this.$el.html(this.template({
-        title: this.title,
-        value: this.value
+        title: this.data.title,
+        value: this.data.value
       }));
 
       return this;

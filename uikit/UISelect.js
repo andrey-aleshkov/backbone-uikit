@@ -46,15 +46,17 @@ define([
         this.addSubview(this.listView);
 
         this.options.forEach(function(option, index) {
-          option.events = {
-            tapone: 'taponeHandler'
-          };
-          option.taponeHandler = function() {
-            console.log(thisView.$el);
-            thisView.selectedIndex = index;
-            thisView.toggle();
-          };
-          thisView.listView.addSubview(new thisView.ItemView(option));
+          thisView.listView.addSubview(new thisView.ItemView({
+            data: option,
+            events: {
+              tapone: 'taponeHandler'
+            },
+            taponeHandler: function() {
+              console.log(thisView.$el);
+              thisView.selectedIndex = index;
+              thisView.toggle();
+            }
+          }));
         });
       }
 
