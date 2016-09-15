@@ -1,0 +1,24 @@
+.ui-select {
+    overflow: visible !important;
+    position: relative;
+}
+.ui-select-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    background: inherit;
+}
+.ui-select.state-opened .ui-select-list {
+    display: block;
+}
+
+.ui-select > .ui-btn .btn-icon {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+}
+.ui-select.state-opened > .ui-btn .btn-icon {
+    background: #999;
+}

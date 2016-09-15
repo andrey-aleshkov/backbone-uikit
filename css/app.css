@@ -137,8 +137,6 @@
     background: #999;
 }
 
-
-
 .first-acc-view {
     height: 70px;
     background: #528CE0;
@@ -150,4 +148,14 @@
 .third-acc-view {
     height: 140px;
     background: #C6E746;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+.my-select {
+    background: #bbb;
+    border-radius: 10px;
+}
+.my-select-item-view {
+    /*background: rgba(255,255,255,0.5);*/
+    border-top: 1px solid #333;
 }

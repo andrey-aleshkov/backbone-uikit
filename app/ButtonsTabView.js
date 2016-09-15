@@ -6,14 +6,18 @@ define([
   '../uikit/UINavigationBar',
   '../uikit/UIButton',
   '../uikit/UILabel',
-  '../uikit/UIAccordion'
+  '../uikit/UIAccordion',
+  '../uikit/UISelect',
+  'MySelectItemView'
 
 ], function($, _, Backbone,
             UIView,
             UINavigationBar,
             UIButton,
             UILabel,
-            UIAccordion
+            UIAccordion,
+            UISelect,
+            MySelectItemView
 ) {
   // ButtonsTabView
   return UIView.extend({
@@ -76,6 +80,22 @@ define([
             title: 'Third'
           })
         ]
+      }));
+
+      // UISelect
+      this.addSubview(new UISelect({
+        class: 'my-select',
+        ItemView: MySelectItemView,
+        options: [{
+          title: 'First',
+          value: 10
+        }, {
+          title: 'Second',
+          value: 21
+        }, {
+          title: 'Third',
+          value: 33
+        }]
       }));
 
       // NavigationBar
