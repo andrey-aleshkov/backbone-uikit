@@ -50,6 +50,7 @@ define([
             tapone: 'taponeHandler'
           };
           option.taponeHandler = function() {
+            console.log(thisView.$el);
             thisView.selectedIndex = index;
             thisView.toggle();
           };
