@@ -49,12 +49,11 @@ define([
           thisView.listView.addSubview(new thisView.ItemView({
             data: option,
             events: {
-              tapone: 'taponeHandler'
-            },
-            taponeHandler: function() {
-              console.log(thisView.$el);
-              thisView.selectedIndex = index;
-              thisView.toggle();
+              tapone: function() {
+                console.log(thisView.$el);
+                thisView.selectedIndex = index;
+                thisView.toggle();
+              }
             }
           }));
         });
