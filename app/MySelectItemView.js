@@ -19,8 +19,8 @@ define([
     render: function() {
       this.$el.empty();
       this.$el.html(this.template({
-        title: this.data.title,
-        value: this.data.value
+        title: this.model.get('title'),
+        value: this.model.get('description')
       }));
 
       return this;

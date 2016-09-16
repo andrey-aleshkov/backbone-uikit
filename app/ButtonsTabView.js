@@ -8,7 +8,8 @@ define([
   '../uikit/UILabel',
   '../uikit/UIAccordion',
   '../uikit/UISelect',
-  'MySelectItemView'
+  'MySelectItemView',
+  'Collection'
 
 ], function($, _, Backbone,
             UIView,
@@ -17,7 +18,8 @@ define([
             UILabel,
             UIAccordion,
             UISelect,
-            MySelectItemView
+            MySelectItemView,
+            Collection
 ) {
   // ButtonsTabView
   return UIView.extend({
@@ -25,6 +27,7 @@ define([
 
     render: function() {
       var backBtn;
+      var collection;
 
       this.$el.empty();
 
@@ -83,19 +86,22 @@ define([
       }));
 
       // UISelect
+      collection = new Collection();
+      collection.add([{
+        title: 'First',
+        description: '11111'
+      }, {
+        title: 'Second',
+        description: '222222'
+      }, {
+        title: 'Third',
+        description: '33333'
+      }]);
+
       this.addSubview(new UISelect({
         class: 'my-select',
         ItemView: MySelectItemView,
-        options: [{
-          title: 'First',
-          value: 10
-        }, {
-          title: 'Second',
-          value: 21
-        }, {
-          title: 'Third',
-          value: 33
-        }]
+        collection: collection
       }));
 
       // NavigationBar

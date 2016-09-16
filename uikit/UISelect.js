@@ -11,6 +11,7 @@ define([
   // UISelect
   return UIView.extend({
     className: 'ui-view ui-select',
+    collection: null,
 
     selectedIndex: 0,
     opened: false,
@@ -18,7 +19,6 @@ define([
     buttonHeight: 40,
     listView: null,
     ItemView: null,
-    options: null,
     // multiSelect: false,
 
     render: function() {
@@ -27,10 +27,10 @@ define([
       // class
       this.$el.addClass(this.class);
 
-      if (this.options) {
+      if (this.collection) {
         // Button
         this.button = new UIButton({
-          label: thisView.options[this.selectedIndex].title,
+          label: thisView.collection.at(this.selectedIndex).get('title'),
           align: 'justify',
           iconOrder: 1,
           action: function() {
@@ -39,27 +39,27 @@ define([
         });
         this.addSubview(thisView.button);
 
-        // List of options
+        // List of models
         this.listView = new UIView({
           class: 'ui-select-list'
         });
         this.addSubview(this.listView);
 
-        this.options.forEach(function(option, index) {
+        this.collection.each(function(model, index) {
           thisView.listView.addSubview(new thisView.ItemView({
-            data: option,
+            model: model,
             events: {
               tapone: function() {
-                console.log(thisView.$el);
                 thisView.selectedIndex = index;
                 thisView.toggle();
               }
             }
           }));
         });
+
+        setTimeout(this.layout, 0);
       }
 
-      setTimeout(this.layout, 0);
       return this;
     },
 
@@ -78,7 +78,7 @@ define([
         // close
         this.opened = false;
         this.close();
-        this.button.setLabel(this.options[this.selectedIndex].title);
+        this.button.setLabel(this.collection.at(this.selectedIndex).get('title'));
       } else {
         // open
         this.opened = true;
