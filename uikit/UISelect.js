@@ -27,17 +27,17 @@ define([
       // class
       this.$el.addClass(this.class);
 
-      if (this.collection) {
+      if (this.collection.length) {
         // Button
         this.button = new UIButton({
-          label: thisView.collection.at(this.selectedIndex).get('title'),
+          label: this.collection.at(this.selectedIndex).get('title'),
           align: 'justify',
           iconOrder: 1,
           action: function() {
             this.superview.toggle();
           }
         });
-        this.addSubview(thisView.button);
+        this.addSubview(this.button);
 
         // List of models
         this.listView = new UIView({
