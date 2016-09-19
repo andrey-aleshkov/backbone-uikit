@@ -25,8 +25,8 @@ define(function(require) {
     UISelect: require('./uikit/UISelect'),
     alert: require('./uikit/alertView'),
     confirm: require('./uikit/confirmView'),
-    modal: require('./uikit/modalView')
-    // prompt: require('./uikit/UIPromptView'), // UIAlertViewStylePlainTextInput
+    modal: require('./uikit/modalView'),
+    prompt: require('./uikit/promptView') // UIAlertViewStylePlainTextInput
     // login: require('./uikit/UILoginView') // UIAlertViewStyleLoginAndPasswordInput
   };
 });

@@ -12,6 +12,7 @@ define([
   '../uikit/UIStepper',
   '../uikit/alertView',
   '../uikit/confirmView',
+  '../uikit/promptView',
   '../uikit/modalView',
   'InModalView'
 ], function($, _, Backbone,
@@ -25,6 +26,7 @@ define([
             UIStepper,
             alert,
             confirm,
+            prompt,
             modal,
             InModalView
 ) {
@@ -36,6 +38,8 @@ define([
       var showModalBtn;
       var showAlertBtn;
       var showConfirmBtn;
+      var showPromptBtn;
+
       this.$el.empty();
 
       // NavigationBar
@@ -99,10 +103,34 @@ define([
         }
       });
 
+      showPromptBtn = new UIButton({
+        label: 'Prompt',
+        action: function() {
+          /*
+           confirm('Title', 'This is a message.')
+           .then(
+           function() {
+           console.log('ok');
+           }, function() {
+           console.log('cancel');
+           }
+           );
+           */
+
+          prompt('Title', 'This is a message.', 'This is a placeholder')
+            .done(function(data) {
+              console.log('ok, data = ', data);
+            })
+            .fail(function() {
+              console.log('cancel');
+            });
+        }
+      });
+
       this.addSubview(new UINavigationBar({
         leftBarItems: [],
         centerBarItems: [new UILabel({text: this.title})],
-        rightBarItems: [signInBtn, showModalBtn, showAlertBtn, showConfirmBtn]
+        rightBarItems: [signInBtn, showModalBtn, showAlertBtn, showConfirmBtn, showPromptBtn]
       }));
 
       return this;

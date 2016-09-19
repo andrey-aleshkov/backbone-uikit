@@ -530,6 +530,7 @@
 .ui-confirm-view .confirm-ok-btn {
     flex: 1;
 }
+
 .ui-modal-view {
     position: absolute;
     top: 0;
@@ -544,6 +545,62 @@
     justify-content: center;
     align-items: center;
 }
+.ui-prompt-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-prompt-view .ui-prompt-content {
+    width: 300px;
+    min-height: 100px;
+    background: #fff;
+    border-radius: 10px;
+}
+.ui-prompt-view .prompt-title-label {
+    padding: 20px 10px 3px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 22px;
+    color: #030303;
+}
+.ui-prompt-view .prompt-message-label {
+    padding: 0 10px 17px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000;
+}
+.ui-prompt-view .prompt-input {
+    margin: 0 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.ui-prompt-view .buttons-place {
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.ui-prompt-view .prompt-cancel-btn {
+    border-right: 1px solid #ccc;
+    flex: 1;
+}
+.ui-prompt-view .prompt-ok-btn {
+    flex: 1;
+}
+
 .ui-dis {
     /*opacity:0.3;*/
 }

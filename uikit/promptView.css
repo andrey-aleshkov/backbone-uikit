@@ -1,4 +1,4 @@
-.ui-confirm-view {
+.ui-prompt-view {
     position: absolute;
     top: 0;
     left: 0;
@@ -12,13 +12,14 @@
     justify-content: center;
     align-items: center;
 }
-.ui-confirm-view .ui-confirm-content {
+
+.ui-prompt-view .ui-prompt-content {
     width: 300px;
     min-height: 100px;
     background: #fff;
     border-radius: 10px;
 }
-.ui-confirm-view .confirm-title-label {
+.ui-prompt-view .prompt-title-label {
     padding: 20px 10px 3px;
     text-align: center;
     font-weight: 500;
@@ -26,7 +27,7 @@
     line-height: 22px;
     color: #030303;
 }
-.ui-confirm-view .confirm-message-label {
+.ui-prompt-view .prompt-message-label {
     padding: 0 10px 17px;
     text-align: center;
     font-weight: 300;
@@ -34,16 +35,21 @@
     line-height: 22px;
     color: #000;
 }
-.ui-confirm-view .buttons-place {
+.ui-prompt-view .prompt-input {
+    margin: 0 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.ui-prompt-view .buttons-place {
     border-top: 1px solid #ccc;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
-.ui-confirm-view .confirm-cancel-btn {
+.ui-prompt-view .prompt-cancel-btn {
     border-right: 1px solid #ccc;
     flex: 1;
 }
-.ui-confirm-view .confirm-ok-btn {
+.ui-prompt-view .prompt-ok-btn {
     flex: 1;
 }
