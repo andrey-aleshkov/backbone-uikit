@@ -1,7 +1,7 @@
 # backbone-uikit
 
 This is a set of UI components inspired by the iOS UIKit Framework.
-The UIKit provides the crucial infrastructure needed to construct and manage web apps.
+The UIKit provides crucial infrastructure to construct and manage web apps.
 
 ## Classes
 
@@ -24,7 +24,7 @@ The UIKit provides the crucial infrastructure needed to construct and manage web
 
 ## UIView
 
-The UIView class defines a rectangular area on the screen and the interfaces for managing the content in that area.
+The UIView class defines a rectangular area on the screen and interfaces for content in that area.
 Because view objects are the main way your application interacts with the user, they have a number of responsibilities. Here are just a few:
 
 * Layout
@@ -286,7 +286,15 @@ css:
 
 ## Confirm
 
-    UIKit.confirm('Title', 'This is a message.');
+    UIKit.confirm('Title', 'This is a message.')
+        .done(function() {})
+        .fail(function() {});
+    
+## Prompt
+
+    UIKit.prompt('Title', 'This is a message.', 'This is a placeholder')
+        .done(function(data) {})
+        .fail(function() {});
 
 ## Modal
 
