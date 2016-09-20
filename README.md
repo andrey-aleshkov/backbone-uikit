@@ -21,6 +21,7 @@ The UIKit provides crucial infrastructure to construct and manage web apps.
 * UIScrollView
 * UIActivityIndicatorView
 * UIAccordion
+* UISelect
 
 ## UIView
 
@@ -277,6 +278,30 @@ css:
         }));
         return this;
     }
+
+## UISelect
+
+    render: function() {
+        var collection = new Collection();
+        collection.add([{
+            title: 'First',
+            description: 'First model'
+        }, {
+            title: 'Second',
+            description: 'Second model'
+        }, {
+            title: 'Third',
+            description: 'Third model'
+        }]);
+        
+        this.addSubview(new UISelect({
+            class: 'my-select',
+            ItemView: MySelectItemView,
+            collection: collection
+            }));
+        return this;
+    }
+
 
 ## Modality
 
