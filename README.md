@@ -293,7 +293,6 @@ css:
             title: 'Third',
             description: 'Third model'
         }]);
-        
         this.addSubview(new UISelect({
             class: 'my-select',
             ItemView: MySelectItemView,
