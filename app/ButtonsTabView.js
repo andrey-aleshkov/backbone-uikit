@@ -101,7 +101,10 @@ define([
       this.addSubview(new UISelect({
         class: 'my-select',
         ItemView: MySelectItemView,
-        collection: collection
+        collection: collection,
+        changeHandler: function() {
+          console.log(this.selectedIndex);
+        }
       }));
 
       // NavigationBar
