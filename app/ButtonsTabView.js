@@ -102,6 +102,7 @@ define([
         class: 'my-select',
         ItemView: MySelectItemView,
         collection: collection,
+        //disabled: true,
         changeHandler: function() {
           console.log(this.selectedIndex);
         }

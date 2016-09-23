@@ -29,6 +29,11 @@ define([
       // class
       this.$el.addClass(this.class);
 
+      // apply disabled
+      if (this.disabled) {
+        this.$el.addClass('ui-dis');
+      }
+
       if (this.collection.length) {
         // Button
         this.button = new UIButton({
@@ -77,18 +82,20 @@ define([
     },
 
     toggle: function() {
-      if (this.opened) {
-        // close
-        this.opened = false;
-        this.close();
-        this.button.setLabel(this.collection.at(this.selectedIndex).get('title'));
-        if (this.oldSelectedIndex !== this.selectedIndex && this.changeHandler) {
-          this.changeHandler();
+      if (!this.disabled) {
+        if (this.opened) {
+          // close
+          this.opened = false;
+          this.close();
+          this.button.setLabel(this.collection.at(this.selectedIndex).get('title'));
+          if (this.oldSelectedIndex !== this.selectedIndex && this.changeHandler) {
+            this.changeHandler();
+          }
+        } else {
+          // open
+          this.opened = true;
+          this.open();
         }
-      } else {
-        // open
-        this.opened = true;
-        this.open();
       }
     },
 
