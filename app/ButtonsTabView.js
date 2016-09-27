@@ -100,8 +100,10 @@ define([
 
       this.addSubview(new UISelect({
         class: 'my-select',
-        ItemView: MySelectItemView,
+        label: 'Zero',
+        //selectedIndex: 0,
         collection: collection,
+        ItemView: MySelectItemView,
         //disabled: true,
         changeHandler: function() {
           console.log(this.selectedIndex);
