@@ -57,7 +57,7 @@ define([
 
         this.textField = new UITextField({
           class: 'prompt-input',
-          // value: 123,
+          autofocus: true,
           placeholder: this.placeholder
         });
 

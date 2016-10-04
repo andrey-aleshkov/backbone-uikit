@@ -9,7 +9,7 @@ define([
   // UITextField
   return UIView.extend({
     className: 'ui-text-field',
-    templateInput: _.template('<input type="<%= type %>" class="input-text" id="<%= name %>" name="<%= name %>" placeholder="<%= placeholder %>" value="<%= value %>">'),
+    templateInput: _.template('<input type="<%= type %>" class="input-text" id="<%= name %>" name="<%= name %>" placeholder="<%= placeholder %>" value="<%= value %>" <%= autofocus %>>'),
     templateData: _.template('<div class="data-text" id="<%= name %>"><%= value %></div>'),
     templatePhoneNumber: _.template('<div class="data-text"><a href="tel:+<%= value %>">+<%= value %></a></div>'),
     model: null,
@@ -19,6 +19,7 @@ define([
     type: 'text',
     name: '',
     placeholder: '',
+    autofocus: false,
     editable: true,
     phoneNumber: false,
 
@@ -35,7 +36,8 @@ define([
         type: this.type,
         name: this.name,
         value: this.value,
-        placeholder: this.placeholder
+        placeholder: this.placeholder,
+        autofocus: this.autofocus ? 'autofocus' : ''
       };
       this.$el.empty();
       if (this.editable) {
