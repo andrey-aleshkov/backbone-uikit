@@ -137,6 +137,12 @@
     background: #999;
 }
 
+.my-acc-button-view {
+    height: 40px;
+    background: #528CE0;
+    border-bottom: 2px solid #000;
+}
+
 .first-acc-view {
     height: 70px;
     background: #528CE0;

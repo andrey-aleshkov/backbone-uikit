@@ -13,6 +13,8 @@ define([
   // UIAccordion
   return UIView.extend({
     className: 'ui-view ui-accordion',
+    items: null,
+    buttons: null,
     // selectedIndexes: null,
     // multiSelect: false,
 
@@ -22,7 +24,8 @@ define([
         var state = new UIAccordionState({
           // opened: true
           index: index,
-          item: item
+          item: item,
+          button: thisView.buttons ? thisView.buttons[index] : null
         });
         thisView.addSubview(state);
       });

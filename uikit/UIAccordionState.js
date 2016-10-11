@@ -12,23 +12,34 @@ define([
   return UIView.extend({
     className: 'ui-view ui-accordion-state',
     index: 0,
-    item: false,
+    item: null,
+    button: null,
     opened: false,
     $button: null,
     buttonHeight: 40,
 
     render: function() {
-      var button = new UIButton({
-        label: this.item.title,
-        align: 'justify',
-        iconOrder: 1,
-        action: function() {
-          // console.log(this.superview.index);
-          this.superview.toggle();
-        }
-      });
-      this.addSubview(button);
-      this.$button = button.$el;
+      if (this.button) {
+        console.log('use custom view');
+        // use custom view
+        this.addSubview(this.button);
+        this.$button = this.button.$el;
+      } else {
+        console.log('create UIButton');
+        // create UIButton
+        this.button = new UIButton({
+          label: this.item.title,
+          align: 'justify',
+          iconOrder: 1,
+          action: function() {
+            // console.log(this.superview.index);
+            this.superview.toggle();
+          }
+        });
+        this.addSubview(this.button);
+        this.$button = this.button.$el;
+      }
+
       this.addSubview(this.item);
       setTimeout(this.layout, 0);
       return this;

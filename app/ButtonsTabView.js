@@ -9,7 +9,8 @@ define([
   '../uikit/UIAccordion',
   '../uikit/UISelect',
   'MySelectItemView',
-  'Collection'
+  'Collection',
+  'MyAccordionButtonView'
 
 ], function($, _, Backbone,
             UIView,
@@ -19,7 +20,8 @@ define([
             UIAccordion,
             UISelect,
             MySelectItemView,
-            Collection
+            Collection,
+            MyAccordionButtonView
 ) {
   // ButtonsTabView
   return UIView.extend({
@@ -69,6 +71,15 @@ define([
       // UIAccordion
       this.addSubview(new UIAccordion({
         class: 'my-accordion',
+        buttons: [
+          new MyAccordionButtonView({
+            title: 'First',
+            price: '100 руб.'
+          }),
+          new MyAccordionButtonView({
+            title: 'Second'
+          })
+        ],
         items: [
           new UIView({
             class: 'first-acc-view',
