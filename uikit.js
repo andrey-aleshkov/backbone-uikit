@@ -26,7 +26,8 @@ define(function(require) {
     alert: require('./uikit/alertView'),
     confirm: require('./uikit/confirmView'),
     modal: require('./uikit/modalView'),
-    prompt: require('./uikit/promptView') // UIAlertViewStylePlainTextInput
+    prompt: require('./uikit/promptView'), // UIAlertViewStylePlainTextInput
+    actionSheet: require('./uikit/actionSheet') // UIActionSheet
     // login: require('./uikit/UILoginView') // UIAlertViewStyleLoginAndPasswordInput
   };
 });

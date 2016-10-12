@@ -10,6 +10,7 @@ define([
   '../uikit/UITextField',
   '../uikit/UITextView',
   '../uikit/UIStepper',
+  '../uikit/actionSheet',
   '../uikit/alertView',
   '../uikit/confirmView',
   '../uikit/promptView',
@@ -24,6 +25,7 @@ define([
             UITextField,
             UITextView,
             UIStepper,
+            actionSheet,
             alert,
             confirm,
             prompt,
@@ -34,6 +36,7 @@ define([
   return UIView.extend({
     id: 'modals-tab-view',
     render: function() {
+      var actionSheetBtn;
       var signInBtn;
       var showModalBtn;
       var showAlertBtn;
@@ -43,6 +46,23 @@ define([
       this.$el.empty();
 
       // NavigationBar
+      actionSheetBtn = new UIButton({
+        label: 'ActionSheet',
+        action: function() {
+          actionSheet('Message', [{
+            label: 'Action 00',
+            action: function() {
+              console.log('Action 00');
+            }
+          }, {
+            label: 'Action 01',
+            action: function() {
+              console.log('Action 01');
+            }
+          }]);
+        }
+      });
+
       signInBtn = new UIButton({
         label: 'Login',
         action: function() {
@@ -130,7 +150,7 @@ define([
       this.addSubview(new UINavigationBar({
         leftBarItems: [],
         centerBarItems: [new UILabel({text: this.title})],
-        rightBarItems: [signInBtn, showModalBtn, showAlertBtn, showConfirmBtn, showPromptBtn]
+        rightBarItems: [actionSheetBtn, signInBtn, showModalBtn, showAlertBtn, showConfirmBtn, showPromptBtn]
       }));
 
       return this;
