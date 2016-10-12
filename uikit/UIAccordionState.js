@@ -20,12 +20,10 @@ define([
 
     render: function() {
       if (this.button) {
-        console.log('use custom view');
         // use custom view
         this.addSubview(this.button);
         this.$button = this.button.$el;
       } else {
-        console.log('create UIButton');
         // create UIButton
         this.button = new UIButton({
           label: this.item.title,

@@ -26,13 +26,14 @@ define([
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
-
+      this.listenTo(this.collection, 'update', this.render);
       this.oldSelectedIndex = this.selectedIndex;
     },
 
     render: function() {
       var thisView = this;
 
+      this.$el.empty();
       // class
       this.$el.addClass(this.class);
 
