@@ -73,9 +73,19 @@
     width: 600px;
     height: 400px;
     background: #ffcaca;
+    z-index: 2;
 }
 .in-modal-button {
     background: #000;
+}
+.in-modal-close-button {
+    /*position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    height: 100%;*/
+    background: rgba(0,0,0,.5);
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */

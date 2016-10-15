@@ -73,7 +73,11 @@ define([
       showModalBtn = new UIButton({
         label: 'Modal',
         action: function() {
-          modal(new InModalView())
+          var thisModal = modal(new InModalView());
+          thisModal
+            .progress(function() {
+              console.log('modal overlay');
+            })
             .done(function() {
               console.log('modal ok');
             })
@@ -137,7 +141,12 @@ define([
            );
            */
 
-          prompt('Title', 'This is a message.', 'This is a placeholder')
+          prompt(
+            'Title',
+            'This is a message.',
+            'This is a placeholder',
+            'This is a default value'
+          )
             .done(function(data) {
               console.log('ok, data = ', data);
             })

@@ -18,7 +18,7 @@ define([
       this.$el.empty();
       this.addSubview(new UIButton({
         label: 'Close',
-        class: 'in-modal-button',
+        class: 'in-modal-close-button',
         action: function() {
           thisView.superview.reject();
         }

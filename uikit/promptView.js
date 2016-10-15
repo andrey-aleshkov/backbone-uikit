@@ -13,7 +13,7 @@ define([
             UITextField
 ) {
   // UIPromptView
-  return function(title, message, placeholder) {
+  return function(title, message, placeholder, value) {
     var UIPromptView;
     var promptView;
     var deferred = $.Deferred();
@@ -31,6 +31,7 @@ define([
       title: '',
       message: '',
       placeholder: '',
+      value: null,
       textField: null,
 
       render: function() {
@@ -58,7 +59,8 @@ define([
         this.textField = new UITextField({
           class: 'prompt-input',
           autofocus: true,
-          placeholder: this.placeholder
+          placeholder: this.placeholder,
+          value: this.value
         });
 
         this.addSubview(this.textField, this.$inputPlace);
@@ -106,7 +108,8 @@ define([
     promptView = new UIPromptView({
       title: title,
       message: message,
-      placeholder: placeholder
+      placeholder: placeholder,
+      value: value ? value : ''
     });
 
     promptView.show();

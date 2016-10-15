@@ -15,10 +15,14 @@ define([
     UIModalView = UIView.extend({
       className: 'ui-modal-view',
       contentView: null,
+      obj: null,
+
+      events: {
+        tapone: 'notify'
+      },
 
       render: function() {
         this.$el.empty();
-        this.$el.html(this.template);
 
         if (this.contentView) {
           this.addSubview(this.contentView);
@@ -44,6 +48,10 @@ define([
       reject: function(data) {
         deferred.reject(data);
         this.hide();
+      },
+
+      notify: function(data) {
+        deferred.notify(data);
       }
     });
 
