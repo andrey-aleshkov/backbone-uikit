@@ -53,7 +53,10 @@ define([
           this.addSubview(new UIButton({
             class: 'action-sheet-action-btn',
             label: action.label,
-            action: action.action
+            action: () => {
+              this.resolve();
+              action.action();
+            }
           }), this.$actions);
         });
 
