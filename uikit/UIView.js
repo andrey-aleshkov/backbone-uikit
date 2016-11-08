@@ -84,22 +84,19 @@ define([
               eventСounter++;
               break;
             case 'swipemove':
-              // just copy
-              events[key] = this.events[key];
-              eventСounter++;
-              break;
             case 'pinch':
-              // just copy
-              events[key] = this.events[key];
-              eventСounter++;
-              break;
             case 'tapone':
+            case 'mouseenter':
+            case 'mouseover':
+            case 'mouseleave':
+            case 'mousemove':
+            case 'mouseout':
               // just copy
               events[key] = this.events[key];
               eventСounter++;
               break;
             default:
-              console.error('Sorry, unknown key');
+              console.error('UIView: Sorry, unknown event name');
           }
         }
       }

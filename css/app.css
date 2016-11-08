@@ -117,13 +117,18 @@
 }
 .wood-scroll-view {
     height: 640px;
+    background: #777;
 }
 .wood-view {
+    /*width: 2592px;
+    height: 1728px;*/
+
     width: 2592px;
-    height: 1728px;
+    height: 300px;
 
     background: url(../img/wood@2x.jpg) no-repeat 0 0;
-    background-size: 2592px 1728px;
+    /*background-size: 2592px 1728px;*/
+    background-size: 2592px 300px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */

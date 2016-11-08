@@ -6,13 +6,15 @@ define([
   '../uikit/UINavigationBar',
   '../uikit/UIButton',
   '../uikit/UILabel',
-  '../uikit/UIScrollView'
+  '../uikit/UIScrollView',
+  './WoodView'
 ], function($, _, Backbone,
             UIView,
             UINavigationBar,
             UIButton,
             UILabel,
-            UIScrollView
+            UIScrollView,
+            WoodView
 ) {
   // MiscTabView
   return UIView.extend({
@@ -23,9 +25,8 @@ define([
         maximumScale: 3,
         minimumScale: 0.08
       });
-      var woodView = new UIView({
-        class: 'wood-view'
-      });
+      var woodView = new WoodView();
+
       this.$el.empty();
       this.addSubview(new UINavigationBar({
         title: 'Nav',
