@@ -92,6 +92,43 @@
 .ui-btn:active,
 .ui-btn.fake-active {
 }
+.ui-checkbox {
+    display: flex;
+    flex: 0;
+    align-self: flex-start;
+    padding: 0 6px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.ui-checkbox input[type=checkbox] {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+}
+
+.ui-checkbox label {
+    position: absolute;
+    top: 1px;
+    left: 0;
+
+    width: 22px;
+    height: 22px;
+
+    /*background: url(img/checkbox-white.png) no-repeat 0 0;
+    background-size: 44px 22px;*/
+    background: #528CE0;
+
+    cursor: pointer;
+}
+
+.ui-checkbox input[type=checkbox]:checked + label {
+    /*background-position: -22px 0;*/
+    background: #710909;
+}
+
 .ui-image-view {
     overflow: hidden;
     box-sizing: border-box;

@@ -8,6 +8,7 @@ define([
   '../uikit/UILabel',
   '../uikit/UIAccordion',
   '../uikit/UISelect',
+  '../uikit/UICheckbox',
   'MySelectItemView',
   'Collection',
   'MyAccordionButtonView'
@@ -19,6 +20,7 @@ define([
             UILabel,
             UIAccordion,
             UISelect,
+            UICheckbox,
             MySelectItemView,
             Collection,
             MyAccordionButtonView
@@ -119,6 +121,11 @@ define([
         changeHandler: function() {
           console.log(this.selectedIndex);
         }
+      }));
+
+      this.addSubview(new UICheckbox({
+        name: 'my-select',
+        checked: false
       }));
 
       // NavigationBar

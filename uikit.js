@@ -23,6 +23,7 @@ define(function(require) {
     UIActivityIndicatorView: require('./uikit/UIActivityIndicatorView'),
     UIAccordion: require('./uikit/UIAccordion'),
     UISelect: require('./uikit/UISelect'),
+    UICheckbox: require('./uikit/UICheckbox'),
     alert: require('./uikit/alertView'),
     confirm: require('./uikit/confirmView'),
     modal: require('./uikit/modalView'),
