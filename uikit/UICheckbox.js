@@ -32,15 +32,19 @@ define([
         checked: this.checked ? 'checked' : ''
       }));
 
-      return this;
-    },
+      // class
+      this.$el.addClass(this.class);
 
-    taponeHandler: function() {
-      if (this.action && this.disabled === false) {
-        this.action();
-      } else {
-        // disabled or there is no action
+      // apply disabled
+      if (this.disabled) {
+        this.$el.addClass('ui-dis');
       }
+      // apply hidden
+      if (this.hidden) {
+        this.$el.addClass('ui-hid');
+      }
+
+      return this;
     }
   });
 });

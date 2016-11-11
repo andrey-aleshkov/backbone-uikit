@@ -1,36 +1,29 @@
 .ui-checkbox {
-    display: flex;
-    flex: 0;
-    align-self: flex-start;
-    padding: 0 6px 0 0;
     position: relative;
-    width: 100%;
+    width: 20px;
+    height: 20px;
 }
 
 .ui-checkbox input[type=checkbox] {
     visibility: hidden;
     margin: 0;
     padding: 0;
-    width: 22px;
-    height: 22px;
+    width: 100%;
+    height: 100%;
 }
 
 .ui-checkbox label {
     position: absolute;
-    top: 1px;
+    top: 0;
     left: 0;
 
-    width: 22px;
-    height: 22px;
-
-    /*background: url(img/checkbox-white.png) no-repeat 0 0;
-    background-size: 44px 22px;*/
+    width: 100%;
+    height: 100%;
     background: #528CE0;
 
     cursor: pointer;
 }
 
 .ui-checkbox input[type=checkbox]:checked + label {
-    /*background-position: -22px 0;*/
     background: #710909;
 }
