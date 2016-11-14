@@ -13,8 +13,6 @@ define([
     model: null,
     attribute: '',
     text: '',
-    width: null,
-    textAlignment: null,
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
@@ -25,17 +23,19 @@ define([
     },
 
     render: function() {
-      var styleAttrLine = '';
       this.$el.empty();
       // set additional CSS-class
       this.setClass(this.class);
+      // apply hidden
+      if (this.hidden) {
+        this.$el.addClass('ui-hid');
+      }
       // set text
-      this.$el.html(this.text);
-      // style
-      if (this.width !== null) styleAttrLine += 'width:' + this.width + '; ';
-      if (this.textAlignment !== null) styleAttrLine += 'text-align:' + this.textAlignment + '; ';
-      if (styleAttrLine) this.$el.attr('style', styleAttrLine);
-      this.update();
+      if (this.model) {
+        this.setText(this.model.get(this.attribute));
+      } else {
+        this.$el.html(this.text);
+      }
 
       return this;
     },

@@ -15,6 +15,7 @@ define([
     model: null,
     attribute: '',
     value: '',
+    valid: true,
     $input: null,
     type: 'text',
     name: '',
@@ -45,7 +46,9 @@ define([
         this.$el.html(this.templateInput(json));
         this.$input = this.$el.find('input');
         // events
+        this.$input.on('focus', this.focusHandler);
         this.$input.on('change keyup paste', this.changeHandler);
+        this.$input.on('blur', this.blurHandler);
       } else {
         if (!this.phoneNumber) {
           // just text data
@@ -75,12 +78,25 @@ define([
       this.render();
     },
 
+    setValid: function(valid) {
+      this.valid = valid;
+      if (valid) {
+        this.$el.removeClass('invalid').addClass('valid');
+      } else {
+        this.$el.removeClass('valid').addClass('invalid');
+      }
+    },
+
+    focusHandler: function() {},
+
     changeHandler: function() {
       this.value = this.$input.val();
       if (this.model) {
         this.model.set(this.attribute, this.value);
       }
     },
+
+    blurHandler: function() {},
 
     focus: function() {
       this.$input.focus();
