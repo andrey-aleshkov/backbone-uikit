@@ -53,21 +53,22 @@ define([
     },
 
     open: function() {
+      this.superview.subviews.forEach((item) => {
+        item.close();
+      });
+      this.opened = true;
       this.$el.removeAttr('style').addClass('state-opened');
     },
 
     close: function() {
+      this.opened = false;
       this.$el.attr('style', 'height: ' + this.buttonHeight + 'px;').removeClass('state-opened');
     },
 
     toggle: function() {
       if (this.opened) {
-        // close
-        this.opened = false;
         this.close();
       } else {
-        // open
-        this.opened = true;
         this.open();
       }
     }
