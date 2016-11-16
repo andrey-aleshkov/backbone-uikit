@@ -9,13 +9,6 @@ define([
   // UICheckbox
   return UIView.extend({
     className: 'ui-checkbox',
-    template: _.template(`
-      <input type="checkbox"
-             id="<%= name %>" name="<%= name %>"
-             <%= checked %>
-      />
-      <label for="<%= name %>"></label>
-    `),
     name: '',
     checked: false,
     events: {
@@ -27,10 +20,10 @@ define([
 
     render: function() {
       this.$el.empty();
-      this.$el.html(this.template({
-        name: this.name,
-        checked: this.checked ? 'checked' : ''
-      }));
+
+      if (this.checked) {
+        this.$el.addClass('checked');
+      }
 
       // class
       this.$el.addClass(this.class);
@@ -45,6 +38,18 @@ define([
       }
 
       return this;
+    },
+
+    taponeHandler: function() {
+      if (this.checked) {
+        // uncheck
+        this.$el.removeClass('checked');
+        this.checked = false;
+      } else {
+        // check
+        this.$el.addClass('checked');
+        this.checked = true;
+      }
     }
   });
 });
