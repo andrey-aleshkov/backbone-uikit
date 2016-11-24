@@ -49,6 +49,7 @@ define([
         this.$input.on('focus', this.focusHandler);
         this.$input.on('change keyup paste', this.changeHandler);
         this.$input.on('keypress', this.keypressHandler);
+        this.$input.on('keydown', this.keydownHandler);
         this.$input.on('blur', this.blurHandler);
       } else {
         if (!this.phoneNumber) {
@@ -91,6 +92,8 @@ define([
     focusHandler: function() {},
 
     keypressHandler: function() {},
+
+    keydownHandler: function() {},
 
     changeHandler: function() {
       this.value = this.$input.val();
