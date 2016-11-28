@@ -23,7 +23,19 @@ define([
       var scrollView = new UIScrollView({
         class: 'wood-scroll-view',
         maximumScale: 3,
-        minimumScale: 0.08
+        minimumScale: 0.08,
+        testHandler: function() {
+          console.log('testHandler, x:y = ' + this.translate.x + ':' + this.translate.y);
+          console.log('this.currentScale = ', this.currentScale);
+
+          if (this.translate.x < 0) {
+            this.translate.x = 0;
+          }
+
+          if (this.translate.y < 0) {
+            this.translate.y = 0;
+          }
+        }
       });
       var woodView = new WoodView();
 

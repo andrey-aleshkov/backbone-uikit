@@ -18,19 +18,19 @@ define([
     },
 
     mouseenterHandler: function() {
-      console.log('mouseenterHandler');
+      //console.log('mouseenterHandler');
     },
 
     mouseoverHandler: function() {
-      console.log('mouseoverHandler');
+      //console.log('mouseoverHandler');
     },
 
     mouseleaveHandler: function() {
-      console.log('mouseleaveHandler');
+      //console.log('mouseleaveHandler');
     },
 
     mousemoveHandler: function() {
-      console.log('mousemoveHandler');
+      //console.log('mousemoveHandler');
     }
   });
 });

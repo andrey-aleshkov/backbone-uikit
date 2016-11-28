@@ -197,7 +197,10 @@ define([
         default:
       }
 
+      this.testHandler();
       this.applyTransforms();
-    }
+    },
+
+    testHandler: function() {}
   });
 });
