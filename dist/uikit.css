@@ -123,6 +123,7 @@
     text-align: left;
     /*color:rgb(96,96,96);*/
     color: #000;
+    cursor: default;
 }
 .ui-label.ui-invalid {
     color:rgb(255,96,96);
