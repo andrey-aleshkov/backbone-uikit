@@ -26,7 +26,12 @@ define([
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
-      this.listenTo(this.collection, 'update', this.render);
+      this.listenTo(this.collection, 'update', () => {
+        if (this.collection.length === 1) {
+          this.selectedIndex = 0;
+        }
+        this.render();
+      });
       this.oldSelectedIndex = this.selectedIndex;
     },
 
