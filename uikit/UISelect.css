@@ -2,18 +2,26 @@
     overflow: visible !important;
     position: relative;
 }
-.ui-select-list {
+.ui-select-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    display: none;
-    background: inherit;
+    right: 0;
+    bottom: 0;
+    /*background: rgba(0,0,0,.7);*/
 }
-.ui-select.state-opened .ui-select-list {
-    display: block;
+.ui-select-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
-
+.ui-select-list-content {
+    background: #528CE0;
+    overflow-y: scroll !important;
+    border-radius: 10px;
+}
 .ui-select > .ui-btn .btn-icon {
     width: 10px;
     height: 10px;

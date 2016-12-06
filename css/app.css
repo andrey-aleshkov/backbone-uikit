@@ -173,10 +173,18 @@
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 .my-select {
+    margin: 0 0 0 40px;
+    width: 295px;
     background: #bbb;
     border-radius: 10px;
 }
+/*
+.ui-select-list {
+    padding: 10px 0 0;
+}
+*/
 .my-select-item-view {
     /*background: rgba(255,255,255,0.5);*/
+    background: #bbb;
     border-top: 1px solid #333;
 }

@@ -109,6 +109,24 @@ define([
       }, {
         title: 'Third',
         description: '33333'
+      }, {
+        title: '4th',
+        description: '44444'
+      }, {
+        title: '5th',
+        description: '55555'
+      }, {
+        title: '6th',
+        description: '66666'
+      }, {
+        title: '7th',
+        description: '77777'
+      }, {
+        title: '8th',
+        description: '88888'
+      }, {
+        title: '9th',
+        description: '99999'
       }]);
 
       this.addSubview(new UISelect({
