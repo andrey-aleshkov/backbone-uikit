@@ -196,16 +196,10 @@
     left: 0;
 }
 .ui-select-list-content {
-    background: #528CE0;
+    background: #fff;
     overflow-y: scroll !important;
     border-radius: 10px;
 }
-/*
-.ui-select.state-opened .ui-select-list {
-    display: block;
-}
-*/
-
 .ui-select > .ui-btn .btn-icon {
     width: 10px;
     height: 10px;

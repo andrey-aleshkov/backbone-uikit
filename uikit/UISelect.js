@@ -108,7 +108,6 @@ define([
         class: 'ui-select-overlay',
         events: {
           'tapone': () => {
-            console.log('tapone');
             this.toggle();
           }
         }
