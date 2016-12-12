@@ -11,7 +11,7 @@ define([
             UILabel
 ) {
   // UIConfirmView
-  return function(title, message) {
+  return function(title, message, cancelButtonLabel, okButtonLabel) {
     var UIConfirmView;
     var confirmView;
     var deferred = $.Deferred();
@@ -27,6 +27,8 @@ define([
       $buttonsPlace: null,
       title: '',
       message: '',
+      cancelButtonLabel: null,
+      okButtonLabel: null,
 
       render: function() {
         this.$el.empty();
@@ -47,13 +49,13 @@ define([
 
         this.addSubview(new UIButton({
           class: 'confirm-cancel-btn',
-          label: 'Cancel',
+          label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
           action: this.reject
         }), this.$buttonsPlace);
 
         this.addSubview(new UIButton({
           class: 'confirm-ok-btn',
-          label: 'OK',
+          label: okButtonLabel ? okButtonLabel : 'OK',
           action: this.resolve
         }), this.$buttonsPlace);
 
@@ -81,7 +83,9 @@ define([
 
     confirmView = new UIConfirmView({
       title: title,
-      message: message
+      message: message,
+      cancelButtonLabel: cancelButtonLabel,
+      okButtonLabel: okButtonLabel
     });
 
     confirmView.show();

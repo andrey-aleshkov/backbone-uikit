@@ -11,7 +11,7 @@ define([
             UILabel
 ) {
   // UIActionSheet
-  return function(title, actions) {
+  return function(title, actions, cancelButtonLabel) {
     var UIActionSheet;
     var actionSheetView;
     var deferred = $.Deferred();
@@ -30,6 +30,7 @@ define([
       $cancelPlace: null,
       title: '',
       actions: '',
+      cancelButtonLabel: null,
 
       render: function() {
         this.$el.empty();
@@ -62,7 +63,7 @@ define([
 
         this.addSubview(new UIButton({
           class: 'action-sheet-cancel-btn',
-          label: 'Cancel',
+          label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
           action: this.resolve
         }), this.$cancelPlace);
 
@@ -85,7 +86,8 @@ define([
 
     actionSheetView = new UIActionSheet({
       title: title,
-      actions: actions
+      actions: actions,
+      cancelButtonLabel: cancelButtonLabel
     });
 
     actionSheetView.show();

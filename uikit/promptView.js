@@ -13,7 +13,7 @@ define([
             UITextField
 ) {
   // UIPromptView
-  return function(title, message, placeholder, value) {
+  return function(title, message, placeholder, value, cancelButtonLabel, okButtonLabel) {
     var UIPromptView;
     var promptView;
     var deferred = $.Deferred();
@@ -32,6 +32,8 @@ define([
       message: '',
       placeholder: '',
       value: null,
+      cancelButtonLabel: null,
+      okButtonLabel: null,
       textField: null,
 
       render: function() {
@@ -69,13 +71,13 @@ define([
 
         this.addSubview(new UIButton({
           class: 'prompt-cancel-btn',
-          label: 'Cancel',
+          label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
           action: this.reject
         }), this.$buttonsPlace);
 
         this.addSubview(new UIButton({
           class: 'prompt-ok-btn',
-          label: 'OK',
+          label: okButtonLabel ? okButtonLabel : 'OK',
           action: this.resolveWithData
         }), this.$buttonsPlace);
 
@@ -109,7 +111,9 @@ define([
       title: title,
       message: message,
       placeholder: placeholder,
-      value: value ? value : ''
+      value: value ? value : '',
+      cancelButtonLabel: cancelButtonLabel,
+      okButtonLabel: okButtonLabel
     });
 
     promptView.show();

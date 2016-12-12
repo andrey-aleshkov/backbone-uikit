@@ -59,7 +59,7 @@ define([
             action: function() {
               console.log('Action 01');
             }
-          }]);
+          }], 'Отмена');
         }
       });
 
@@ -90,7 +90,7 @@ define([
       showAlertBtn = new UIButton({
         label: 'Alert',
         action: function() {
-          alert('Title', 'This is a message.')
+          alert('Title', 'This is a message.', 'Хорошо')
             .done(function() {
               console.log('ok');
             });
@@ -111,7 +111,7 @@ define([
             );
           */
 
-          confirm('Title', 'This is a message.')
+          confirm('Title', 'This is a message.', null, 'Хорошо')
             .done(function() {
               console.log('ok');
             })
@@ -145,7 +145,9 @@ define([
             'Title',
             'This is a message.',
             'This is a placeholder',
-            'This is a default value'
+            'This is a default value',
+            'Отмена',
+            'Хорошо'
           )
             .done(function(data) {
               console.log('ok, data = ', data);

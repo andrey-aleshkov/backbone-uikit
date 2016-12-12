@@ -11,7 +11,7 @@ define([
             UILabel
 ) {
   // UIAlertView
-  return function(title, message) {
+  return function(title, message, okButtonLabel) {
     var UIAlertView;
     var alertView;
     var deferred = $.Deferred();
@@ -23,6 +23,7 @@ define([
       $content: null,
       title: '',
       message: '',
+      okButtonLabel: null,
 
       render: function() {
         this.$el.empty();
@@ -41,7 +42,7 @@ define([
 
         this.addSubview(new UIButton({
           class: 'alert-ok-btn',
-          label: 'OK',
+          label: okButtonLabel ? okButtonLabel : 'OK',
           action: this.resolve
         }), this.$content);
 
@@ -64,7 +65,8 @@ define([
 
     alertView = new UIAlertView({
       title: title,
-      message: message
+      message: message,
+      okButtonLabel: okButtonLabel
     });
 
     alertView.show();
