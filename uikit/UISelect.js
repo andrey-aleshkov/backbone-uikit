@@ -12,6 +12,7 @@ define([
   return UIView.extend({
     className: 'ui-view ui-select',
     collection: null,
+    model: null,
 
     oldSelectedIndex: null,
     selectedIndex: -1,
@@ -29,15 +30,28 @@ define([
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
+
+      if (this.collection.length) {
+        if (this.selectedIndex > -1) {
+          this.selectedId = this.collection.at(this.selectedIndex).get('id');
+        } else if (this.selectedId) {
+          this.model = this.collection.findWhere({
+            id: this.selectedId
+          });
+          this.selectedIndex = this.collection.indexOf(this.model);
+        }
+      }
+
+      this.oldSelectedIndex = this.selectedIndex;
+
       // TODO: should I add 'reset' and 'sort'?
       this.listenTo(this.collection, 'update', () => {
-        console.log('update');
-        var selectedModel = this.collection.findWhere({
+        this.model = this.collection.findWhere({
           id: this.selectedId
         });
 
-        if (selectedModel) {
-          this.selectedIndex = this.collection.indexOf(selectedModel);
+        if (this.model) {
+          this.selectedIndex = this.collection.indexOf(this.model);
         } else {
           this.selectedIndex = 0;
           if (this.collection.length && this.selectedIndex > -1) {
@@ -47,7 +61,6 @@ define([
 
         this.render();
       });
-      this.oldSelectedIndex = this.selectedIndex;
     },
 
     render: function() {
