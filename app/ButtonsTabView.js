@@ -101,30 +101,39 @@ define([
       // UISelect
       collection = new Collection();
       collection.add([{
+        id: '1',
         title: 'First',
         description: '11111'
       }, {
+        id: '2',
         title: 'Second',
         description: '222222'
       }, {
+        id: '3',
         title: 'Third',
         description: '33333'
       }, {
+        id: '4',
         title: '4th',
         description: '44444'
       }, {
+        id: '5',
         title: '5th',
         description: '55555'
       }, {
+        id: '6',
         title: '6th',
         description: '66666'
       }, {
+        id: '7',
         title: '7th',
         description: '77777'
       }, {
+        id: '8',
         title: '8th',
         description: '88888'
       }, {
+        id: '9',
         title: '9th',
         description: '99999'
       }]);
