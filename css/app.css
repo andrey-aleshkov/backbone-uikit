@@ -184,7 +184,12 @@
 }
 */
 .my-select-item-view {
+    position: relative; /* this is optional */
     /*background: rgba(255,255,255,0.5);*/
     background: #bbb;
     border-top: 1px solid #333;
+}
+.my-select-item-view:hover {
+    background: #528CE0;
+    color: #fff;
 }

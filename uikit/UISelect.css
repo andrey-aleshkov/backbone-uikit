@@ -18,9 +18,12 @@
     left: 0;
 }
 .ui-select-list-content {
-    background: #fff;
+    /*background: #fff;*/
     overflow-y: scroll !important;
     border-radius: 10px;
+
+    transform: translate3d(0px,0px,0px);
+    backface-visibility: hidden;
 }
 .ui-select > .ui-btn .btn-icon {
     width: 10px;
