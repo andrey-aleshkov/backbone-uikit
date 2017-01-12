@@ -18,8 +18,8 @@
     left: 0;
 }
 .ui-select-list-content {
-    /*background: #fff;*/
     overflow-y: scroll !important;
+    /*background: #fff;*/
     border-radius: 10px;
 
     transform: translate3d(0px,0px,0px);
