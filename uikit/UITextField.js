@@ -18,6 +18,23 @@ define([
     valid: true,
     $input: null,
     type: 'text',
+    autocomplete: '',
+    // Email
+    // email
+
+    // Phone
+    // tel
+
+    // Credit Card
+    // cc-name
+    // cc-number cc-csc cc-exp-month cc-exp-year cc-exp cc-type
+
+    // Name
+    // name (full name) given-name (first name) additional-name (middle name) family-name (last name)
+
+    // Address
+    // For one address input: street-address
+    // For two address inputs: address-line1 , address-line2 address-level1 (state or province) address-level2 (city) postal-code (zip code) country
     name: '',
     placeholder: '',
     autofocus: false,
@@ -45,9 +62,14 @@ define([
         // input
         this.$el.html(this.templateInput(json));
         this.$input = this.$el.find('input');
+        // autocomplete
+        if (this.autocomplete) {
+          this.$input.attr('autocomplete', this.autocomplete);
+        }
         // events
         this.$input.on('focus', this.focusHandler);
-        this.$input.on('change keyup paste', this.changeHandler);
+        // this.$input.on('change keyup paste', this.changeHandler); // no autocomplete, old browsers support
+        this.$input.on('input', this.changeHandler); // respect autocomplete, IE 10+
         this.$input.on('keypress', this.keypressHandler);
         this.$input.on('keydown', this.keydownHandler);
         this.$input.on('blur', this.blurHandler);

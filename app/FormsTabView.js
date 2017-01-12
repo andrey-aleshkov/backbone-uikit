@@ -32,6 +32,9 @@ define([
       });
 
       this.addSubview(new UITextField({
+        type: 'tel',
+        autocomplete: 'tel',
+        name: 'phone',
         // value: 123,
         model: dataModel,
         attribute: 'number',
