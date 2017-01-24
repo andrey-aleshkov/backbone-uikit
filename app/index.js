@@ -6,9 +6,9 @@ requirejs.config({
   },
   paths: {
     jquery: '../libs/jquery/jquery-2.1.1.min',
-    underscore: '../libs/underscore/underscore-1.3.3',
-    backbone: '../libs/backbone/backbone-1.1.2',
-    jgestures: '../libs/jgestures/jgestures-0.90'
+    underscore: '../libs/underscore/underscore-1.8.3',
+    backbone: '../libs/backbone/backbone-1.3.3',
+    jgestures: '../libs/jgestures/jgestures-0.90.1'
   },
   shim: {
     'underscore': {

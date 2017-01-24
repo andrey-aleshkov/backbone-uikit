@@ -69,8 +69,9 @@ define([
       this.$icon.addClass('icon--' + newIcon);
     },
 
-    taponeHandler: function() {
-      if (this.action && this.disabled === false) {
+    taponeHandler: function(event, details) {
+      details.originalEvent.stopPropagation();
+      if (this.action && !this.disabled) {
         this.action();
       } else {
         // disabled or there is no action

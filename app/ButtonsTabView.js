@@ -29,6 +29,10 @@ define([
   return UIView.extend({
     id: 'buttons-tab-view',
 
+    events: {
+      'tapone': 'taponeHandler'
+    },
+
     render: function() {
       var backBtn;
       var collection;
@@ -39,7 +43,10 @@ define([
       this.addSubview(new UIButton({
         label: 'Back',
         icon: 'arrow-left',
-        class: 'test-01-btn'
+        class: 'test-01-btn',
+        action: (event) => {
+          console.log('Back button action 10');
+        }
       }));
 
       this.addSubview(new UIButton({
@@ -170,7 +177,10 @@ define([
       }));
 
       return this;
-    }
+    },
 
+    taponeHandler: function() {
+      console.log('ButtonsTabView taponeHandler');
+    }
   });
 });

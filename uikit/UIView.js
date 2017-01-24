@@ -140,7 +140,7 @@ define([
        }
        */
 
-      _.bindAll(this);
+      _.bindAll.apply(_, [this].concat(_.functions(this)));
 
       this.$el.on('webkitTransitionEnd', this.transitionEndHandler);
     },
