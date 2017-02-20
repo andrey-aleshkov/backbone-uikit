@@ -105,6 +105,7 @@ define([
         this.events = events;
         this.userInteractionEnabled = true;
       }
+      this.delegateEvents();
 
       // Animations
       if (this.animation && this.animation.keyframes) {
