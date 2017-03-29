@@ -9,6 +9,7 @@ define([
   '../uikit/UIAccordion',
   '../uikit/UISelect',
   '../uikit/UICheckbox',
+  '../uikit/UISegmentedControl',
   'MySelectItemView',
   'Collection',
   'MyAccordionButtonView'
@@ -21,6 +22,7 @@ define([
             UIAccordion,
             UISelect,
             UICheckbox,
+            UISegmentedControl,
             MySelectItemView,
             Collection,
             MyAccordionButtonView
@@ -160,6 +162,20 @@ define([
       this.addSubview(new UICheckbox({
         name: 'my-select',
         checked: false
+      }));
+
+      // UISegmentedControl
+      this.addSubview(new UISegmentedControl({
+        items: [{
+          label: 'First'
+        }, {
+          label: 'Second'
+        }, {
+          label: 'Third'
+        }],
+        changeHandler: (index) => {
+          console.log(index);
+        }
       }));
 
       // NavigationBar

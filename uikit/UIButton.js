@@ -72,7 +72,7 @@ define([
     taponeHandler: function(event, details) {
       details.originalEvent.stopPropagation();
       if (this.action && !this.disabled) {
-        this.action();
+        this.action(this);
       } else {
         // disabled or there is no action
       }

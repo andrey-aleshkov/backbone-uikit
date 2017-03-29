@@ -8,7 +8,7 @@ define(function(require) {
     version: '1.0.0',
     UIView: require('./uikit/UIView'),
     UIButton: require('./uikit/UIButton'),
-    // UISegmentedControl: require('./uikit/UISegmentedControl'),
+    UISegmentedControl: require('./uikit/UISegmentedControl'),
     UIStepper: require('./uikit/UIStepper'),
     UILabel: require('./uikit/UILabel'),
     UITextField: require('./uikit/UITextField'),

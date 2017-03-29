@@ -176,6 +176,30 @@
     transform-origin: 0 0;
 }
 
+.ui-segmented-control {
+    border: 1px solid #4c4c4c;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: stretch;
+}
+.ui-segmented-control .ui-btn {
+    flex: 1 1 auto;
+    background: transparent;
+    color: #4c4c4c;
+}
+.ui-segmented-control .ui-btn.ui-sel {
+    flex: 1 1 auto;
+    background: #4c4c4c;
+    color: #fff;
+    opacity: 1;
+}
+
+
 .ui-select {
     overflow: visible !important;
     position: relative;
