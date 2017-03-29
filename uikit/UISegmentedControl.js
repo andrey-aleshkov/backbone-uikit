@@ -39,10 +39,10 @@ define([
           action: (thisButton) => {
             // deselect other buttons
             this.buttons.forEach((btn) => {
-              btn.$el.removeClass('ui-sel');
+              btn.$el.removeClass('selected');
             });
             // select this one
-            thisButton.$el.addClass('ui-sel');
+            thisButton.$el.addClass('selected');
             // update selectedIndex
             this.selectedIndex = index;
             // call changeHandler
@@ -52,7 +52,7 @@ define([
         this.buttons.push(button);
         this.addSubview(button);
         if (index === this.selectedIndex) {
-          button.$el.addClass('ui-sel');
+          button.$el.addClass('selected');
         }
       });
 
