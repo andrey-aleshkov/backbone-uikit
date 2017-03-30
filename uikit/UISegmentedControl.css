@@ -11,13 +11,16 @@
     align-items: stretch;
 }
 .ui-segmented-control .ui-btn {
-    flex: 1 1 auto;
+    padding: 0 21px;
     /*background: transparent;*/
     border-right: 1px solid;
     height: 27px;
     transition: background 0.1s linear;
     font-size: 12px;
+    line-height: 16px;
     color: inherit;
+
+    flex: 0 1 100%;
 }
 .ui-segmented-control .ui-btn:last-child {
     border-right: none;
@@ -30,4 +33,7 @@
     background: #000;
     border-right-color: #000;
     color: #fff;
+}
+.ui-segmented-control .ui-btn .btn-icon {
+    display: none;
 }

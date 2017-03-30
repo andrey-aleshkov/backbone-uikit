@@ -165,7 +165,7 @@ define([
       }));
 
       // UISegmentedControl
-      this.addSubview(new UISegmentedControl({
+      var segmentedControl = new UISegmentedControl({
         items: [{
           label: 'First'
         }, {
@@ -176,9 +176,10 @@ define([
         changeHandler: (index) => {
           console.log(index);
         }
-      }));
+      });
+      this.addSubview(segmentedControl);
 
-      // NavigationBar
+
       backBtn = new UIButton({
         label: 'Back',
         icon: 'arrow-left',
@@ -186,9 +187,12 @@ define([
           console.log('backBtn');
         }
       });
+
+      // NavigationBar
       this.addSubview(new UINavigationBar({
-        leftBarItems: [backBtn],
-        centerBarItems: [new UILabel({text: this.title})],
+        // leftBarItems: [backBtn],
+        // centerBarItems: [new UILabel({text: this.title})],
+        centerBarItems: [segmentedControl],
         rightBarItems: []
       }));
 

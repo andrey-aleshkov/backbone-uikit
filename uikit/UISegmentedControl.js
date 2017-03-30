@@ -44,9 +44,11 @@ define([
             // select this one
             thisButton.$el.addClass('selected');
             // update selectedIndex
-            this.selectedIndex = index;
-            // call changeHandler
-            this.changeHandler(this.selectedIndex);
+            if (index !== this.selectedIndex) {
+              this.selectedIndex = index;
+              // call changeHandler
+              this.changeHandler(this.selectedIndex);
+            }
           }
         });
         this.buttons.push(button);
