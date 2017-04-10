@@ -69,7 +69,10 @@ define([
         // events
         this.$input.on('focus', this.focusHandler);
         // this.$input.on('change keyup paste', this.changeHandler); // no autocomplete, old browsers support
-        this.$input.on('input', this.changeHandler); // respect autocomplete, IE 10+
+        this.$input.on('input', () => {
+          this.value = this.$input.val();
+          this.changeHandler(this.value);
+        }); // respect autocomplete, IE 10+
         this.$input.on('keypress', this.keypressHandler);
         this.$input.on('keydown', this.keydownHandler);
         this.$input.on('blur', this.blurHandler);
@@ -118,7 +121,6 @@ define([
     keydownHandler: function() {},
 
     changeHandler: function() {
-      this.value = this.$input.val();
       if (this.model) {
         this.model.set(this.attribute, this.value);
       }
