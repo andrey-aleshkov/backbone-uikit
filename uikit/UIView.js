@@ -374,6 +374,10 @@ define([
                       case 'translate':
                       case 'rotate':
                       case 'scale':
+                        // create 'current' keyframe if it doesn't exist yet
+                        if (!this.animation.keyframes.current[key][innerKey]) {
+                          this.animation.keyframes.current[key][innerKey] = {};
+                        }
                         if (this.animation.keyframes['100%'][key][innerKey].hasOwnProperty('x')) {
                           this.animation.keyframes.current[key][innerKey].x = this.animation.keyframes['0%'][key][innerKey].x + (this.animation.keyframes['100%'][key][innerKey].x - this.animation.keyframes['0%'][key][innerKey].x) * percent;
                         }
