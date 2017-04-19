@@ -407,23 +407,23 @@ define([
         // console.log('percent > 100');
         if (this.animation.keyframes.hasOwnProperty('200%')) {
           percent2 = percent - 1;
-          for (key in this.animation.keyframes['100%']) {
-            if (this.animation.keyframes['100%'].hasOwnProperty(key)) {
+          for (key in this.animation.keyframes['200%']) {
+            if (this.animation.keyframes['200%'].hasOwnProperty(key)) {
               switch (key) {
                 case 'transform':
-                  for (innerKey in this.animation.keyframes['100%'].transform) {
-                    if (this.animation.keyframes['100%'].transform.hasOwnProperty(innerKey)) {
+                  for (innerKey in this.animation.keyframes['200%'].transform) {
+                    if (this.animation.keyframes['200%'].transform.hasOwnProperty(innerKey)) {
                       switch (innerKey) {
                         case 'translate':
                         case 'rotate':
                         case 'scale':
-                          if (this.animation.keyframes['100%'][key][innerKey].hasOwnProperty('x')) {
+                          if (this.animation.keyframes['200%'][key][innerKey].hasOwnProperty('x')) {
                             this.animation.keyframes.current[key][innerKey].x = this.animation.keyframes['100%'][key][innerKey].x + (this.animation.keyframes['200%'][key][innerKey].x - this.animation.keyframes['100%'][key][innerKey].x) * percent2;
                           }
-                          if (this.animation.keyframes['100%'][key][innerKey].hasOwnProperty('y')) {
+                          if (this.animation.keyframes['200%'][key][innerKey].hasOwnProperty('y')) {
                             this.animation.keyframes.current[key][innerKey].y = this.animation.keyframes['100%'][key][innerKey].y + (this.animation.keyframes['200%'][key][innerKey].y - this.animation.keyframes['100%'][key][innerKey].y) * percent2;
                           }
-                          if (this.animation.keyframes['100%'][key][innerKey].hasOwnProperty('z')) {
+                          if (this.animation.keyframes['200%'][key][innerKey].hasOwnProperty('z')) {
                             this.animation.keyframes.current[key][innerKey].z = this.animation.keyframes['100%'][key][innerKey].z + (this.animation.keyframes['200%'][key][innerKey].z - this.animation.keyframes['100%'][key][innerKey].z) * percent2;
                           }
                           break;
