@@ -69,9 +69,9 @@ define([
         // events
         this.$input.on('focus', this.focusHandler);
         // this.$input.on('change keyup paste', this.changeHandler); // no autocomplete, old browsers support
-        this.$input.on('input', () => {
+        this.$input.on('input', (event) => {
           this.value = this.$input.val();
-          this.changeHandler(this.value);
+          this.changeHandler(event, this.value);
         }); // respect autocomplete, IE 10+
         this.$input.on('keypress', this.keypressHandler);
         this.$input.on('keydown', this.keydownHandler);
