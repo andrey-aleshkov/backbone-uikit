@@ -78,7 +78,7 @@ define([
           event.data.value = this.value;
           // call handler
           this.changeHandler(event);
-        }); // respect autocomplete, IE 10+
+        }); // respects autocomplete, IE 10+
         this.$input.on('keypress', this.keypressHandler);
         this.$input.on('keydown', this.keydownHandler);
         this.$input.on('blur', this.blurHandler);
