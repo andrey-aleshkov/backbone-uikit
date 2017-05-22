@@ -42,6 +42,18 @@ define([
         class: 'my-text-field'
       }));
 
+      this.addSubview(new UITextField({
+        name: 'test',
+        // value: 123,
+        placeholder: 'One line ...',
+        class: 'my-text-field',
+        changeHandler: function(event) {
+          console.log(event);
+          console.log('event.value = ', event.value);
+          console.log('this.value = ', this.value);
+        }
+      }));
+
       this.addSubview(new UITextView({
         text: '',
         placeholder: 'Let us know more ...',
@@ -77,6 +89,5 @@ define([
 
       return this;
     }
-
   });
 });
