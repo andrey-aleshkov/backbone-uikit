@@ -49,7 +49,7 @@ define([
         class: 'my-text-field',
         changeHandler: function(event) {
           console.log(event);
-          console.log('event.value = ', event.value);
+          console.log('event.data.value = ', event.data.value);
           console.log('this.value = ', this.value);
         }
       }));
