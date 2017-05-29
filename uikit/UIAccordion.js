@@ -15,14 +15,14 @@ define([
     className: 'ui-view ui-accordion',
     items: null,
     buttons: null,
-    // selectedIndexes: null,
+    openedIndex: null,
     // multiSelect: false,
 
     addItems: function() {
       var state;
       this.items.forEach((item, index) => {
         state = new UIAccordionState({
-          // opened: true
+          opened: index === this.openedIndex,
           index: index,
           item: item,
           button: this.buttons ? this.buttons[index] : null

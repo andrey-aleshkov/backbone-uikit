@@ -82,6 +82,7 @@ define([
       // UIAccordion
       this.addSubview(new UIAccordion({
         class: 'my-accordion',
+        openedIndex: 2,
         buttons: [
           new MyAccordionButtonView({
             title: 'First',
