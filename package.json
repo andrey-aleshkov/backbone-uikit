@@ -1,6 +1,6 @@
 {
   "name": "backbone-uikit",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "UIKit simplifies your Backbone app with ui components and architecture solutions.",
   "main": "dist/uikit.js",
   "directories": {
