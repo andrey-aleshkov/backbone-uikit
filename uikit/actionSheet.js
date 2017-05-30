@@ -50,13 +50,15 @@ define([
           text: this.title
         }), this.$titlePlace);
 
-        this.actions.forEach((action) => {
+        this.actions.forEach((action, index) => {
           this.addSubview(new UIButton({
             class: 'action-sheet-action-btn',
             label: action.label,
             action: () => {
-              this.resolve();
-              action.action();
+              this.resolve(index);
+              if (action.action) {
+                action.action();
+              }
             }
           }), this.$actions);
         });
@@ -64,7 +66,7 @@ define([
         this.addSubview(new UIButton({
           class: 'action-sheet-cancel-btn',
           label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
-          action: this.resolve
+          action: this.reject
         }), this.$cancelPlace);
 
         return this;
@@ -80,6 +82,11 @@ define([
 
       resolve: function(data) {
         deferred.resolve(data);
+        this.hide();
+      },
+
+      reject: function(data) {
+        deferred.reject(data);
         this.hide();
       }
     });

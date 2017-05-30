@@ -55,11 +55,14 @@ define([
               console.log('Action 00');
             }
           }, {
-            label: 'Action 01',
-            action: function() {
-              console.log('Action 01');
-            }
-          }], 'Отмена');
+            label: 'Action 01'
+          }], 'Отмена')
+            .done(function(data) {
+              console.log('ok, index = ', data);
+            })
+            .fail(function() {
+              console.log('cancel');
+            });
         }
       });
 
