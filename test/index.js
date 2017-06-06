@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: 'app',
+  baseUrl: 'test',
   urlArgs: function() {
     // (id, url)
     return '?bust=' + (new Date()).getTime();

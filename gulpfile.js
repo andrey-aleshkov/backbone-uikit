@@ -19,7 +19,7 @@ const jsFiles = [
     '**/*.js',
     '!node_modules/**',
     '!gulpfile.js',
-    '!app/**',
+    '!test/**',
     '!dist/**',
     '!tests/**',
     '!uikit-todo/**',
@@ -31,7 +31,7 @@ const cssFiles = [
     //'css/media.css',
     //'css/grid.css',
     //'css/uikit.css',
-    //'css/app.css',
+    //'css/test.css',
     'uikit/**/*.css'
 ];
 
@@ -171,11 +171,11 @@ gulp.task('serve', function() {
     browserSync.init({
         server: true
     });
-    browserSync.watch(['css/app.css', 'dist/uikit.css']).on('change', function(file) {
+    browserSync.watch(['css/test.css', 'dist/uikit.css']).on('change', function(file) {
         console.log('css = ', file);
         browserSync.reload(file);
     });
-    browserSync.watch(['app/**/*.js', 'uikit/**/*.js']).on('change', function(file){
+    browserSync.watch(['test/**/*.js', 'uikit/**/*.js']).on('change', function(file){
         console.log('js = ', file);
         browserSync.reload(file);
     });
