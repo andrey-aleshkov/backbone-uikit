@@ -208,26 +208,30 @@ define([
 
     touchstartHandler: function(event) {
       if (this.userInteractionEnabled && !this.disabled) {
-        event.stopPropagation();
+        event.preventDefault();
+        // event.stopPropagation();
         this.select();
       }
     },
 
     touchendHandler: function(event) {
       if (this.userInteractionEnabled && !this.disabled) {
-        event.stopPropagation();
+        event.preventDefault();
+        // event.stopPropagation();
         this.deselect();
       }
     },
 
     taponeHandler: function(event) {
-      if (this.userInteractionEnabled) {
+      if (this.userInteractionEnabled && !this.disabled) {
         event.stopPropagation();
       }
     },
 
     swipemoveHandler: function(event) {
-      event.stopPropagation();
+      if (this.userInteractionEnabled && !this.disabled) {
+        event.stopPropagation();
+      }
     },
 
     setName: function(newName) {

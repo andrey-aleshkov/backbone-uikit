@@ -21,8 +21,7 @@ define([
     events: {
       'tapone': 'taponeHandler',
       'touchstart': 'touchstartHandler',
-      'touchend': 'touchendHandler',
-      'swipemove': 'swipemoveHandler'
+      'touchend': 'touchendHandler'
     },
 
     render: function() {
