@@ -145,7 +145,7 @@ define([
       switch (description[0]) {
         case 'pinch':
           scale = this.scale * obj.scale;
-          if (scale >= this.minimumScale || scale <= this.maximumScale) {
+          if (scale >= this.minimumScale && scale <= this.maximumScale) {
             if (this.firstPinch) {
               // 1) (0,0) for the new coordinate system
               this.pinch.x = obj.originalEvent.layerX;
