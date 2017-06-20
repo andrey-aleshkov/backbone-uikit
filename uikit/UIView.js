@@ -207,16 +207,16 @@ define([
      */
 
     touchstartHandler: function(event) {
+      event.preventDefault();
       if (this.userInteractionEnabled && !this.disabled) {
-        event.preventDefault();
         // event.stopPropagation();
         this.select();
       }
     },
 
     touchendHandler: function(event) {
+      event.preventDefault();
       if (this.userInteractionEnabled && !this.disabled) {
-        event.preventDefault();
         // event.stopPropagation();
         this.deselect();
       }

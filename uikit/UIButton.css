@@ -17,6 +17,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    touch-action: manipulation;
 }
 
 .ui-btn--align-center {

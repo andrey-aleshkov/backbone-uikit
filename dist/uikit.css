@@ -50,6 +50,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    touch-action: manipulation;
 }
 
 .ui-btn--align-center {
@@ -174,6 +175,7 @@
     top: 0;
     left: 0;
     transform-origin: 0 0;
+    touch-action: manipulation;
 }
 
 .ui-segmented-control {
@@ -317,6 +319,7 @@
     width: 48px;
     color: rgba(146,146,146,1.0);
     cursor: pointer;
+    touch-action: manipulation;
 }
 .ui-tab-bar-item.selected {
     color: rgba(255,147,0,1.0);
