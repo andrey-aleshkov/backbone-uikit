@@ -69,6 +69,20 @@ define([
       this.$icon.addClass('icon--' + newIcon);
     },
 
+    touchstartHandler: function(event) {
+      if (this.userInteractionEnabled && !this.disabled) {
+        event.stopPropagation();
+        this.select();
+      }
+    },
+
+    touchendHandler: function(event) {
+      if (this.userInteractionEnabled && !this.disabled) {
+        event.stopPropagation();
+        this.deselect();
+      }
+    },
+
     taponeHandler: function(event, details) {
       details.originalEvent.stopPropagation();
       if (this.action && !this.disabled) {
