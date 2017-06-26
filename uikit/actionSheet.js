@@ -20,8 +20,12 @@ define([
       className: 'ui-action-sheet-view',
       template: `
         <div class="ui-action-sheet-content">
-          <div class="ui-action-title-place"></div>
-          <div class="ui-action-sheet-actions"></div>
+          <div class="ui-action-sheet-ok">
+            <div class="ui-action-title-place"></div>
+            <div class="ui-action-sheet-actions-scroll">
+              <div class="ui-action-sheet-actions"></div>
+            </div>
+          </div>
           <div class="ui-action-cancel-place"></div>
         </div>`,
       $content: null,
@@ -31,12 +35,25 @@ define([
       title: '',
       actions: '',
       cancelButtonLabel: null,
+      events: {
+        'touchstart': 'touchstartHandler',
+        'touchend': 'touchendHandler'
+      },
+
+      touchstartHandler: function(event) {
+        event.preventDefault();
+      },
+
+      touchendHandler: function(event) {
+        event.preventDefault();
+      },
 
       render: function() {
         this.$el.empty();
         this.$el.html(this.template);
         this.$content = this.$el.find('.ui-action-sheet-content');
         this.$titlePlace = this.$el.find('.ui-action-title-place');
+        this.$actionsScroll = this.$el.find('.ui-action-sheet-actions-scroll');
         this.$actions = this.$el.find('.ui-action-sheet-actions');
         this.$cancelPlace = this.$el.find('.ui-action-cancel-place');
 
@@ -69,7 +86,23 @@ define([
           action: this.reject
         }), this.$cancelPlace);
 
+        setTimeout(() => {
+          this.layout();
+        }, 0);
+
         return this;
+      },
+
+      layout: function() {
+        var maxHeight = this.$el.height() - 200;
+        var actionsHeight = this.$actions.height();
+
+        console.log('maxHeight = ', maxHeight);
+        console.log('actionsHeight = ', actionsHeight);
+
+        if (actionsHeight > maxHeight) {
+          this.$actionsScroll.attr('style', `height: ${maxHeight}px; -webkit-overflow-scrolling: touch;`);
+        }
       },
 
       show: function() {

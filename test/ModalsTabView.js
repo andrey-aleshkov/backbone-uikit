@@ -46,17 +46,38 @@ define([
       this.$el.empty();
 
       // NavigationBar
+      //actionSheetBtn = new UIButton({
+      //  label: 'ActionSheet',
+      //  action: function() {
+      //    actionSheet('Message', [{
+      //      label: 'Action 00',
+      //      action: function() {
+      //        console.log('Action 00');
+      //      }
+      //    }, {
+      //      label: 'Action 01'
+      //    }], 'Отмена')
+      //      .done(function(data) {
+      //        console.log('ok, index = ', data);
+      //      })
+      //      .fail(function() {
+      //        console.log('cancel');
+      //      });
+      //  }
+      //});
+
+      var manyActions = [];
+      for (var i = 0; i < 100; i++) {
+        manyActions.push({
+          label: 'Item ' + i
+        });
+      }
+
+      // long actionSheet
       actionSheetBtn = new UIButton({
         label: 'ActionSheet',
         action: function() {
-          actionSheet('Message', [{
-            label: 'Action 00',
-            action: function() {
-              console.log('Action 00');
-            }
-          }, {
-            label: 'Action 01'
-          }], 'Отмена')
+          actionSheet('Message', manyActions, 'Отмена')
             .done(function(data) {
               console.log('ok, index = ', data);
             })

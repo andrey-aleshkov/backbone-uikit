@@ -523,12 +523,25 @@
     align-items: flex-end;
 }
 .ui-action-sheet-view .ui-action-sheet-content {
-    width: 300px;
+    box-sizing: border-box;
+    margin: 0 10px;
+    width: 100%;
     min-height: 100px;
+}
+.ui-action-sheet-view .ui-action-sheet-ok {
+    overflow: hidden;
+    border-radius: 10px;
+    transform: translate3d(0px,0px,0px);
+    backface-visibility: hidden;
 }
 .ui-action-sheet-view .ui-action-title-place {
     background: #fff;
     border-radius: 10px 10px 0 0;
+}
+.ui-action-sheet-view .ui-action-sheet-actions-scroll {
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
 }
 .ui-action-sheet-view .ui-action-sheet-actions {
     background: #fff;
@@ -544,6 +557,7 @@
 }
 .ui-action-sheet-view .action-sheet-message-label {
     padding: 8px 10px 9px;
+    border-bottom: 1px solid #ccc;
     text-align: center;
     font-weight: 300;
     font-size: 16px;
@@ -552,6 +566,9 @@
 }
 .ui-action-sheet-view .action-sheet-action-btn {
     border-top: 1px solid #ccc;
+}
+.ui-action-sheet-view .action-sheet-action-btn:first-child {
+    border-top: none;
 }
 .ui-action-sheet-view .action-sheet-cancel-btn {
     margin: 5px 0;
