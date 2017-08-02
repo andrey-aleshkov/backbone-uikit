@@ -35,6 +35,10 @@ define([
   // ModalsTabView
   return UIView.extend({
     id: 'modals-tab-view',
+    // Test <a></a>
+    // template: _.template(`
+    //  <a href="http://google.com" class="click-link">Click me</a>
+    // `),
     render: function() {
       var actionSheetBtn;
       var signInBtn;
@@ -44,6 +48,8 @@ define([
       var showPromptBtn;
 
       this.$el.empty();
+      // Test <a></a>
+      // this.$el.html(this.template());
 
       // NavigationBar
       //actionSheetBtn = new UIButton({
