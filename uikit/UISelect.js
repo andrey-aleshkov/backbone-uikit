@@ -64,6 +64,8 @@ define([
     },
 
     render: function() {
+      var label = '';
+
       this.$el.empty();
       // class
       this.$el.addClass(this.class);
@@ -73,18 +75,26 @@ define([
         this.$el.addClass('ui-dis');
       }
 
-      if (this.collection.length) {
-        // Button
-        this.button = new UIButton({
-          label: this.label ? this.label : this.collection.at(this.selectedIndex).get('title'),
-          align: 'justify',
-          iconOrder: 1,
-          action: () => {
-            this.toggle();
-          }
-        });
-        this.addSubview(this.button);
+      // Button
+      if (this.collection.length && this.selectedIndex > -1) {
+        // user has selected something or selectedIndex was passed as a parameter
+        label = this.collection.at(this.selectedIndex).get('title');
+      } else {
+        label = this.label;
+      }
 
+      this.button = new UIButton({
+        label: label,
+        disabled: !this.collection.length,
+        align: 'justify',
+        iconOrder: 1,
+        action: () => {
+          this.toggle();
+        }
+      });
+      this.addSubview(this.button);
+
+      if (this.collection.length) {
         if (!this.opened) {
           this.close();
         } else {
