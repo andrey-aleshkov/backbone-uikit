@@ -329,7 +329,7 @@ css:
       title: 'Title',
       message: 'This is a message.',
       placeholder: 'This is a placeholder',
-      value: '', 
+      value: '',
       cancelButtonLabel: 'Cancel',
       okButtonLabel: 'OK'
     })
