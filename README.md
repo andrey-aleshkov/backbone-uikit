@@ -306,24 +306,56 @@ css:
 
 ## Alert
 
-    UIKit.alert('Title', 'This is a message.');
+    UIKit.alert({
+      title: 'Title',
+      message: 'This is a message.',
+      okButtonLabel: 'OK'
+    });
 
 ## Confirm
 
-    UIKit.confirm('Title', 'This is a message.')
-        .done(function() {})
-        .fail(function() {});
+    UIKit.confirm({
+      title: 'Title',
+      message: 'This is a message.',
+      cancelButtonLabel: 'Cancel',
+      okButtonLabel: 'OK'
+    })
+      .done(function() {})
+      .fail(function() {});
     
 ## Prompt
 
-    UIKit.prompt('Title', 'This is a message.', 'This is a placeholder')
-        .done(function(data) {})
-        .fail(function() {});
+    UIKit.prompt({
+      title: 'Title',
+      message: 'This is a message.',
+      placeholder: 'This is a placeholder',
+      value: '', 
+      cancelButtonLabel: 'Cancel',
+      okButtonLabel: 'OK'
+    })
+      .done(function(data) {})
+      .fail(function() {});
 
 ## Modal
 
-    UIKit.modal(new someView());
+    UIKit.modal({
+      contentView: new someView()
+    });
     
+## ActionSheet
+
+    actionSheet({
+        title: 'Title',
+        actions: actions,
+        cancelButtonLabel: 'Cancel'
+    })
+      .done(function(data) {
+        console.log('ok, index = ', data);
+      })
+      .fail(function() {
+        console.log('cancel');
+      });
+                
 How to close the modal view from the content view:
 
     this.superview.hide();
