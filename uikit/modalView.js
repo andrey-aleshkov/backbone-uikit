@@ -7,7 +7,7 @@ define([
             UIView
 ) {
   // UIModalView
-  return function(contentView) {
+  return function(options) {
     var UIModalView;
     var modalView;
     var deferred = $.Deferred();
@@ -36,18 +36,14 @@ define([
         $('body').append(this.render().el);
       },
 
-      hide: function() {
-        this.destroy();
-      },
-
       resolve: function(data) {
         deferred.resolve(data);
-        this.hide();
+        this.destroy();
       },
 
       reject: function(data) {
         deferred.reject(data);
-        this.hide();
+        this.destroy();
       },
 
       notify: function(data) {
@@ -55,12 +51,12 @@ define([
       }
     });
 
-    modalView = new UIModalView({
-      contentView: contentView
-    });
-
+    modalView = new UIModalView(options);
     modalView.show();
 
-    return deferred.promise();
+    Backbone.trigger('uikit-modal', modalView);
+
+    // set the view as a promise – attach the methods (then, done, fail, always, pipe, progress, state and promise)
+    return deferred.promise(modalView);
   };
 });

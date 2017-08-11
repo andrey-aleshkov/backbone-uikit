@@ -11,7 +11,7 @@ define([
             UILabel
 ) {
   // UIActionSheet
-  return function(title, actions, cancelButtonLabel) {
+  return function(options) {
     var UIActionSheet;
     var actionSheetView;
     var deferred = $.Deferred();
@@ -32,9 +32,9 @@ define([
       $titlePlace: null,
       $actions: null,
       $cancelPlace: null,
-      title: '',
-      actions: '',
-      cancelButtonLabel: null,
+      title: '&nbsp;',
+      actions: null,
+      cancelButtonLabel: 'Cancel',
       events: {
         'touchstart': 'touchstartHandler',
         'touchend': 'touchendHandler'
@@ -67,22 +67,24 @@ define([
           text: this.title
         }), this.$titlePlace);
 
-        this.actions.forEach((action, index) => {
-          this.addSubview(new UIButton({
-            class: 'action-sheet-action-btn',
-            label: action.label,
-            action: () => {
-              this.resolve(index);
-              if (action.action) {
-                action.action();
+        if (this.actions && this.actions.length) {
+          this.actions.forEach((action, index) => {
+            this.addSubview(new UIButton({
+              class: 'action-sheet-action-btn',
+              label: action.label,
+              action: () => {
+                this.resolve(index);
+                if (action.action) {
+                  action.action();
+                }
               }
-            }
-          }), this.$actions);
-        });
+            }), this.$actions);
+          });
+        }
 
         this.addSubview(new UIButton({
           class: 'action-sheet-cancel-btn',
-          label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
+          label: this.cancelButtonLabel,
           action: this.reject
         }), this.$cancelPlace);
 
@@ -109,29 +111,23 @@ define([
         $('body').append(this.render().el);
       },
 
-      hide: function() {
-        this.destroy();
-      },
-
       resolve: function(data) {
         deferred.resolve(data);
-        this.hide();
+        this.destroy();
       },
 
       reject: function(data) {
         deferred.reject(data);
-        this.hide();
+        this.destroy();
       }
     });
 
-    actionSheetView = new UIActionSheet({
-      title: title,
-      actions: actions,
-      cancelButtonLabel: cancelButtonLabel
-    });
-
+    actionSheetView = new UIActionSheet(options);
     actionSheetView.show();
 
-    return deferred.promise();
+    Backbone.trigger('uikit-modal', actionSheetView);
+
+    // set the view as a promise – attach the methods (then, done, fail, always, pipe, progress, state and promise)
+    return deferred.promise(actionSheetView);
   };
 });

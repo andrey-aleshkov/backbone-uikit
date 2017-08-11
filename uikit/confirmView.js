@@ -11,7 +11,7 @@ define([
             UILabel
 ) {
   // UIConfirmView
-  return function(title, message, cancelButtonLabel, okButtonLabel) {
+  return function(options) {
     var UIConfirmView;
     var confirmView;
     var deferred = $.Deferred();
@@ -25,10 +25,10 @@ define([
         </div>`,
       $textPlace: null,
       $buttonsPlace: null,
-      title: '',
+      title: '&nbsp;',
       message: '',
-      cancelButtonLabel: null,
-      okButtonLabel: null,
+      okButtonLabel: 'OK',
+      cancelButtonLabel: 'Cancel',
 
       render: function() {
         this.$el.empty();
@@ -49,13 +49,13 @@ define([
 
         this.addSubview(new UIButton({
           class: 'confirm-cancel-btn',
-          label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
+          label: this.cancelButtonLabel,
           action: this.reject
         }), this.$buttonsPlace);
 
         this.addSubview(new UIButton({
           class: 'confirm-ok-btn',
-          label: okButtonLabel ? okButtonLabel : 'OK',
+          label: this.okButtonLabel,
           action: this.resolve
         }), this.$buttonsPlace);
 
@@ -66,30 +66,23 @@ define([
         $('body').append(this.render().el);
       },
 
-      hide: function() {
-        this.destroy();
-      },
-
       resolve: function(data) {
         deferred.resolve(data);
-        this.hide();
+        this.destroy();
       },
 
       reject: function(data) {
         deferred.reject(data);
-        this.hide();
+        this.destroy();
       }
     });
 
-    confirmView = new UIConfirmView({
-      title: title,
-      message: message,
-      cancelButtonLabel: cancelButtonLabel,
-      okButtonLabel: okButtonLabel
-    });
-
+    confirmView = new UIConfirmView(options);
     confirmView.show();
 
-    return deferred.promise();
+    Backbone.trigger('uikit-modal', confirmView);
+
+    // set the view as a promise – attach the methods (then, done, fail, always, pipe, progress, state and promise)
+    return deferred.promise(confirmView);
   };
 });
