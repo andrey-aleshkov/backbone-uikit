@@ -8,12 +8,13 @@
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 #buttons-tab-view {
+    overflow-x: hidden;
+    overflow-y: scroll;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-
     padding: 44px 0 0 0;
 }
 
@@ -188,11 +189,10 @@
     background: #bbb;
     border-radius: 10px;
 }
-/*
-.ui-select-list {
-    padding: 10px 0 0;
+.my-select-content {
+    background: #bbb;
+    max-height: 200px;
 }
-*/
 .my-select-item-view {
     position: relative; /* this is optional */
     /*background: rgba(255,255,255,0.5);*/

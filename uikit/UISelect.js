@@ -11,9 +11,11 @@ define([
   // UISelect
   return UIView.extend({
     className: 'ui-view ui-select',
+    contentClass: '',
     collection: null,
     model: null,
 
+    appearance: 'down',
     oldSelectedIndex: null,
     selectedIndex: -1,
     selectedId: null,
@@ -128,14 +130,16 @@ define([
 
     open: function() {
       var rect = this.$el[0].getBoundingClientRect();
+      var style = '';
       // these are relative to the viewport, i.e. the window
       this.rect = {
         top: rect.top,
+        bottom: rect.bottom,
         left: rect.left,
         width: rect.width,
         height: rect.height
       };
-      // console.log(`top = ${this.rect.top}, left = ${this.rect.left}, right = ${this.rect.right}, height = ${this.rect.height}`);
+      console.log(`top = ${this.rect.top}, bottom = ${this.rect.bottom}, left = ${this.rect.left}, width = ${this.rect.width}, height = ${this.rect.height}`);
 
       this.$el.addClass('state-opened');
 
@@ -155,10 +159,21 @@ define([
         class: 'ui-select-list'
       });
       this.overlayView.addSubview(this.listView);
-      this.listView.$el.attr('style', `top: ${(this.rect.top + this.rect.height)}px; left:${this.rect.left}px; width:${this.rect.width}px;`);
+
+      switch (this.appearance) {
+        case 'down':
+          style = `top: ${(this.rect.top + this.rect.height)}px; left:${this.rect.left}px; width:${this.rect.width}px;`;
+          break;
+        case 'up':
+          style = `top: auto; bottom: ${($(window).height() - this.rect.top)}px; left:${this.rect.left}px; width:${this.rect.width}px;`;
+          break;
+        default:
+      }
+      console.log(style);
+      this.listView.$el.attr('style', style);
 
       this.listContentView = new UIView({
-        class: 'ui-select-list-content'
+        class: `ui-select-list-content ${this.contentClass}`
       });
       this.listView.addSubview(this.listContentView);
 
@@ -182,11 +197,26 @@ define([
 
     layoutOpen: function() {
       var currentHeight = this.listContentView.$el.outerHeight(true);
-      var availableHeight = $(window).height() - (this.rect.top + this.rect.height);
+      var availableHeight;
 
+      switch (this.appearance) {
+        case 'down':
+          availableHeight = $(window).height() - (this.rect.top + this.rect.height);
+          break;
+        case 'up':
+          availableHeight = this.rect.top;
+          break;
+        default:
+      }
       if (availableHeight < currentHeight) {
         this.listContentView.$el.attr('style', 'height:' + availableHeight + 'px;');
       }
+
+      console.log('$(window).height() = ', $(window).height());
+      console.log('currentHeight = ', currentHeight);
+      console.log('availableHeight = ', availableHeight);
+
+
     },
 
     close: function() {
