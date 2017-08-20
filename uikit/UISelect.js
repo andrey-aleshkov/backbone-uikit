@@ -11,7 +11,7 @@ define([
   // UISelect
   return UIView.extend({
     className: 'ui-view ui-select',
-    contentClass: '',
+    listClass: '',
     collection: null,
     model: null,
 
@@ -156,7 +156,7 @@ define([
 
       // List of models
       this.listView = new UIView({
-        class: 'ui-select-list'
+        class: `ui-select-list ${this.listClass}`
       });
       this.overlayView.addSubview(this.listView);
 
@@ -173,7 +173,7 @@ define([
       this.listView.$el.attr('style', style);
 
       this.listContentView = new UIView({
-        class: `ui-select-list-content ${this.contentClass}`
+        class: 'ui-select-list-content'
       });
       this.listView.addSubview(this.listContentView);
 

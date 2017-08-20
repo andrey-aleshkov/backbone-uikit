@@ -150,7 +150,7 @@ define([
 
       this.addSubview(new UISelect({
         class: 'my-select',
-        contentClass: 'my-select-content',
+        listClass: 'my-select-list',
         label: 'Select ...',
         appearance: 'up',
         // selectedIndex: 0,
