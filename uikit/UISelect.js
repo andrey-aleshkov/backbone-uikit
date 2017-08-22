@@ -139,13 +139,16 @@ define([
         width: rect.width,
         height: rect.height
       };
-      console.log(`top = ${this.rect.top}, bottom = ${this.rect.bottom}, left = ${this.rect.left}, width = ${this.rect.width}, height = ${this.rect.height}`);
+      // console.log(`top = ${this.rect.top}, bottom = ${this.rect.bottom}, left = ${this.rect.left}, width = ${this.rect.width}, height = ${this.rect.height}`);
 
       this.$el.addClass('state-opened');
 
       // overlay
       this.overlayView = new UIView({
         class: 'ui-select-overlay',
+        state: function() {
+          return 'pending';
+        },
         events: {
           'tapone': () => {
             this.toggle();
@@ -153,6 +156,7 @@ define([
         }
       });
       $('body').append(this.overlayView.render().el);
+      Backbone.trigger('uikit-modal', this.overlayView);
 
       // List of models
       this.listView = new UIView({
@@ -169,7 +173,7 @@ define([
           break;
         default:
       }
-      console.log(style);
+      // console.log(style);
       this.listView.$el.attr('style', style);
 
       this.listContentView = new UIView({
@@ -212,11 +216,9 @@ define([
         this.listContentView.$el.attr('style', 'height:' + availableHeight + 'px;');
       }
 
-      console.log('$(window).height() = ', $(window).height());
-      console.log('currentHeight = ', currentHeight);
-      console.log('availableHeight = ', availableHeight);
-
-
+      // console.log('$(window).height() = ', $(window).height());
+      // console.log('currentHeight = ', currentHeight);
+      // console.log('availableHeight = ', availableHeight);
     },
 
     close: function() {
