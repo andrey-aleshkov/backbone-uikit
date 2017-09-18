@@ -56,7 +56,14 @@ To remove a view with all the subviews, you can employ the destroy method:
         touchend: 'touchendHandler',
         tapone: 'taponeHandler',
         pinch: 'pinchHandler',
-        swipemove: 'swipemoveHandler'
+        swipemove: 'swipemoveHandler',
+        mousedown: 'mousedownHandler',
+        mouseup: 'mouseupHandler',
+        mousemove: 'mousemoveHandler',
+        mouseover: 'mouseoverHandler',
+        mouseout: 'mouseoutHandler',
+        mouseenter: 'mouseenterHandler',
+        mouseleave: 'mouseleaveHandler'
     },
     
 #### Subview management
