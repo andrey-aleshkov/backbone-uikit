@@ -3,25 +3,6 @@
 This is a set of UI components inspired by the iOS UIKit Framework.
 The UIKit provides crucial infrastructure to construct and manage web apps.
 
-## Classes
-
-* UIView
-* UIButton
-* UILabel
-* UITextField
-* UITextView
-* UISegmentedControl
-* UIStepper
-* UIImageView
-* UINavigationBar
-* UITabBarItem
-* UITabBar
-* UIScrollView
-* UIActivityIndicatorView
-* UIAccordion
-* UISelect
-* UICheckbox
-
 ## UIView
 
 The UIView class defines a rectangular area on the screen and interfaces for content in that area.
@@ -139,9 +120,27 @@ To remove a view with all the subviews, you can employ the destroy method:
             height: rect.height
         }
     },
-                
+
+## Components
+
 More sophisticated content is presented by subclassing UIView and implementing the necessary drawing and event-handling.
 
+* UIButton
+* UILabel
+* UITextField
+* UITextView
+* UISegmentedControl
+* UIStepper
+* UIImageView
+* UINavigationBar
+* UITabBarItem
+* UITabBar
+* UIScrollView
+* UIActivityIndicatorView
+* UIAccordion
+* UISelect
+* UICheckbox
+                
 ## UIButton
 
     render: function() { 
@@ -170,6 +169,13 @@ More sophisticated content is presented by subclassing UIView and implementing t
         return this;
     }
 
+## UISegmentedControl
+
+    render: function() {
+        this.addSubview(new UIKit.UISegmentedControl());
+        return this;
+    }
+    
 ## UIStepper
 
     render: function() {
@@ -189,14 +195,6 @@ css:
     .my-stepper {
         border-color: #0d76ff;
         color: #0d76ff;
-    }
-
-
-## UISegmentedControl
-
-    render: function() {
-        this.addSubview(new UIKit.UISegmentedControl());
-        return this;
     }
 
 ## UIImageView
@@ -330,13 +328,7 @@ css:
     })
       .done(function(data) {})
       .fail(function() {});
-
-## Modal
-
-    UIKit.modal({
-      contentView: new someView()
-    });
-    
+   
 ## ActionSheet
 
     actionSheet({
@@ -350,6 +342,12 @@ css:
       .fail(function() {
         console.log('cancel');
       });
+      
+## Modal
+
+    UIKit.modal({
+      contentView: new SomeView()
+    });
                 
 How to close the modal view from the content view:
 
