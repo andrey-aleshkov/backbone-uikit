@@ -16,8 +16,6 @@ The UIKit provides crucial infrastructure to construct and manage web apps.
 * UINavigationBar
 * UITabBarItem
 * UITabBar
-* UITableViewCell
-* UITableView
 * UIScrollView
 * UIActivityIndicatorView
 * UIAccordion
@@ -228,21 +226,7 @@ css:
         this.addSubview(new UIKit.UITabBar());
         return this;
     }
-    
-## UITableViewCell
 
-    render: function() {
-        this.addSubview(new UIKit.UITableViewCell());
-        return this;
-    }
-    
-## UITableView
-
-    render: function() {
-        this.addSubview(new UIKit.UITableView());
-        return this;
-    }
-    
 ## UIScrollView
 
     render: function() {
