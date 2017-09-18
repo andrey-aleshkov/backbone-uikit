@@ -25,7 +25,7 @@ The UIKit provides crucial infrastructure to construct and manage web apps.
 ## UIView
 
 The UIView class defines a rectangular area on the screen and interfaces for content in that area.
-Because view objects are the main way your application interacts with the user, they have a number of responsibilities. Here are just a few:
+Being a primary way your application interacts with the user, view objects have a certain area of responsibility, which includes, but is not limited to:
 
 * Layout
     * by CSS
@@ -38,25 +38,25 @@ Because view objects are the main way your application interacts with the user, 
 
 Views can embed other views and create sophisticated visual hierarchies. 
 This creates a parent-child relationship between the view being embedded (known as the subview) and 
-the parent view doing the embedding (known as the superview). 
+the parent view performing the embedding (known as the superview). 
 Normally, a subview’s visible area is not clipped to the bounds of its superview, 
 but you can use the overflow CSS property to alter that behavior. 
 A parent view may contain any number of subviews but each subview has only one superview.
 
 ### Creating a View
 
-To create a view, you can use code like the following:
+To create a view, you can use the sample code as follows:
 
     var view = new UIKit.UIView();
 
-To add a subview to another view, you use the addSubview:
+To add a subview to another view, you apply the method addSubview:
     
     render: function() {
         this.addSubview(new UIKit.UIView() [, '.element' | $element]);
         return this;
     }
 
-To remove a view with all the subviews use the destroy method:
+To remove a view with all the subviews, you can employ the destroy method:
 
     view.destroy();
 
@@ -140,7 +140,7 @@ To remove a view with all the subviews use the destroy method:
         }
     },
                 
-More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
+More sophisticated content is presented by subclassing UIView and implementing the necessary drawing and event-handling.
 
 ## UIButton
 
