@@ -22,6 +22,7 @@ The UIKit provides crucial infrastructure to construct and manage web apps.
 * UIActivityIndicatorView
 * UIAccordion
 * UISelect
+* UICheckbox
 
 ## UIView
 
@@ -298,6 +299,16 @@ css:
             ItemView: MySelectItemView,
             collection: collection
             }));
+        return this;
+    }
+    
+## UICheckbox
+
+    render: function() {
+        this.addSubview(new UICheckbox({
+            name: 'my-checkbox',
+            checked: false
+        }));
         return this;
     }
 

@@ -163,7 +163,7 @@ define([
       }));
 
       this.addSubview(new UICheckbox({
-        name: 'my-select',
+        name: 'my-checkbox',
         checked: false
       }));
 
