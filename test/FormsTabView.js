@@ -37,6 +37,7 @@ define([
         name: 'phone',
         // value: 123,
         model: dataModel,
+        delay: 1,
         attribute: 'number',
         placeholder: 'One line ...',
         class: 'my-text-field'
@@ -47,6 +48,7 @@ define([
         // value: 123,
         placeholder: 'One line ...',
         class: 'my-text-field',
+        delay: 500,
         changeHandler: function(event) {
           console.log(event);
           console.log('event.data.value = ', event.data.value);

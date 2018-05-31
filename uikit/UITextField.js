@@ -40,6 +40,9 @@ define([
     autofocus: false,
     editable: true,
     phoneNumber: false,
+    //
+    delay: 0,
+    timeout: null,
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
@@ -77,7 +80,16 @@ define([
           }
           event.data.value = this.value;
           // call handler
-          this.changeHandler(event);
+          if (this.delay) {
+            if (this.timeout) {
+              clearTimeout(this.timeout);
+            }
+            this.timeout = setTimeout(() => {
+              this.changeHandler(event);
+            }, this.delay);
+          } else {
+            this.changeHandler(event);
+          }
         }); // respects autocomplete, IE 10+
         this.$input.on('keypress', this.keypressHandler);
         this.$input.on('keydown', this.keydownHandler);
