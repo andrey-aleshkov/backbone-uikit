@@ -79,6 +79,7 @@ define([
             event.data = {};
           }
           event.data.value = this.value;
+          event.data.view = this;
           // call handler
           if (this.delay) {
             if (this.timeout) {
