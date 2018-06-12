@@ -124,6 +124,11 @@ define([
       this.render();
     },
 
+    setPlaceholder:function(newPlaceholder) {
+      this.placeholder = newPlaceholder;
+      this.render();
+    },
+
     setValid: function(valid) {
       this.valid = valid;
       if (valid) {
