@@ -1,0 +1,7 @@
+.ui-switch {
+    position: relative;
+    box-sizing: border-box;
+    width: 51px;
+    height: 31px;
+    cursor: pointer;
+}
