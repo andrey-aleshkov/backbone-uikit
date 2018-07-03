@@ -6,9 +6,11 @@ define([
 ], function($, _, Backbone,
             UIView
 ) {
-  // UICheckbox
+  // UISwitch
   return UIView.extend({
-    className: 'ui-checkbox',
+    className: 'ui-view ui-switch',
+    template: _.template('<div class="ui-switch-borders"></div><div class="ui-switch-marker"></div>'),
+
     name: '',
     checked: false,
     events: {
@@ -20,6 +22,7 @@ define([
 
     render: function() {
       this.$el.empty();
+      this.$el.html(this.template());
 
       if (this.checked) {
         this.$el.addClass('checked');
@@ -43,11 +46,11 @@ define([
     taponeHandler: function() {
       if (this.checked) {
         // uncheck
-        this.$el.removeClass('checked');
+        this.$el.addClass('unchecked').removeClass('checked');
         this.checked = false;
       } else {
         // check
-        this.$el.addClass('checked');
+        this.$el.addClass('checked').removeClass('unchecked');
         this.checked = true;
       }
       this.changeHandler(this.checked);

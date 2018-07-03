@@ -83,7 +83,11 @@ define([
       actionSheetBtn = new UIButton({
         label: 'ActionSheet',
         action: function() {
-          actionSheet('Message', manyActions, 'Отмена')
+          actionSheet({
+            title: 'Title',
+            actions: manyActions,
+            cancelButtonLabel: 'Отмена'
+          })
             .done(function(data) {
               console.log('ok, index = ', data);
             })
@@ -103,11 +107,10 @@ define([
       showModalBtn = new UIButton({
         label: 'Modal',
         action: function() {
-          var thisModal = modal(new InModalView());
+          var thisModal = modal({
+            contentView: new InModalView()
+          });
           thisModal
-            .progress(function() {
-              console.log('modal overlay');
-            })
             .done(function() {
               console.log('modal ok');
             })
@@ -120,7 +123,11 @@ define([
       showAlertBtn = new UIButton({
         label: 'Alert',
         action: function() {
-          alert('Title', 'This is a message.', 'Хорошо')
+          alert({
+            title: 'Title',
+            message: 'This is a message.',
+            okButtonLabel: 'Хорошо'
+          })
             .done(function() {
               console.log('ok');
             });
@@ -141,7 +148,12 @@ define([
             );
           */
 
-          confirm('Title', 'This is a message.', null, 'Хорошо')
+          confirm({
+            title: 'Title',
+            message: 'This is a message.',
+            // cancelButtonLabel: 'Плохо',
+            okButtonLabel: 'Хорошо'
+          })
             .done(function() {
               console.log('ok');
             })
@@ -171,14 +183,14 @@ define([
            );
            */
 
-          prompt(
-            'Title',
-            'This is a message.',
-            'This is a placeholder',
-            'This is a default value',
-            'Отмена',
-            'Хорошо'
-          )
+          prompt({
+            title: 'Title',
+            message: 'This is a message.',
+            placeholder: 'This is a placeholder',
+            value: 'This is a default value',
+            cancelButtonLabel: 'Отмена',
+            okButtonLabel: 'Хорошо'
+          })
             .done(function(data) {
               console.log('ok, data = ', data);
             })

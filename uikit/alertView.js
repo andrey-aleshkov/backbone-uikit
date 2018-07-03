@@ -11,7 +11,7 @@ define([
             UILabel
 ) {
   // UIAlertView
-  return function(title, message, okButtonLabel) {
+  return function(options) {
     var UIAlertView;
     var alertView;
     var deferred = $.Deferred();
@@ -21,9 +21,9 @@ define([
       template: `
         <div class="ui-alert-content"></div>`,
       $content: null,
-      title: '',
+      title: '&nbsp;',
       message: '',
-      okButtonLabel: null,
+      okButtonLabel: 'OK',
 
       render: function() {
         this.$el.empty();
@@ -42,7 +42,7 @@ define([
 
         this.addSubview(new UIButton({
           class: 'alert-ok-btn',
-          label: okButtonLabel ? okButtonLabel : 'OK',
+          label: this.okButtonLabel,
           action: this.resolve
         }), this.$content);
 
@@ -53,24 +53,18 @@ define([
         $('body').append(this.render().el);
       },
 
-      hide: function() {
-        this.destroy();
-      },
-
       resolve: function(data) {
         deferred.resolve(data);
-        this.hide();
+        this.destroy();
       }
     });
 
-    alertView = new UIAlertView({
-      title: title,
-      message: message,
-      okButtonLabel: okButtonLabel
-    });
-
+    alertView = new UIAlertView(options);
     alertView.show();
 
-    return deferred.promise();
+    Backbone.trigger('uikit-modal', alertView);
+
+    // set the view as a promise – attach the methods (then, done, fail, always, pipe, progress, state and promise)
+    return deferred.promise(alertView);
   };
 });

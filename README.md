@@ -3,30 +3,10 @@
 This is a set of UI components inspired by the iOS UIKit Framework.
 The UIKit provides crucial infrastructure to construct and manage web apps.
 
-## Classes
-
-* UIView
-* UIButton
-* UILabel
-* UITextField
-* UITextView
-* UISegmentedControl
-* UIStepper
-* UIImageView
-* UINavigationBar
-* UITabBarItem
-* UITabBar
-* UITableViewCell
-* UITableView
-* UIScrollView
-* UIActivityIndicatorView
-* UIAccordion
-* UISelect
-
 ## UIView
 
 The UIView class defines a rectangular area on the screen and interfaces for content in that area.
-Because view objects are the main way your application interacts with the user, they have a number of responsibilities. Here are just a few:
+Being a primary way your application interacts with the user, view objects have a certain area of responsibility, which includes, but is not limited to:
 
 * Layout
     * by CSS
@@ -39,25 +19,25 @@ Because view objects are the main way your application interacts with the user, 
 
 Views can embed other views and create sophisticated visual hierarchies. 
 This creates a parent-child relationship between the view being embedded (known as the subview) and 
-the parent view doing the embedding (known as the superview). 
+the parent view performing the embedding (known as the superview). 
 Normally, a subview’s visible area is not clipped to the bounds of its superview, 
 but you can use the overflow CSS property to alter that behavior. 
 A parent view may contain any number of subviews but each subview has only one superview.
 
 ### Creating a View
 
-To create a view, you can use code like the following:
+To create a view, you can use the sample code as follows:
 
     var view = new UIKit.UIView();
 
-To add a subview to another view, you use the addSubview:
+To add a subview to another view, you apply the method addSubview:
     
     render: function() {
         this.addSubview(new UIKit.UIView() [, '.element' | $element]);
         return this;
     }
 
-To remove a view with all the subviews use the destroy method:
+To remove a view with all the subviews, you can employ the destroy method:
 
     view.destroy();
 
@@ -76,7 +56,14 @@ To remove a view with all the subviews use the destroy method:
         touchend: 'touchendHandler',
         tapone: 'taponeHandler',
         pinch: 'pinchHandler',
-        swipemove: 'swipemoveHandler'
+        swipemove: 'swipemoveHandler',
+        mousedown: 'mousedownHandler',
+        mouseup: 'mouseupHandler',
+        mousemove: 'mousemoveHandler',
+        mouseover: 'mouseoverHandler',
+        mouseout: 'mouseoutHandler',
+        mouseenter: 'mouseenterHandler',
+        mouseleave: 'mouseleaveHandler'
     },
     
 #### Subview management
@@ -140,9 +127,27 @@ To remove a view with all the subviews use the destroy method:
             height: rect.height
         }
     },
-                
-More sophisticated content present by subclassing UIView and implementing the necessary drawing and event-handling.
 
+## Components
+
+More sophisticated content is presented by subclassing UIView and implementing the necessary drawing and event-handling.
+
+* UIButton
+* UILabel
+* UITextField
+* UITextView
+* UISegmentedControl
+* UIStepper
+* UIImageView
+* UINavigationBar
+* UITabBarItem
+* UITabBar
+* UIScrollView
+* UIActivityIndicatorView
+* UIAccordion
+* UISelect
+* UICheckbox
+                
 ## UIButton
 
     render: function() { 
@@ -171,6 +176,13 @@ More sophisticated content present by subclassing UIView and implementing the ne
         return this;
     }
 
+## UISegmentedControl
+
+    render: function() {
+        this.addSubview(new UIKit.UISegmentedControl());
+        return this;
+    }
+    
 ## UIStepper
 
     render: function() {
@@ -190,14 +202,6 @@ css:
     .my-stepper {
         border-color: #0d76ff;
         color: #0d76ff;
-    }
-
-
-## UISegmentedControl
-
-    render: function() {
-        this.addSubview(new UIKit.UISegmentedControl());
-        return this;
     }
 
 ## UIImageView
@@ -227,21 +231,7 @@ css:
         this.addSubview(new UIKit.UITabBar());
         return this;
     }
-    
-## UITableViewCell
 
-    render: function() {
-        this.addSubview(new UIKit.UITableViewCell());
-        return this;
-    }
-    
-## UITableView
-
-    render: function() {
-        this.addSubview(new UIKit.UITableView());
-        return this;
-    }
-    
 ## UIScrollView
 
     render: function() {
@@ -300,30 +290,72 @@ css:
             }));
         return this;
     }
+    
+## UICheckbox
+
+    render: function() {
+        this.addSubview(new UICheckbox({
+            name: 'my-checkbox',
+            checked: false
+        }));
+        return this;
+    }
 
 
 ## Modality
 
 ## Alert
 
-    UIKit.alert('Title', 'This is a message.');
+    UIKit.alert({
+      title: 'Title',
+      message: 'This is a message.',
+      okButtonLabel: 'OK'
+    });
 
 ## Confirm
 
-    UIKit.confirm('Title', 'This is a message.')
-        .done(function() {})
-        .fail(function() {});
+    UIKit.confirm({
+      title: 'Title',
+      message: 'This is a message.',
+      cancelButtonLabel: 'Cancel',
+      okButtonLabel: 'OK'
+    })
+      .done(function() {})
+      .fail(function() {});
     
 ## Prompt
 
-    UIKit.prompt('Title', 'This is a message.', 'This is a placeholder')
-        .done(function(data) {})
-        .fail(function() {});
+    UIKit.prompt({
+      title: 'Title',
+      message: 'This is a message.',
+      placeholder: 'This is a placeholder',
+      value: '',
+      cancelButtonLabel: 'Cancel',
+      okButtonLabel: 'OK'
+    })
+      .done(function(data) {})
+      .fail(function() {});
+   
+## ActionSheet
 
+    actionSheet({
+        title: 'Title',
+        actions: actions,
+        cancelButtonLabel: 'Cancel'
+    })
+      .done(function(data) {
+        console.log('ok, index = ', data);
+      })
+      .fail(function() {
+        console.log('cancel');
+      });
+      
 ## Modal
 
-    UIKit.modal(new someView());
-    
+    UIKit.modal({
+      contentView: new SomeView()
+    });
+                
 How to close the modal view from the content view:
 
     this.superview.hide();

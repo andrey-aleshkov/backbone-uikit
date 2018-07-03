@@ -13,7 +13,7 @@ define([
             UITextField
 ) {
   // UIPromptView
-  return function(title, message, placeholder, value, cancelButtonLabel, okButtonLabel) {
+  return function(options) {
     var UIPromptView;
     var promptView;
     var deferred = $.Deferred();
@@ -28,12 +28,12 @@ define([
         </div>`,
       $textPlace: null,
       $buttonsPlace: null,
-      title: '',
+      title: '&nbsp;',
       message: '',
       placeholder: '',
-      value: null,
-      cancelButtonLabel: null,
-      okButtonLabel: null,
+      value: '',
+      okButtonLabel: 'OK',
+      cancelButtonLabel: 'Cancel',
       textField: null,
 
       render: function() {
@@ -71,13 +71,13 @@ define([
 
         this.addSubview(new UIButton({
           class: 'prompt-cancel-btn',
-          label: cancelButtonLabel ? cancelButtonLabel : 'Cancel',
+          label: this.cancelButtonLabel,
           action: this.reject
         }), this.$buttonsPlace);
 
         this.addSubview(new UIButton({
           class: 'prompt-ok-btn',
-          label: okButtonLabel ? okButtonLabel : 'OK',
+          label: this.okButtonLabel,
           action: this.resolveWithData
         }), this.$buttonsPlace);
 
@@ -88,36 +88,27 @@ define([
         $('body').append(this.render().el);
       },
 
-      hide: function() {
-        this.destroy();
-      },
-
       resolveWithData: function() {
         this.resolve(this.textField.value);
       },
 
       resolve: function(data) {
         deferred.resolve(data);
-        this.hide();
+        this.destroy();
       },
 
       reject: function(data) {
         deferred.reject(data);
-        this.hide();
+        this.destroy();
       }
     });
 
-    promptView = new UIPromptView({
-      title: title,
-      message: message,
-      placeholder: placeholder,
-      value: value ? value : '',
-      cancelButtonLabel: cancelButtonLabel,
-      okButtonLabel: okButtonLabel
-    });
-
+    promptView = new UIPromptView(options);
     promptView.show();
 
-    return deferred.promise();
+    Backbone.trigger('uikit-modal', promptView);
+
+    // set the view as a promise – attach the methods (then, done, fail, always, pipe, progress, state and promise)
+    return deferred.promise(promptView);
   };
 });

@@ -150,18 +150,20 @@ define([
 
       this.addSubview(new UISelect({
         class: 'my-select',
-        label: 'Zero',
-        //selectedIndex: 0,
+        listClass: 'my-select-list',
+        label: 'Select ...',
+        appearance: 'up',
+        // selectedIndex: 0,
         collection: collection,
         ItemView: MySelectItemView,
-        //disabled: true,
+        // disabled: true,
         changeHandler: function() {
           console.log(this.selectedIndex);
         }
       }));
 
       this.addSubview(new UICheckbox({
-        name: 'my-select',
+        name: 'my-checkbox',
         checked: false
       }));
 
