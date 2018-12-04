@@ -37,13 +37,13 @@ define([
       },
 
       resolve: function(data) {
-        deferred.resolve(data);
         this.destroy();
+        deferred.resolve(data);
       },
 
       reject: function(data) {
-        deferred.reject(data);
         this.destroy();
+        deferred.reject(data);
       },
 
       notify: function(data) {
