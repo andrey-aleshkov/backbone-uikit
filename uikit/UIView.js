@@ -24,7 +24,7 @@ define([
 
     initialize: function(options) {
       var events = {};
-      var eventСounter = 0;
+      var eventCounter = 0;
       var isTouchSupported = 'ontouchend' in document;
       var key;
 
@@ -51,7 +51,7 @@ define([
                 // just copy
                 events.touchstart = this.events[key];
               }
-              eventСounter++;
+              eventCounter++;
               break;
             case 'touchend':
               if (!isTouchSupported) {
@@ -61,7 +61,7 @@ define([
                 // just copy
                 events.touchend = this.events[key];
               }
-              eventСounter++;
+              eventCounter++;
               break;
             case 'mousedown':
               if (isTouchSupported) {
@@ -71,7 +71,7 @@ define([
                 // just copy
                 events.mousedown = this.events[key];
               }
-              eventСounter++;
+              eventCounter++;
               break;
             case 'mouseup':
               if (isTouchSupported) {
@@ -81,7 +81,7 @@ define([
                 // just copy
                 events.mouseup = this.events[key];
               }
-              eventСounter++;
+              eventCounter++;
               break;
             case 'swipemove':
             case 'pinch':
@@ -93,7 +93,7 @@ define([
             case 'mouseout':
               // just copy
               events[key] = this.events[key];
-              eventСounter++;
+              eventCounter++;
               break;
             default:
               console.error('UIView: Sorry, unknown event name');
@@ -101,7 +101,7 @@ define([
         }
       }
 
-      if (eventСounter) {
+      if (eventCounter) {
         this.events = events;
         this.userInteractionEnabled = true;
       }
