@@ -188,6 +188,7 @@ define([
         listClass: 'my-select-list',
         label: 'Select ...',
         // selectedIndex: 0,
+        // selectedId: '3',
         collection: collectionWithDisabledItems,
         ItemView: MySelectItemView,
         // disabled: true,
@@ -195,6 +196,25 @@ define([
           console.log(this.selectedIndex);
         }
       }));
+
+      // multiSelect: true
+
+      this.addSubview(new UISelectList({
+        class: 'my-select',
+        listClass: 'my-select-list',
+        label: 'Select ...',
+        multiSelect: true,
+        // selectedIndex: [0, 1],
+        // selectedId: ['1', '2'],
+        collection: collection,
+        ItemView: MySelectItemView,
+        // disabled: true,
+        changeHandler: function() {
+          console.log(this.selectedIndex);
+        }
+      }));
+
+      // UICheckbox
 
       this.addSubview(new UICheckbox({
         name: 'my-checkbox',

@@ -14,6 +14,7 @@ define([
       <div><%= value %></div>
     `),
     disabled: false,
+    selected: false,
     data: null,
 
     initialize: function(options) {
@@ -30,6 +31,10 @@ define([
         title: this.model.get('title'),
         value: this.model.get('description')
       }));
+
+      if (this.selected) {
+        this.select();
+      }
 
       if (this.disabled) {
         this.$el.addClass('ui-dis');

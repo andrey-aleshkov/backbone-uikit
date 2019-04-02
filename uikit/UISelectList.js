@@ -27,33 +27,69 @@ define([
 
       this.itemViews = [];
 
-      if (this.collection.length) {
-        if (this.selectedIndex > -1) {
-          this.selectedId = this.collection.at(this.selectedIndex).get(this.attribute);
-        } else if (this.selectedId) {
-          if (!this.multiSelect) {
-            this.model = this.collection.findWhere({
-              [this.attribute]: this.selectedId
-            });
-            this.selectedIndex = this.collection.indexOf(this.model);
-          } else {
-            // multiSelect
-            // console.log('this.collection = ', this.collection);
-            this.selectedIndex = []; // selectedIndexes
-            // console.log('this.selectedId = ', this.selectedId);
-            this.selectedId.forEach((selectedId) => {
-              // console.log('selectedId = ', selectedId);
+      if (!this.multiSelect) {
+        if (this.collection.length) {
+          if (this.selectedIndex > -1) {
+            this.selectedId = this.collection.at(this.selectedIndex).get(this.attribute);
+          } else if (this.selectedId) {
+            if (!this.multiSelect) {
               this.model = this.collection.findWhere({
-                [this.attribute]: selectedId
+                [this.attribute]: this.selectedId
               });
-              // console.log(this.model);
-              this.selectedIndex.push(this.collection.indexOf(this.model));
-            });
+              this.selectedIndex = this.collection.indexOf(this.model);
+            } else {
+              // multiSelect
+              // console.log('this.collection = ', this.collection);
+              this.selectedIndex = []; // selectedIndexes
+              // console.log('this.selectedId = ', this.selectedId);
+              this.selectedId.forEach((selectedId) => {
+                // console.log('selectedId = ', selectedId);
+                this.model = this.collection.findWhere({
+                  [this.attribute]: selectedId
+                });
+                // console.log(this.model);
+                this.selectedIndex.push(this.collection.indexOf(this.model));
+              });
+            }
           }
         }
-      }
+        this.oldSelectedIndex = this.selectedIndex;
+      } else {
+        // multiSelect
+        console.log('this.selectedIndex = ', this.selectedIndex);
+        console.log('this.selectedId = ', this.selectedId);
+        if (this.selectedIndex === -1) {
+          this.selectedIndex = [];
+        }
 
-      this.oldSelectedIndex = this.selectedIndex;
+        if (!this.selectedId) {
+          this.selectedId = [];
+        }
+
+        console.log('this.selectedIndex = ', this.selectedIndex);
+        console.log('this.selectedId = ', this.selectedId);
+
+        if (this.selectedIndex.length) {
+          // [0, 1]
+          this.selectedIndex.forEach((selectedIndex) => {
+            this.selectedId = []; // selectedIds
+            this.selectedId.push(this.collection.at(selectedIndex).get(this.attribute));
+          });
+        } else if (this.selectedId.length) {
+          // ['1', '2']
+          // console.log('this.collection = ', this.collection);
+          this.selectedIndex = []; // selectedIndexes
+          // console.log('this.selectedId = ', this.selectedId);
+          this.selectedId.forEach((selectedId) => {
+            // console.log('selectedId = ', selectedId);
+            this.model = this.collection.findWhere({
+              [this.attribute]: selectedId
+            });
+            // console.log(this.model);
+            this.selectedIndex.push(this.collection.indexOf(this.model));
+          });
+        }
+      }
 
       this.listenTo(this.collection, 'update reset sort', () => {
         this.model = this.collection.findWhere({
