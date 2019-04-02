@@ -8,6 +8,7 @@ define([
   '../uikit/UILabel',
   '../uikit/UIAccordion',
   '../uikit/UISelect',
+  '../uikit/UISelectList',
   '../uikit/UICheckbox',
   '../uikit/UISegmentedControl',
   'MySelectItemView',
@@ -21,6 +22,7 @@ define([
             UILabel,
             UIAccordion,
             UISelect,
+            UISelectList,
             UICheckbox,
             UISegmentedControl,
             MySelectItemView,
@@ -38,6 +40,7 @@ define([
     render: function() {
       var backBtn;
       var collection;
+      var collectionWithDisabledItems;
 
       this.$el.empty();
 
@@ -155,6 +158,37 @@ define([
         appearance: 'up',
         // selectedIndex: 0,
         collection: collection,
+        ItemView: MySelectItemView,
+        // disabled: true,
+        changeHandler: function() {
+          console.log(this.selectedIndex);
+        }
+      }));
+
+      // UISelectList
+      collectionWithDisabledItems = new Collection([{
+        id: '1',
+        title: 'First',
+        disabled: false,
+        description: '11111'
+      }, {
+        id: '2',
+        title: 'Second',
+        disabled: true,
+        description: '222222'
+      }, {
+        id: '3',
+        title: 'Third',
+        disabled: false,
+        description: '33333'
+      }]);
+
+      this.addSubview(new UISelectList({
+        class: 'my-select',
+        listClass: 'my-select-list',
+        label: 'Select ...',
+        // selectedIndex: 0,
+        collection: collectionWithDisabledItems,
         ItemView: MySelectItemView,
         // disabled: true,
         changeHandler: function() {

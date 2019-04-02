@@ -13,8 +13,16 @@ define([
       <div><%= title %></div>
       <div><%= value %></div>
     `),
-
+    disabled: false,
     data: null,
+
+    initialize: function(options) {
+      UIView.prototype.initialize.apply(this, [options]);
+
+      if (this.model.get('disabled')) {
+        this.disabled = true;
+      }
+    },
 
     render: function() {
       this.$el.empty();
@@ -22,6 +30,10 @@ define([
         title: this.model.get('title'),
         value: this.model.get('description')
       }));
+
+      if (this.disabled) {
+        this.$el.addClass('ui-dis');
+      }
 
       return this;
     }

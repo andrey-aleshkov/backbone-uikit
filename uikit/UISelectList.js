@@ -115,13 +115,14 @@ define([
           return result;
         };
 
+        let thisSelectList = this;
         let itemView = new this.ItemView({
           model: model,
           selected: isSelected(),
           events: {
-            tapone: () => {
-              if (!this.disabled) {
-                this.toggle(index);
+            tapone: function() {
+              if (!thisSelectList.disabled && !this.disabled) {
+                thisSelectList.toggle(index);
               }
             }
           }

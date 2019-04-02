@@ -8,7 +8,8 @@ define([
   '../uikit/UILabel',
   '../uikit/UITextField',
   '../uikit/UITextView',
-  '../uikit/UIStepper'
+  '../uikit/UIStepper',
+  '../uikit/UISwitch'
 
 ], function($, _, Backbone,
             UIView,
@@ -17,7 +18,8 @@ define([
             UILabel,
             UITextField,
             UITextView,
-            UIStepper
+            UIStepper,
+            UISwitch
 ) {
   // FormsTabView
   return UIView.extend({
@@ -77,6 +79,8 @@ define([
           console.log('changeHandler, value = ', value);
         }
       }));
+
+      this.addSubview(new UISwitch());
 
       // NavigationBar
       submitBtn = new UIButton({

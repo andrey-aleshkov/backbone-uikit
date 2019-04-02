@@ -210,8 +210,17 @@
     /*background: rgba(255,255,255,0.5);*/
     background: #bbb;
     border-top: 1px solid #333;
+    color: #000;
 }
 .my-select-item-view:hover {
     background: #528CE0;
     color: #fff;
+}
+.ui-sel.my-select-item-view {
+    background: #528CE0;
+    color: #fff;
+}
+.ui-dis.my-select-item-view:hover {
+    background: #bbb;
+    color: #000;
 }
