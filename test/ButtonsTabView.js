@@ -204,13 +204,15 @@ define([
         listClass: 'my-select-list',
         label: 'Select ...',
         multiSelect: true,
+        limit: 3,
         // selectedIndex: [0, 1],
         // selectedId: ['1', '2'],
         collection: collection,
         ItemView: MySelectItemView,
         // disabled: true,
-        changeHandler: function() {
-          console.log(this.selectedIndex);
+        changeHandler: function(selectedIds) {
+          console.log('this.selectedIndex = ', this.selectedIndex);
+          console.log('selectedIds = ', selectedIds);
         }
       }));
 

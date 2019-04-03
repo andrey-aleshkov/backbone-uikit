@@ -15,12 +15,13 @@ define([
     model: null,
 
     oldSelectedIndex: null,
-    selectedIndex: -1,
+    selectedIndex: -1, // TODO: check length against the limit for 'multiSelect' case
     selectedId: null,
     listContentView: null,
     ItemView: null,
     itemViews: null, // TODO: replace with subviews?
     multiSelect: false,
+    limit: 1,
 
     initialize: function(options) {
       UIView.prototype.initialize.apply(this, [options]);
@@ -172,32 +173,40 @@ define([
 
     toggle: function(newIndex) {
       if (this.multiSelect) {
+        let hasChanged = false;
+
+        // update selectedIndex's
         let indexInSelectedIndexes = this.selectedIndex.indexOf(newIndex);
         if (indexInSelectedIndexes > -1) {
           // remove
           this.selectedIndex.splice(indexInSelectedIndexes, 1); // The second parameter of splice is the number of elements to remove
-        } else {
+          hasChanged = true;
+        } else if (this.selectedIndex.length < this.limit) {
           // add
           this.selectedIndex.push(newIndex);
+          hasChanged = true;
         }
-        // console.log(this.selectedIndex);
-        // update selectedId's
-        let selectedIds = [];
-        this.selectedIndex.forEach((selectedIndex) => {
-          selectedIds.push(this.collection.at(selectedIndex).get(this.attribute));
-        });
-        // console.log(selectedIds);
-        this.selectedId = selectedIds;
-        // update visuals
-        this.itemViews.forEach((itemView, index) => {
-          if (this.selectedIndex.indexOf(index) > -1) {
-            itemView.select();
-          } else {
-            itemView.deselect();
-          }
-        });
-        // changeHandler
-        this.changeHandler(this.selectedId);
+
+        if (hasChanged) {
+          // update selectedId's
+          let selectedIds = [];
+          this.selectedIndex.forEach((selectedIndex) => {
+            selectedIds.push(this.collection.at(selectedIndex).get(this.attribute));
+          });
+          this.selectedId = selectedIds;
+
+          // update visuals
+          this.itemViews.forEach((itemView, index) => {
+            if (this.selectedIndex.indexOf(index) > -1) {
+              itemView.select();
+            } else {
+              itemView.deselect();
+            }
+          });
+
+          // call changeHandler
+          this.changeHandler(this.selectedId);
+        }
       } else {
         this.oldSelectedIndex = this.selectedIndex;
         this.selectedIndex = newIndex;
