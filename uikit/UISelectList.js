@@ -57,8 +57,6 @@ define([
         this.oldSelectedIndex = this.selectedIndex;
       } else {
         // multiSelect
-        console.log('this.selectedIndex = ', this.selectedIndex);
-        console.log('this.selectedId = ', this.selectedId);
         if (this.selectedIndex === -1) {
           this.selectedIndex = [];
         }
@@ -66,9 +64,6 @@ define([
         if (!this.selectedId) {
           this.selectedId = [];
         }
-
-        console.log('this.selectedIndex = ', this.selectedIndex);
-        console.log('this.selectedId = ', this.selectedId);
 
         if (this.selectedIndex.length) {
           // [0, 1]

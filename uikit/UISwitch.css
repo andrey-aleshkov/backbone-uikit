@@ -5,3 +5,8 @@
     height: 31px;
     cursor: pointer;
 }
+
+.ui-switch.ui-dis {
+  opacity: 0.5;
+}
+

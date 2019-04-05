@@ -303,6 +303,11 @@
     cursor: pointer;
 }
 
+.ui-switch.ui-dis {
+  opacity: 0.5;
+}
+
+
 .ui-tab-bar {
     overflow: hidden;
     box-sizing:border-box;

@@ -12,6 +12,7 @@ define([
     template: _.template('<div class="ui-switch-borders"></div><div class="ui-switch-marker"></div>'),
 
     name: '',
+    disabled: false,
     checked: false,
     events: {
       'tapone': 'taponeHandler',
@@ -44,16 +45,19 @@ define([
     },
 
     taponeHandler: function() {
-      if (this.checked) {
-        // uncheck
-        this.$el.addClass('unchecked').removeClass('checked');
-        this.checked = false;
-      } else {
-        // check
-        this.$el.addClass('checked').removeClass('unchecked');
-        this.checked = true;
+      console.log('this.disabled = ', this.disabled);
+      if (!this.disabled) {
+        if (this.checked) {
+          // uncheck
+          this.$el.addClass('unchecked').removeClass('checked');
+          this.checked = false;
+        } else {
+          // check
+          this.$el.addClass('checked').removeClass('unchecked');
+          this.checked = true;
+        }
+        this.changeHandler(this.checked);
       }
-      this.changeHandler(this.checked);
     },
 
     changeHandler: function() {}

@@ -96,27 +96,37 @@ define([
 
     decreaseValue: function() {
       var newValue = this.value - this.stepValue;
+      var oldValue = this.value;
+
       if (newValue <= this.minimumValue) {
         newValue = this.minimumValue;
       }
-      this.value = newValue;
-      this.updateUI();
-      this.updateModel();
-      if (this.changeHandler) {
-        this.changeHandler(this.value);
+
+      if (newValue !== oldValue) {
+        this.value = newValue;
+        this.updateUI();
+        if (this.changeHandler) {
+          this.changeHandler(newValue, oldValue);
+        }
+        this.updateModel();
       }
     },
 
     increaseValue: function() {
       var newValue = this.value + this.stepValue;
+      var oldValue = this.value;
+
       if (newValue >= this.maximumValue) {
         newValue = this.maximumValue;
       }
-      this.value = newValue;
-      this.updateUI();
-      this.updateModel();
-      if (this.changeHandler) {
-        this.changeHandler(this.value);
+
+      if (newValue !== oldValue) {
+        this.value = newValue;
+        this.updateUI();
+        if (this.changeHandler) {
+          this.changeHandler(newValue, oldValue);
+        }
+        this.updateModel();
       }
     }
   });

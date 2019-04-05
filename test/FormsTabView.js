@@ -75,8 +75,8 @@ define([
         // value: 0,
         minimumValue: 0,
         maximumValue: 10,
-        changeHandler: function(value) {
-          console.log('changeHandler, value = ', value);
+        changeHandler: function(newValue, oldValue) {
+          console.log('changeHandler, newValue = ', newValue, ' oldValue = ', oldValue);
         }
       }));
 
