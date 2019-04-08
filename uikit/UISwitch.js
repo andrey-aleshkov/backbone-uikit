@@ -45,7 +45,6 @@ define([
     },
 
     taponeHandler: function() {
-      console.log('this.disabled = ', this.disabled);
       if (!this.disabled) {
         if (this.checked) {
           // uncheck
