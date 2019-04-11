@@ -76,15 +76,28 @@ define([
     },
 
     updateUI: function() {
+      // protected disable =
+      // (disable + lock)
+      // +
+      // (unlock + enable)
       if (this.value <= this.minimumValue) {
         this.decButton.disable();
+        this.decButton.lock();
+        //
+        this.incButton.unlock();
         this.incButton.enable();
       } else if (this.value > this.minimumValue && this.value < this.maximumValue) {
+        this.decButton.unlock();
         this.decButton.enable();
+        //
+        this.incButton.unlock();
         this.incButton.enable();
       } else if (this.value >= this.maximumValue) {
+        this.decButton.unlock();
         this.decButton.enable();
+        //
         this.incButton.disable();
+        this.incButton.lock();
       }
     },
 
@@ -104,10 +117,10 @@ define([
 
       if (newValue !== oldValue) {
         this.value = newValue;
-        this.updateUI();
         if (this.changeHandler) {
           this.changeHandler(newValue, oldValue);
         }
+        this.updateUI();
         this.updateModel();
       }
     },
@@ -122,10 +135,10 @@ define([
 
       if (newValue !== oldValue) {
         this.value = newValue;
-        this.updateUI();
         if (this.changeHandler) {
           this.changeHandler(newValue, oldValue);
         }
+        this.updateUI();
         this.updateModel();
       }
     }

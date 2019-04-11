@@ -13,6 +13,7 @@ define([
     oldClass: '',
     name: '',
     oldName: '',
+    locked: false,
     disabled: false,
     hidden: false,
     selected: false,
@@ -215,16 +216,28 @@ define([
       this.$el.removeClass(this.oldClass).addClass(this.class);
     },
 
+    lock: function() {
+      this.locked = true;
+    },
+
+    unlock: function() {
+      this.locked = false;
+    },
+
     disable: function() {
-      this.disabled = true;
-      // redraw
-      this.$el.addClass('ui-dis');
+      if (!this.locked) {
+        this.disabled = true;
+        // redraw
+        this.$el.addClass('ui-dis');
+      }
     },
 
     enable: function() {
-      this.disabled = false;
-      // redraw
-      this.$el.removeClass('ui-dis');
+      if (!this.locked) {
+        this.disabled = false;
+        // redraw
+        this.$el.removeClass('ui-dis');
+      }
     },
 
     hide: function() {
