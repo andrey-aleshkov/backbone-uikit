@@ -156,7 +156,9 @@ define([
               if (!thisSelectList.disabled && !this.disabled) {
                 thisSelectList.toggle(index);
               }
-            }
+            },
+            touchstart: 'touchstartHandler',
+            touchend: 'touchendHandler'
           }
         });
         this.listContentView.addSubview(itemView);
@@ -191,10 +193,26 @@ define([
           this.selectedId = selectedIds;
 
           // update visuals
+          let shouldLock = !(this.selectedIndex.length < this.limit);
           this.itemViews.forEach((itemView, index) => {
             if (this.selectedIndex.indexOf(index) > -1) {
+              // protected disable (enable)
+              // (unlock + enable)
+              itemView.unlock();
+              itemView.enable();
+              // select
               itemView.select();
             } else {
+              // protected disable / enable
+              if (shouldLock) {
+                // (disable + lock)
+                itemView.disable();
+                itemView.lock();
+              } else {
+                // (unlock + enable)
+                itemView.unlock();
+                itemView.enable();
+              }
               itemView.deselect();
             }
           });

@@ -211,10 +211,15 @@
     background: #bbb;
     border-top: 1px solid #333;
     color: #000;
+    cursor: pointer;
 }
 .my-select-item-view:hover {
     background: #528CE0;
     color: #fff;
+}
+.my-select-item-view.ui-dis {
+    opacity: 0.5;
+    cursor: default;
 }
 .ui-sel.my-select-item-view {
     background: #528CE0;
