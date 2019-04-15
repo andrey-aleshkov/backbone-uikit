@@ -157,8 +157,20 @@ define([
                 thisSelectList.toggle(index);
               }
             },
-            touchstart: 'touchstartHandler',
-            touchend: 'touchendHandler'
+            touchstart: function(event) {
+              if (thisSelectList.multiSelect ||
+                (thisSelectList.selectedIndex !== index)
+              ) {
+                this.touchstartHandler(event);
+              }
+            },
+            touchend: function(event) {
+              if (thisSelectList.multiSelect ||
+                (thisSelectList.selectedIndex !== index)
+              ) {
+                this.touchendHandler(event);
+              }
+            }
           }
         });
         this.listContentView.addSubview(itemView);
