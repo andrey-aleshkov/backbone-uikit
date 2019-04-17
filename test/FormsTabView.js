@@ -72,6 +72,7 @@ define([
       this.addSubview(new UIStepper({
         model: dataModel,
         attribute: 'number',
+        displayValue: true,
         // value: 0,
         minimumValue: 0,
         maximumValue: 10,

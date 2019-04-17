@@ -3,9 +3,11 @@ define([
   'underscore',
   'backbone',
   './UIView',
-  './UIButton'
+  './UIButton',
+  './UILabel'
 ], function($, _, Backbone, UIView,
-            UIButton
+            UIButton,
+            UILabel
 ) {
   // UIStepper
   return UIView.extend({
@@ -13,6 +15,7 @@ define([
     model: null,
     attribute: '',
     value: 0,
+    displayValue: false,
     minimumValue: 0,
     maximumValue: 1000,
     stepValue: 1,
@@ -20,6 +23,7 @@ define([
     // wraps: false,
     decButton: null,
     incButton: null,
+    valueLabel: null,
     changeHandler: null,
 
     initialize: function(options) {
@@ -61,6 +65,13 @@ define([
       });
       this.addSubview(this.decButton);
 
+      if (this.displayValue) {
+        this.valueLabel = new UILabel({
+          class: 'ui-stepper-value-label'
+        });
+        this.addSubview(this.valueLabel);
+      }
+
       this.incButton = new UIButton({
         class: 'ui-stepper-inc-btn',
         label: '+',
@@ -98,6 +109,10 @@ define([
         //
         this.incButton.disable();
         this.incButton.lock();
+      }
+
+      if (this.valueLabel) {
+        this.valueLabel.setText(this.value);
       }
     },
 

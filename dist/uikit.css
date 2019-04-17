@@ -263,8 +263,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    /*align-content: stretch;*/
-    align-items: flex-start;
+    align-items: center;
 
     width: 94px;
     height: 29px;
@@ -294,6 +293,12 @@
 }
 .ui-stepper-inc-btn.ui-dis {
     background: rgba(0,0,0,0.1);
+}
+.ui-stepper-value-label {
+    flex: 0 1 auto;
+
+    width: auto;
+    text-align: center;
 }
 .ui-switch {
     position: relative;
