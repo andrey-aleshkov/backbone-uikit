@@ -132,10 +132,10 @@ define([
 
       if (newValue !== oldValue) {
         this.value = newValue;
+        this.updateUI();
         if (this.changeHandler) {
           this.changeHandler(newValue, oldValue);
         }
-        this.updateUI();
         this.updateModel();
       }
     },
@@ -150,10 +150,10 @@ define([
 
       if (newValue !== oldValue) {
         this.value = newValue;
+        this.updateUI();
         if (this.changeHandler) {
           this.changeHandler(newValue, oldValue);
         }
-        this.updateUI();
         this.updateModel();
       }
     }
