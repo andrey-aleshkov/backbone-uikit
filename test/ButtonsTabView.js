@@ -206,7 +206,7 @@ define([
         multiSelect: true,
         limit: 3,
         // selectedIndex: [0, 1],
-        // selectedId: ['1', '2'],
+        selectedId: ['1', '2', '3'],
         collection: collection,
         ItemView: MySelectItemView,
         // disabled: true,

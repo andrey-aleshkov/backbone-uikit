@@ -130,7 +130,7 @@ define([
 
       this.collection.each((model, index) => {
         let scope = this;
-        let isSelected = function() {
+        let isSelected = (function() {
           let result = false;
 
           if (scope.multiSelect) {
@@ -145,12 +145,26 @@ define([
           }
 
           return result;
-        };
+        })();
+        let isDisabled = (function() {
+          let result = false;
+
+          if (!isSelected) {
+            if (scope.multiSelect) {
+              if (scope.selectedId.length >= scope.limit) {
+                result = true;
+              }
+            }
+          }
+
+          return result;
+        })();
 
         let thisSelectList = this;
         let itemView = new this.ItemView({
           model: model,
-          selected: isSelected(),
+          selected: isSelected,
+          disabled: isDisabled,
           events: {
             tapone: function() {
               if (!thisSelectList.disabled && !this.disabled) {

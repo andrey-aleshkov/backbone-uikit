@@ -37,6 +37,7 @@ define([
       }
 
       if (this.disabled) {
+        // TODO: maybe just disable() ?
         this.$el.addClass('ui-dis');
       }
 
