@@ -1,0 +1,16 @@
+.thumb-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid #0d76ff;
+  border-radius: 100%;
+}
+
+.thumb-view.ui-sel {
+  background: #dbebff;
+  opacity: 1;
+}

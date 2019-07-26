@@ -9,7 +9,8 @@ define([
   '../uikit/UITextField',
   '../uikit/UITextView',
   '../uikit/UIStepper',
-  '../uikit/UISwitch'
+  '../uikit/UISwitch',
+  '../uikit/UISlider'
 
 ], function($, _, Backbone,
             UIView,
@@ -19,7 +20,8 @@ define([
             UITextField,
             UITextView,
             UIStepper,
-            UISwitch
+            UISwitch,
+            UISlider
 ) {
   // FormsTabView
   return UIView.extend({
@@ -82,6 +84,24 @@ define([
       }));
 
       this.addSubview(new UISwitch());
+
+      this.addSubview(new UISlider({
+        // startShift--------fromShift--------untilShift--------endShift
+        // full range
+        startShift: 0,
+        endShift: 10,
+        // selected part of the range
+        fromShift: 1,
+        untilShift: 5,
+        //
+        minRange: 2, // in hours
+        changeHandler: function() {
+          console.log('UISlider - changeHandler');
+        },
+        endHandler: function() {
+          console.log('UISlider - endHandler');
+        }
+      }));
 
       // NavigationBar
       submitBtn = new UIButton({

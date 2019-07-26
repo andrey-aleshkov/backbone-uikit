@@ -23,33 +23,28 @@ define([
     id: 'main-view',
 
     render: function() {
-      var buttonsTabView = new ButtonsTabView({
-        title: 'Buttons',
-        icon: 'settings'
-      });
-      var formsTabView = new FormsTabView({
+      this.$el.empty();
+
+      this.addSubview(new FormsTabView({
         title: 'Forms',
         icon: 'settings'
-      });
-      var modalsTabView = new ModalsTabView({
+      }));
+      this.addSubview(new ButtonsTabView({
+        title: 'Buttons',
+        icon: 'settings'
+      }));
+      this.addSubview(new ModalsTabView({
         title: 'Modals',
         icon: 'settings'
-      });
-      var miscTabView = new MiscTabView({
+      }));
+      this.addSubview(new MiscTabView({
         title: 'Misc',
         icon: 'settings'
-      });
-      var misc2TabView = new Misc2TabView({
+      }));
+      this.addSubview(new Misc2TabView({
         title: 'Misc2',
         icon: 'settings'
-      });
-
-      this.$el.empty();
-      this.addSubview(buttonsTabView);
-      this.addSubview(formsTabView);
-      this.addSubview(modalsTabView);
-      this.addSubview(miscTabView);
-      this.addSubview(misc2TabView);
+      }));
 
       // UITabBar
       this.tabBar = new UITabBar({

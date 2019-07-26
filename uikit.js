@@ -24,6 +24,7 @@ define(function(require) {
     UIAccordion: require('./uikit/UIAccordion'),
     UISelect: require('./uikit/UISelect'),
     UISelectList: require('./uikit/UISelectList'),
+    UISlider: require('./uikit/UISlider'),
     UICheckbox: require('./uikit/UICheckbox'),
     UISwitch: require('./uikit/UISwitch'),
     alert: require('./uikit/alertView'),
