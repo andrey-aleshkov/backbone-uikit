@@ -85,12 +85,12 @@ define([
               eventCounter++;
               break;
             case 'swipemove':
+            case 'mousemove':
             case 'pinch':
             case 'tapone':
             case 'mouseenter':
             case 'mouseover':
             case 'mouseleave':
-            case 'mousemove':
             case 'mouseout':
               // just copy
               events[key] = this.events[key];

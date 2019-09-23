@@ -17,6 +17,7 @@ define([
     maximumScale: 1000,
     minimumScale: 0.0000001,
 
+    isMoving: false,
     firstPinch: true,
     pinch: {
       x: 0,
@@ -37,7 +38,8 @@ define([
       touchstart: 'touchstartHandler',
       touchend: 'touchendHandler',
       pinch: 'gestureHandler',
-      swipemove: 'gestureHandler'
+      swipemove: 'gestureHandler',
+      mouseout: 'mouseoutHandler'
     },
 
     render: function() {
@@ -125,80 +127,95 @@ define([
       this.$content.attr('style', style);
     },
 
-    touchstartHandler: function() {},
+    touchstartHandler: function() {
+      console.log('UIScrollView::touchstartHandler');
+
+      this.isMoving = true;
+    },
 
     touchendHandler: function() {
+      console.log('UIScrollView::touchendHandler');
       this.scale = this.currentScale;
       this.firstPinch = true;
+      this.isMoving = false;
+    },
+
+    mouseoutHandler: function() {
+      console.log('UIScrollView::mouseoutHandler');
+      this.isMoving = false;
     },
 
     gestureHandler: function(event, obj) {
+      // console.log('UIScrollView::gestureHandler');
       var description;
       var deltaX = 0;
       var deltaY = 0;
       var scale;
       event.preventDefault();
-      obj.originalEvent.preventDefault();
 
-      description = obj.description.split(':'); // 'swipemove:1:left:up' => ['swipemove','1','left','up']
+      if (this.isMoving) {
+        obj.originalEvent.preventDefault();
 
-      switch (description[0]) {
-        case 'pinch':
-          scale = this.scale * obj.scale;
-          if (scale >= this.minimumScale && scale <= this.maximumScale) {
-            if (this.firstPinch) {
-              // 1) (0,0) for the new coordinate system
-              this.pinch.x = obj.originalEvent.layerX;
-              this.pinch.y = obj.originalEvent.layerY;
+        description = obj.description.split(':'); // 'swipemove:1:left:up' => ['swipemove','1','left','up']
 
-              // calc coordinates of real origin point for the new coordinate system (this.pinch.x, this.pinch.y)
-              this.pinchRelativeTranslate.x = this.translate.x - this.pinch.x;
-              this.pinchRelativeTranslate.y = this.translate.y - this.pinch.y;
+        switch (description[0]) {
+          case 'pinch':
+            scale = this.scale * obj.scale;
+            if (scale >= this.minimumScale && scale <= this.maximumScale) {
+              if (this.firstPinch) {
+                // 1) (0,0) for the new coordinate system
+                this.pinch.x = obj.originalEvent.layerX;
+                this.pinch.y = obj.originalEvent.layerY;
+
+                // calc coordinates of real origin point for the new coordinate system (this.pinch.x, this.pinch.y)
+                this.pinchRelativeTranslate.x = this.translate.x - this.pinch.x;
+                this.pinchRelativeTranslate.y = this.translate.y - this.pinch.y;
+              }
+
+              this.firstPinch = false;
+
+              // 2) calc scale
+              this.currentScale = this.scale * obj.scale;
+
+              // 3) calc translates (x, y) to compensate scale in the new coordinate system
+
+              this.translate.x = this.pinchRelativeTranslate.x * obj.scale + this.pinch.x;
+              this.translate.y = this.pinchRelativeTranslate.y * obj.scale + this.pinch.y;
             }
 
-            this.firstPinch = false;
+            // '-webkit-transform','scale('+ ( obj.direction * obj.delta[0].moved ) +')');
+            break;
+          case  'rotate':
+            // '-webkit-transform','rotate('+ ( obj.delta[0].moved ) +'deg)');
+            break;
 
-            // 2) calc scale
-            this.currentScale = this.scale * obj.scale;
+          case  'swipemove':
+            if (description[1] === '1') {
+              deltaX = obj.delta[0].startX;
+              deltaY = obj.delta[0].startY;
 
-            // 3) calc translates (x, y) to compensate scale in the new coordinate system
+              this.translate.x = deltaX + this.translate.x;
+              this.translate.y = deltaY + this.translate.y;
 
-            this.translate.x = this.pinchRelativeTranslate.x * obj.scale + this.pinch.x;
-            this.translate.y = this.pinchRelativeTranslate.y * obj.scale + this.pinch.y;
-          }
+              // this.firstPinch = true;
 
-          // '-webkit-transform','scale('+ ( obj.direction * obj.delta[0].moved ) +')');
-          break;
-        case  'rotate':
-          // '-webkit-transform','rotate('+ ( obj.delta[0].moved ) +'deg)');
-          break;
+              // css('left')) + obj.delta[0].startX );
+              // css('top')) + obj.delta[0].startY );
+              // $(obj.originalEvent.currentTarget).data('moving',true)
+            }
+            break;
 
-        case  'swipemove':
-          if (description[1] === '1') {
-            deltaX = obj.delta[0].startX;
-            deltaY = obj.delta[0].startY;
+          case 'swipe' :
+            // if(_a[1] != 1 || jQuery(obj.originalEvent.currentTarget).data('moving') } {break;}
+            // css('left', parseInt(jQuery(obj.originalEvent.currentTarget).css('left')) + obj.delta[0].startX );
+            // css('top', parseInt(jQuery(obj.originalEvent.currentTarget).css('top')) + obj.delta[0].startY );
+            break;
+          default:
+        }
 
-            this.translate.x = deltaX + this.translate.x;
-            this.translate.y = deltaY + this.translate.y;
-
-            // this.firstPinch = true;
-
-            // css('left')) + obj.delta[0].startX );
-            // css('top')) + obj.delta[0].startY );
-            // $(obj.originalEvent.currentTarget).data('moving',true)
-          }
-          break;
-
-        case 'swipe' :
-          // if(_a[1] != 1 || jQuery(obj.originalEvent.currentTarget).data('moving') } {break;}
-          // css('left', parseInt(jQuery(obj.originalEvent.currentTarget).css('left')) + obj.delta[0].startX );
-          // css('top', parseInt(jQuery(obj.originalEvent.currentTarget).css('top')) + obj.delta[0].startY );
-          break;
-        default:
+        this.testHandler();
+        this.applyTransforms();
       }
-
-      this.testHandler();
-      this.applyTransforms();
     },
 
     testHandler: function() {}
