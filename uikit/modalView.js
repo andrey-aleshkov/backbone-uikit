@@ -2,8 +2,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  './UIButton',
   './UIView'
 ], function($, _, Backbone,
+            UIButton,
             UIView
 ) {
   // UIModalView
@@ -15,7 +17,7 @@ define([
     UIModalView = UIView.extend({
       className: 'ui-modal-view',
       contentView: null,
-      obj: null,
+      shouldCloseOnOverlay: false,
 
       events: {
         tapone: 'notify'
@@ -25,10 +27,17 @@ define([
         this.$el.empty();
 
         if (this.contentView) {
+          if (this.shouldCloseOnOverlay) {
+            this.addSubview(new UIButton({
+              class: 'ui-modal-reject-btn',
+              action: this.reject
+            }));
+          }
           this.addSubview(this.contentView);
         } else {
           console.error('contentView is needed');
         }
+
         return this;
       },
 

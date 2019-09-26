@@ -71,10 +71,10 @@
 #modals-tab-view {}
 
 .in-modal-view {
+    position: relative;
     width: 600px;
     height: 400px;
     background: #ffcaca;
-    z-index: 2;
 }
 .in-modal-button {
     background: #000;
