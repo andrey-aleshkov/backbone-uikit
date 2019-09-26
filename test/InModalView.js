@@ -11,7 +11,7 @@ define([
 ) {
   // InModalView
   return UIView.extend({
-    className: 'in-modal-view',
+    className: 'ui-view in-modal-view',
 
     render: function() {
       var thisView = this;

@@ -108,6 +108,7 @@ define([
         label: 'Modal',
         action: function() {
           var thisModal = modal({
+            shouldCloseOnOverlay: true,
             contentView: new InModalView()
           });
           thisModal
