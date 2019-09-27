@@ -142,6 +142,15 @@
     background-size: 2592px 300px;
 }
 
+.wood-view-nested {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    background: #710909;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------ */
 .my-accordion .ui-accordion-state > .ui-btn {
     /*height: 60px;*/

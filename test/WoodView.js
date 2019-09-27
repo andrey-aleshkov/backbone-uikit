@@ -9,6 +9,7 @@ define([
   // WoodView
   return UIView.extend({
     className: 'wood-view',
+    template: '<div class="wood-view-nested"></div>',
 
     events: {
       mouseenter: 'mouseenterHandler',
@@ -31,6 +32,11 @@ define([
 
     mousemoveHandler: function() {
       //console.log('mousemoveHandler');
-    }
+    },
+
+    render: function() {
+      this.$el.html(this.template);
+      return this;
+    },
   });
 });

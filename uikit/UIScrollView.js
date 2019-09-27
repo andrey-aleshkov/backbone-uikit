@@ -39,7 +39,7 @@ define([
       touchend: 'touchendHandler',
       pinch: 'gestureHandler',
       swipemove: 'gestureHandler',
-      mouseout: 'mouseoutHandler'
+      mouseleave: 'mouseleaveHandler'
     },
 
     render: function() {
@@ -128,25 +128,20 @@ define([
     },
 
     touchstartHandler: function() {
-      console.log('UIScrollView::touchstartHandler');
-
       this.isMoving = true;
     },
 
     touchendHandler: function() {
-      console.log('UIScrollView::touchendHandler');
       this.scale = this.currentScale;
       this.firstPinch = true;
       this.isMoving = false;
     },
 
-    mouseoutHandler: function() {
-      console.log('UIScrollView::mouseoutHandler');
+    mouseleaveHandler: function() {
       this.isMoving = false;
     },
 
     gestureHandler: function(event, obj) {
-      // console.log('UIScrollView::gestureHandler');
       var description;
       var deltaX = 0;
       var deltaY = 0;
